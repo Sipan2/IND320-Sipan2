@@ -22,7 +22,6 @@ Open `reservoirs.ipynb` in VS Code or Jupyter and select the same environment as
 - `data/reservoirs.csv`: original local CSV file.
 - `reservoirs.ipynb`: analysis, AI statement and work log.
 - `reservoirs.pdf`: PDF export of the executed English notebook.
-- `screencast.md`: outline for a five-minute demonstration.
 
 ## Analysis choices
 

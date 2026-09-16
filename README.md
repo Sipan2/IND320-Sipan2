@@ -38,7 +38,7 @@ The comparison plot uses min-max scaling over the full period for the selected a
 
 All eight notebook code cells have been run successfully, with outputs saved. All four English app pages passed local tests, including column selection and the full month range. The PDF includes the executed notebook and plots.
 
-The work log is within the required 300-500 words. Streamlit deployment is awaiting account sign-in. The screencast will be recorded separately.
+The work log is within the required 300-500 words. The app is published on Streamlit Community Cloud. The screencast will be recorded separately.
 
 The project was developed with help from Codex. See the AI statement in the notebook.
 
@@ -46,4 +46,4 @@ The project was developed with help from Codex. See the AI statement in the note
 
 GitHub: [Sipan2/IND320-Sipan2](https://github.com/Sipan2/IND320-Sipan2).
 
-For Streamlit Community Cloud, use branch `main`, entry file `app.py` and Python 3.12 or newer. The app link will be added after deployment.
+For Streamlit Community Cloud, use branch `main`, entry file `app.py` and Python 3.12 or newer. App: [ind320-sipan2.streamlit.app](https://ind320-sipan2.streamlit.app/).

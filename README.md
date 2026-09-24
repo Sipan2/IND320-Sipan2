@@ -37,7 +37,7 @@ The comparison plot uses min-max scaling over the full period for the selected a
 
 All eight notebook code cells have been run successfully, with outputs saved. All four English app pages passed local tests, including column selection and the full month range. The PDF includes the executed notebook and plots.
 
-The work log is within the required 300-500 words. The app is published on Streamlit Community Cloud. The screencast will be recorded separately.
+The work log is within the required 300-500 words. The app is published on Streamlit Community Cloud. The screencast can be played on the [app home page](https://ind320-sipan2.streamlit.app/#screencast). The MP4 file is also stored in this repository.
 
 The project was developed with help from Codex. See the AI statement in the notebook.
 

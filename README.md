@@ -1,6 +1,6 @@
 # IND320 - Reservoirs and electricity transfers
 
-Part 2 is in progress on `part2-data-sources`. The app now reads reservoir observations directly from NVE. ENTSO-E access, the complete transfer analysis and MongoDB deployment are still pending. The published app on `main` remains the Part 1 version.
+Part 2 is in progress and has been merged into `main` after the Part 1 feedback. The published app reads reservoir observations directly from NVE. The local MongoDB test passed with 12 records. ENTSO-E access, the complete transfer analysis and the deployed MongoDB connection are still pending.
 
 ## Run locally
 

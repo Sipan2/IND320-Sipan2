@@ -1,0 +1,33 @@
+IND320 Part 2 - local setup
+
+On this Mac, use Python 3.12 from ../.venv/bin/python.
+For a new checkout, create .venv using Python 3.12 and install requirements-notebook.txt.
+Spark 3.5.1 and the Cassandra connector 3.5.1 match the course book.
+Java 17 is already installed on this Mac.
+
+Start Cassandra from the VS Code terminal in this folder:
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+docker compose up -d
+
+Wait until Cassandra is ready, then run:
+../.venv/bin/python test_spark_cassandra.py
+
+This writes 12 real NVE observations to ind320_setup.nve_sample through
+Spark, reads them back and checks all values. It saves setup_sample.json
+for the MongoDB test. The file is ignored by Git.
+This is a setup test, not the required ENTSO-E analysis.
+
+Test Atlas and copy the sample:
+../.venv/bin/python test_mongodb.py
+Enter your database password at the hidden prompt, not in the source code.
+The script checks the connection, writes the sample to ind320_setup.nve_sample
+and compares every value after reading it back.
+
+Stop Cassandra when finished:
+docker compose stop
+The named Docker volume keeps the database between sessions.
+The database port is bound to 127.0.0.1 only.
+
+Course instructions:
+https://github.com/khliland/IND320/blob/main/D2Dbook/7_Appendix/Installation.ipynb
+https://github.com/khliland/IND320/blob/main/D2Dbook/2_Data_sources/2_Databases/4_Spark.ipynb

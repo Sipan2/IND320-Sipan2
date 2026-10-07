@@ -4,7 +4,6 @@ from matplotlib.ticker import MaxNLocator
 import streamlit as st
 from data_utils import load_data, select_area, MEASUREMENTS, UNITS
 
-st.set_page_config(page_title="Plots | IND320", layout="wide")
 st.title("Plots")
 data, area = select_area(load_data())
 column = st.selectbox("Column", ["All measurement columns"] + list(data.columns))
@@ -21,16 +20,20 @@ if column == "All measurement columns":
     # This keeps the scale fixed when the month slider changes.
     minimum = data[MEASUREMENTS].min()
     span = data[MEASUREMENTS].max() - minimum
-    scaled = (selected[MEASUREMENTS] - minimum) / span.replace(0, 1)
+    changing = span[span > 0].index.tolist()
+    constant = span[span == 0].index.tolist()
+    scaled = (selected[changing] - minimum[changing]) / span[changing]
     fig, ax = plt.subplots(figsize=(11, 5.5))
-    for name, style in zip(MEASUREMENTS, ["-", "--", ":", "-.", "-"]):
+    for name, style in zip(changing, ["-", "--", ":", "-.", "-"]):
         ax.plot(selected["date"], scaled[name], marker="o" if len(selected) <= 30 else None, markersize=4,
                 linestyle=style, linewidth=1.5, label=name.replace("_", " ").capitalize())
     ax.set_ylabel("Min-max scaled value (0-1)")
     ax.set_title(f"Measurements together - {area}")
     ax.legend(fontsize=11, loc="upper center", bbox_to_anchor=(0.5, -0.23), ncol=2, frameon=False)
     st.info("Series are scaled to 0-1 using the full period for the selected area. "
-            "This shows relative changes, not absolute values. Constant columns are shown as 0.")
+            "This shows relative changes, not absolute values. Constant columns are excluded because they have no range.")
+    if constant:
+        st.caption('Constant measurements: ' + ', '.join(name.replace('_', ' ') for name in constant))
 elif column in ["date", "next_publication_date", "area_type"]:
     # Show dates and text in a table because a numeric chart would be misleading.
     st.info("This is a date or text column. Its values are shown in the table below.")

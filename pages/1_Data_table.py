@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 from data_utils import load_data, select_area
 
-st.set_page_config(page_title="Data table | IND320", layout="wide")
 st.title("Data table")
 data, area = select_area(load_data())
 
@@ -10,7 +9,7 @@ data, area = select_area(load_data())
 month = data["date"].dt.to_period("M").min()
 first_month = data.loc[data["date"].dt.to_period("M") == month]
 st.subheader(f"First month: {month} · area {area}")
-st.write("One row per CSV column. The small charts follow the weekly measurements.")
+st.write("One row per API field. The small charts follow the weekly measurements.")
 rows = []
 for column in data.columns:
     values = first_month[column]

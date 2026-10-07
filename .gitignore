@@ -1,0 +1,11 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.python/
+.ivy2/
+.env
+.streamlit/secrets.toml
+setup_sample.json
+.ipynb_checkpoints/
+entsoe_raw/

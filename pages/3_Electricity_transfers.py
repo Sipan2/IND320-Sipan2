@@ -65,12 +65,14 @@ with right:
             series['time'] = hours
             chart_rows.append(series.reset_index(drop=True))
         plot = pd.concat(chart_rows)
+        # A text tooltip keeps UTC times independent of the viewer's browser timezone.
+        plot['time_utc'] = plot['time'].dt.strftime('%Y-%m-%d %H:%M UTC')
         chart = alt.Chart(plot).mark_line(invalid='break-paths-show-domains').encode(
             x=alt.X('time:T', title='Date and time (UTC)', scale=alt.Scale(type='utc')),
             y=alt.Y('power_mw:Q', title='Average power (MW)'),
             color=alt.Color('direction:N', title='Direction',
                             scale=alt.Scale(domain=['import', 'export'], range=['#2878b5', '#e88a24'])),
-            tooltip=[alt.Tooltip('time:T', title='UTC'), 'direction:N', alt.Tooltip('power_mw:Q', format='.1f')]
+            tooltip=[alt.Tooltip('time_utc:N', title='Time'), 'direction:N', alt.Tooltip('power_mw:Q', format='.1f')]
         ).properties(height=340)
         st.altair_chart(chart, width='stretch')
         st.caption('Hours with missing observations remain gaps. Values are hourly averages over the observed intervals.')

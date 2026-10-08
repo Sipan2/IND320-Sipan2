@@ -7,7 +7,7 @@ Java 17 is already installed on this Mac.
 
 Start Cassandra from the VS Code terminal in this folder:
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
-docker compose up -d
+docker compose -p part2 up -d
 
 Wait until Cassandra is ready, then run:
 ../.venv/bin/python test_spark_cassandra.py
@@ -24,10 +24,23 @@ The script checks the connection, writes the sample to ind320_setup.nve_sample
 and compares every value after reading it back.
 
 Stop Cassandra when finished:
-docker compose stop
+docker compose -p part2 stop
 The named Docker volume keeps the database between sessions.
 The database port is bound to 127.0.0.1 only.
 
 Course instructions:
 https://github.com/khliland/IND320/blob/main/D2Dbook/7_Appendix/Installation.ipynb
 https://github.com/khliland/IND320/blob/main/D2Dbook/2_Data_sources/2_Databases/4_Spark.ipynb
+
+Run the complete Part 2 workflow from the project folder:
+python download_entsoe.py
+python transfer_pipeline.py
+The first script requests the ENTSO-E token privately. The second runs
+Spark and Cassandra, then asks for the ind320_user database password.
+Neither credential is written to the notebook or GitHub.
+Uploads use stable IDs and can be rerun without duplicating records.
+MongoDB calls have time limits and upload progress is printed per batch.
+
+Open notebooks/part2.ipynb in the Python 3.12 environment and run all cells
+before exporting. The MongoDB confirmation is created only after a
+successful upload and count check.

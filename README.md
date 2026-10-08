@@ -1,6 +1,6 @@
 # IND320 - Reservoirs and electricity transfers
 
-Part 2 is in progress and has been merged into `main` after the Part 1 feedback. The published app reads reservoir observations directly from NVE. The local MongoDB test passed with 12 records. The deployed app also connects to MongoDB using a read-only user. The transfers collection is currently empty. ENTSO-E access and the complete transfer analysis are still pending.
+Part 2 reads reservoir observations from NVE and physical electricity flows from ENTSO-E. The transfer dataset covers October 2024 to September 2026 for nine international connections in both directions. Spark writes 1,025,076 intervals to Cassandra, reads them back and prepares 315,360 hourly observations. All monthly coverage checks passed, energy totals match, and the MongoDB upload was verified by reading back the record count. The Streamlit app uses a separate read-only database account.
 
 ## Run locally
 
@@ -20,10 +20,14 @@ For the notebooks, install `requirements-notebook.txt` instead and select the sa
 - `app.py` defines navigation; `pages/` contains all five pages, including Home.
 - `nve_data.py` reads the API; `data_utils.py` caches results and selects areas.
 - `notebooks/part1.ipynb` preserves the Part 1 analysis and uses the original CSV from a fixed Git commit.
-- `notebooks/part2.ipynb` contains the current NVE analysis and Spark/Cassandra setup check.
+- `notebooks/part2.ipynb` contains the NVE and ENTSO-E analyses and the executed Spark/Cassandra processing. It includes the verified MongoDB record count, AI statement and work log.
+- `download_entsoe.py` retrieves the XML; `transfer_data.py` parses intervals and preserves gaps.
+- `prepare_transfers.py` checks monthly coverage; `transfer_pipeline.py` runs Spark/Cassandra and uploads the curated records to MongoDB.
+- `test_transfer_data.py` checks compressed intervals, missing measurements and invalid responses.
 - `test_spark_cassandra.py` writes and reads a small NVE sample through the local database.
 - `test_mongodb.py` tests Atlas using that sample and a hidden password prompt.
-- `reservoirs.pdf` and the screencast below belong to Part 1.
+- `part2.pdf` is the Part 2 notebook export.
+- `reservoirs.pdf` and the screencast below belong to Part 1. A new Part 2 screencast still needs to be recorded.
 
 ## Reservoir data
 

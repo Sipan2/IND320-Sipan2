@@ -27,7 +27,8 @@ For the notebooks, install `requirements-notebook.txt` instead and select the sa
 - `test_spark_cassandra.py` writes and reads a small NVE sample through the local database.
 - `test_mongodb.py` tests Atlas using that sample and a hidden password prompt.
 - `part2.pdf` is the Part 2 notebook export.
-- `reservoirs.pdf` and the screencast below belong to Part 1. A new Part 2 screencast still needs to be recorded.
+- `reservoirs.pdf` and the Part 1 screencast below preserve the previous submission.
+- `IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
 
 ## Reservoir data
 
@@ -48,6 +49,12 @@ Keep passwords and API tokens outside notebooks, outputs and Git. For Streamlit,
 [GitHub repository](https://github.com/Sipan2/IND320-Sipan2) · [Published app](https://ind320-sipan2.streamlit.app/)
 
 The project was developed with help from Codex. The notebooks describe AI usage.
+
+## Part 2 screencast
+
+The walkthrough demonstrates the app and explains the notebook and database code. Duration: 4 minutes 44 seconds.
+
+[Download the video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/IND320-Part-2-screencast.mp4)
 
 ## Screencast
 

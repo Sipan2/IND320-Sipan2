@@ -54,7 +54,9 @@ The project was developed with help from Codex. The notebooks describe AI usage.
 
 The walkthrough demonstrates the app and explains the notebook and database code. Duration: 4 minutes 44 seconds.
 
-[Download the video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/IND320-Part-2-screencast.mp4)
+https://github.com/user-attachments/assets/8bfc2051-970f-4d30-b1ec-d62feb8dc4bb
+
+[Download the original video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/IND320-Part-2-screencast.mp4)
 
 ## Screencast
 

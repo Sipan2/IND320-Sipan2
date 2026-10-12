@@ -46,17 +46,21 @@ with left:
 
 with right:
     months = sorted(annual['local_time'].dt.month.unique().tolist())
-    month = st.selectbox('Month', months, format_func=lambda m: pd.Timestamp(2000, m, 1).strftime('%B'))
-    directions = st.pills('Direction', ['import', 'export'], selection_mode='multi', default=['import', 'export'])
-    monthly = annual.loc[annual['local_time'].dt.month.eq(month) & annual['direction'].isin(directions)].copy()
+    chosen_months = st.pills('Months', months, selection_mode='multi', default=[months[0]],
+                             format_func=lambda m: pd.Timestamp(2000, m, 1).strftime('%B'),
+                             key=f'transfer_months_{connection}_{year}')
+    directions = st.multiselect('Directions', ['import', 'export'], default=['import', 'export'])
+    monthly = annual.loc[annual['local_time'].dt.month.isin(chosen_months) & annual['direction'].isin(directions)].copy()
     st.subheader('Hourly physical flow')
     if monthly.empty:
-        st.info('Select at least one direction with observations.')
+        st.info('Select at least one month and direction with observations.')
     else:
         # Insert absent hours as NaN so the chart does not join across missing data.
         chart_rows = []
-        first = pd.Timestamp(year=year, month=month, day=1, tz='Europe/Oslo').tz_convert('UTC')
-        last = (first.tz_convert('Europe/Oslo') + pd.DateOffset(months=1)).tz_convert('UTC')
+        first = pd.Timestamp(year=year, month=min(chosen_months), day=1, tz='Europe/Oslo').tz_convert('UTC')
+        last = (pd.Timestamp(year=year, month=max(chosen_months), day=1, tz='Europe/Oslo')
+                + pd.DateOffset(months=1)).tz_convert('UTC')
+        # Keep unselected months as gaps, rather than drawing a line across them.
         hours = pd.date_range(first, last, freq='h', inclusive='left')
         for direction in directions:
             series = monthly.loc[monthly['direction'].eq(direction)].set_index('start_utc')
@@ -75,7 +79,7 @@ with right:
             tooltip=[alt.Tooltip('time_utc:N', title='Time'), 'direction:N', alt.Tooltip('power_mw:Q', format='.1f')]
         ).properties(height=340)
         st.altair_chart(chart, width='stretch')
-        st.caption('Hours with missing observations remain gaps. Values are hourly averages over the observed intervals.')
+        st.caption('Unselected months and hours with missing observations remain gaps. Values are hourly averages over the observed intervals.')
 
 with st.expander('Data source and preparation'):
     st.markdown('[ENTSO-E Transparency Platform](https://transparency.entsoe.eu/) supplies physical cross-border flows (A11).')

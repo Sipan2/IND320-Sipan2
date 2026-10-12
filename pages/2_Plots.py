@@ -2,18 +2,17 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from matplotlib.ticker import MaxNLocator
 import streamlit as st
-from data_utils import load_data, select_area, MEASUREMENTS, UNITS
+from data_utils import load_data, select_area, MEASUREMENTS, UNITS, reservoir_controls
 
 st.title("Plots")
-data, area = select_area(load_data())
+all_data = load_data()
+interval_data, area_type = reservoir_controls(all_data)
+selected, area = select_area(interval_data)
+# Retain the full area series as a fixed reference for scaling.
+number = selected.area_number.iloc[0]
+data = all_data.loc[all_data.area_type.eq(area_type) & all_data.area_number.eq(number)]
 column = st.selectbox("Column", ["All measurement columns"] + list(data.columns))
-
-# Two handles select a range. Both start at the first month.
-months = data["date"].dt.strftime("%Y-%m").drop_duplicates().tolist()
-start, end = st.select_slider("Months", options=months, value=(months[0], months[0]))
-month_values = data["date"].dt.strftime("%Y-%m")
-selected = data.loc[month_values.between(start, end)]
-st.caption(f"{len(selected)} weekly observations · area {area} · {start} to {end}")
+st.caption(f"{len(selected)} weekly observations · area {area}")
 
 if column == "All measurement columns":
     # Use the full series for the area as a fixed reference for min-max scaling.

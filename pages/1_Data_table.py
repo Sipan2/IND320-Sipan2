@@ -1,29 +1,27 @@
+"""Compare weekly reservoir filling levels for every area of the selected type."""
 import pandas as pd
 import streamlit as st
-from data_utils import load_data, select_area
+from data_utils import load_data, reservoir_controls
 
-st.title("Data table")
-data, area = select_area(load_data())
-
-# The first month is the earliest calendar month after sorting.
-month = data["date"].dt.to_period("M").min()
-first_month = data.loc[data["date"].dt.to_period("M") == month]
-st.subheader(f"First month: {month} · area {area}")
-st.write("One row per API field. The small charts follow the weekly measurements.")
+st.title('Data table')
+data, area_type = reservoir_controls(load_data())
+st.subheader(f'Reservoir filling levels - {area_type}')
+st.write('One row per area. Each small chart shows weekly filling levels in the selected interval.')
+# Align every series to the same dates, preserving missing observations as gaps.
+dates = sorted(data.date.unique())
 rows = []
-for column in data.columns:
-    values = first_month[column]
-    numeric = pd.api.types.is_numeric_dtype(values)
-    rows.append({"Column": column, "First value": str(values.iloc[0]),
-                 "Last value": str(values.iloc[-1]),
-                 "First month": values.tolist() if numeric else None})
-
-# LineChartColumn needs a list of numbers in each cell.
-st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch",
-    column_config={"First month": st.column_config.LineChartColumn("First month", width="large")})
-st.caption("Dates and text have no small chart. Area codes, years and weeks are metadata, not measurements. "
-           "Each chart has its own scale, so their heights cannot be compared directly.")
-st.subheader("Raw data for the first month")
-st.dataframe(first_month, hide_index=True, width="stretch")
-with st.expander("Show all rows for the selected area"):
-    st.dataframe(data, hide_index=True, width="stretch")
+for number, group in data.groupby('area_number'):
+    levels = group.set_index('date')['filling_ratio'].reindex(dates) * 100
+    available = levels.dropna()
+    rows.append({'Area': f'{area_type} {number}',
+                 'First (%)': available.iloc[0] if not available.empty else None,
+                 'Last (%)': available.iloc[-1] if not available.empty else None,
+                 'Filling level (%)': [None if pd.isna(v) else float(v) for v in levels]})
+st.dataframe(pd.DataFrame(rows), hide_index=True, width='stretch', column_config={
+    'Filling level (%)': st.column_config.LineChartColumn('Filling level (%)', y_min=0, y_max=100, width='large'),
+    'First (%)': st.column_config.NumberColumn(format='%.1f'),
+    'Last (%)': st.column_config.NumberColumn(format='%.1f'),
+})
+st.caption('All small charts use the same dates and a 0-100% scale. Missing observations remain gaps.')
+with st.expander('Weekly observations'):
+    st.dataframe(data, hide_index=True, width='stretch')

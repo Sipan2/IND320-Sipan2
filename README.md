@@ -33,9 +33,11 @@ For the notebooks, install `requirements-notebook.txt` instead and select the sa
 
 Dates identify observations. Area codes, ISO weeks and publication dates are metadata, not measurements. The combined measurement plot excludes constant columns and scales each changing series to 0-1 using the complete series for that area.
 
-On NVE areas, the interval slider controls the chart and CSV download. The API has no documented date-filter parameters, so the app caches the full response before selecting the interval. Area descriptions come from NVE's area catalogue. The catalogue lists VASS 4, but the observations response currently contains VASS 1-3 only.
+The reservoir pages share area-type radio buttons and an interval slider. The slider controls the plots, area sparklines and CSV download. The API has no documented date-filter parameters, so the app caches the full response before selecting the interval. Area descriptions come from NVE's area catalogue. The catalogue lists VASS 4, but the observations response currently contains VASS 1-3 only.
 
 [NVE statistics](https://www.nve.no/energi/analyser-og-statistikk/magasinstatistikk/) · [NVE API](https://biapi.nve.no/magasinstatistikk/swagger/index.html)
+
+The electricity transfer page uses multi-select month pills. Any set of months can be shown, with gaps between unselected months. Import and export can be selected separately.
 
 ## Credentials
 

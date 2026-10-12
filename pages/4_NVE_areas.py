@@ -1,18 +1,13 @@
 from urllib.error import URLError
 import altair as alt
 import streamlit as st
-from data_utils import load_data, load_areas
+from data_utils import load_data, load_areas, reservoir_controls
 
 st.title('Reservoir filling by area')
 data = load_data()
-area_type = st.radio('Area type', ['EL', 'NO', 'VASS'], horizontal=True,
-                     format_func=lambda x: {'EL': 'EL - electricity price areas', 'NO': 'NO - Norway', 'VASS': 'VASS - watercourse areas'}[x])
+selected, area_type = reservoir_controls(data)
 areas = data.loc[data.area_type == area_type]
-dates = areas.date.dt.date.drop_duplicates().sort_values().tolist()
-# A range slider controls both the chart and the downloadable CSV.
-start, end = st.slider('Download interval', min_value=dates[0], max_value=dates[-1],
-                       value=(dates[max(0, len(dates)-104)], dates[-1]), format='DD MMM YYYY')
-selected = areas.loc[areas.date.dt.date.between(start, end)].copy()
+start, end = selected.date.min(), selected.date.max()
 if selected.empty:
     st.info('There are no weekly observations in this interval. Select a wider range.')
 else:
@@ -27,8 +22,6 @@ else:
     ).properties(height=410, title=f'Reservoir filling levels - {area_type}')
     st.altair_chart(chart, width='stretch')
     st.caption(f'{len(selected):,} observations · {start:%d %b %Y} to {end:%d %b %Y}')
-    st.download_button('Download selected data as CSV', selected[data.columns].to_csv(index=False).encode('utf-8'),
-                       file_name=f'nve_{area_type}_{start}_{end}.csv', mime='text/csv')
 with st.expander('Areas and data source'):
     st.write('EL identifies electricity price areas, NO 0 covers Norway, and VASS identifies watercourse areas. '
              'These groups have different boundaries, so matching numbers do not mean matching regions.')

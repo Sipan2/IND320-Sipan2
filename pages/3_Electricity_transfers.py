@@ -29,7 +29,8 @@ with left:
                colors=['#2878b5', '#e88a24'], startangle=90,
                wedgeprops={'edgecolor': 'white'})
         ax.set_title('Share of recorded energy')
-        st.pyplot(fig)
+        # Keep the pie compact even when the browser window is wide.
+        st.pyplot(fig, width=450)
         plt.close(fig)
     else:
         st.info('No positive recorded energy for this selection.')

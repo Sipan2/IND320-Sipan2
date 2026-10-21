@@ -63,3 +63,7 @@ https://github.com/user-attachments/assets/8bfc2051-970f-4d30-b1ec-d62feb8dc4bb
 Part 1 walkthrough:
 
 https://github.com/user-attachments/assets/f3a0cd7e-b194-4844-8d4b-863c9c6fa026
+
+## Branch history
+
+Part 2 was developed on `part2-data-sources`. Its commits were incorporated into `main` by fast-forward before submission, so the original history contains no merge commit. Following the clarification published on 21 October 2026, this documentation update is merged from `part2-data-sources` with an explicit merge commit. The original commits and dates are preserved.

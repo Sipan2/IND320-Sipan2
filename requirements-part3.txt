@@ -7,3 +7,4 @@ pyproj==3.8.0
 scipy==1.18.1
 scikit-learn==1.9.1
 statsmodels==0.15.0
+nbconvert==7.17.2

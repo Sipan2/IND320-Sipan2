@@ -34,6 +34,7 @@ PDF exports are stored in `reports/`, and original recordings in `screencasts/`,
 - `reports/reservoirs.pdf` and the Part 1 screencast below preserve the previous submission.
 - `screencasts/IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
 - `notebooks/part3.ipynb` contains executed sampling checks, four analyses, numerical tests, a factual work-log draft and AI attribution.
+- `reports/part3-draft.html` is a review export of that executed notebook, with five embedded figures. The unresolved VASS mapping and other remaining submission work are explicitly marked.
 - `region_data.py` downloads Atlas boundaries, exports shapefiles and samples locations in an equal-area projection.
 - `era5_region.py` downloads and caches ERA5 cells, retaining the weights of all 1,000 original sample locations.
 - `weather_data.py` provides the initial direct point-download function used for the pilot.

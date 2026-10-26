@@ -24,7 +24,7 @@ def download_boundaries(directory=ROOT / 'data' / 'regions'):
     NVE's separate shapefile download portal was unavailable when this workflow
     was prepared. These exports come from NVE's published Atlas map layers.
     Administrative regions are kept under their original names: their mapping
-    to reservoir precipitation regions requires a separate documented decision.
+    to reservoir weather selections is defined in area_mapping.py.
     """
     directory = Path(directory)
     directory.mkdir(parents=True, exist_ok=True)
@@ -116,8 +116,8 @@ def prepare_samples(directory=ROOT / 'data' / 'regions', count=1000, seed=320):
 def prepare_assignment_regions(directory=ROOT / 'data' / 'regions', count=1000, seed=320):
     """Build the three unions explicitly described in the Canvas assignment.
 
-    These names deliberately do not assert a mapping to VASS1–VASS4: the API
-    catalogue currently lists four VASS identifiers, while observations have
+    The course mapping uses VASS1=EAST, VASS2=WEST and VASS3=NORTH.
+    The API catalogue separately lists four VASS identifiers, while observations have
     three. Sample the dissolved polygon rather than concatenate equally sized
     component samples, which would overweight the smaller component region.
     """
@@ -141,7 +141,8 @@ def prepare_assignment_regions(directory=ROOT / 'data' / 'regions', count=1000, 
     (directory / 'assignment_precipitation.source.json').write_text(json.dumps({
         'source': 'https://nmbu.instructure.com/courses/14185/assignments/59074',
         'grouping': combinations, 'sampling_crs': 'EPSG:3035', 'seed': seed,
-        'vass_mapping': 'Unresolved: catalogue lists VASS1–VASS4; observations contain VASS1–VASS3.',
+        'vass_mapping': {'VASS1': 'EAST', 'VASS2': 'WEST', 'VASS3': 'NORTH'},
+        'mapping_scope': 'Coursework administrative unions, not exact hydrological catchments. NVE catalogue descriptions are retained separately.',
         'method': 'Dissolve component polygons before sampling 1,000 points per combined region.',
     }, ensure_ascii=False, indent=2) + '\n')
     return result

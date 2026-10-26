@@ -1,6 +1,6 @@
 # IND320 - Reservoirs and electricity transfers
 
-Part 3 adds a complete NO3 ERA5 weather dataset for 2024, precipitation SPC and temperature LOF analyses, and STL/spectrogram views of reservoir filling. Development is on `part3-data-quality`; the public app still runs the Part 2 version. The VASS-to-weather mapping remains unfinished.
+Part 3 adds a complete NO3 ERA5 weather dataset for 2024, precipitation SPC and temperature LOF analyses, and STL/spectrogram views of reservoir filling. Development is on `part3-data-quality`; the public app still runs the Part 2 version. VASS weather selections use the assignment’s three administrative region unions.
 
 Part 2 reads reservoir observations from NVE and physical electricity flows from ENTSO-E. The transfer dataset covers October 2024 to September 2026 for nine international connections in both directions. Spark writes 1,025,076 intervals to Cassandra, reads them back and prepares 315,360 hourly observations. All monthly coverage checks passed, energy totals match, and the MongoDB upload was verified by reading back the record count. The Streamlit app uses a separate read-only database account.
 
@@ -33,8 +33,8 @@ PDF exports are stored in `reports/`, and original recordings in `screencasts/`,
 - `reports/part2.pdf` is the Part 2 notebook export.
 - `reports/reservoirs.pdf` and the Part 1 screencast below preserve the previous submission.
 - `screencasts/IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
-- `notebooks/part3.ipynb` contains executed sampling checks, four analyses, numerical tests, a factual work-log draft and AI attribution.
-- `reports/part3-draft.html` is a review export of that executed notebook, with five embedded figures. The unresolved VASS mapping and other remaining submission work are explicitly marked.
+- `notebooks/part3.ipynb` contains executed sampling checks, four analyses, numerical tests, a factual work log and AI attribution.
+- `reports/part3.html` is the HTML export of that executed notebook, with five embedded figures. Deployment and submission status are stated explicitly.
 - `region_data.py` downloads Atlas boundaries, exports shapefiles and samples locations in an equal-area projection.
 - `era5_region.py` downloads and caches ERA5 cells, retaining the weights of all 1,000 original sample locations.
 - `weather_data.py` provides the initial direct point-download function used for the pilot.
@@ -51,11 +51,11 @@ The regional mean uses nearest ERA5 cells with elevation downscaling disabled. T
 
 Weather data are from [Open-Meteo](https://open-meteo.com/en/docs/historical-weather-api), using [Copernicus ERA5](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Regional means and analyses are derived products.
 
-The Canvas assignment describes EAST=RS+RØ, WEST=RV and NORTH=RM+RN. These polygons have been dissolved and sampled, but are not silently equated to VASS codes: the NVE catalogue lists four VASS identifiers while the observed series contains three. The weather app supports electricity and national selections and explicitly explains the unfinished VASS mapping. The national sampler uses the union of the electricity-area land polygons; its weather dataset is fetched on demand and has not yet been downloaded in full.
+The Canvas assignment describes EAST=RS+RØ, WEST=RV and NORTH=RM+RN. These polygons have been dissolved and sampled. The coursework mapping is VASS1=EAST, VASS2=WEST and VASS3=NORTH, implemented in `area_mapping.py`. This is the assignment’s administrative weather approximation, not a claim of exact catchment boundaries. The four-code NVE catalogue is preserved separately. The weather app supports electricity, national and all three observed VASS selections. The national sampler uses the union of the electricity-area land polygons; its weather dataset is fetched on demand and has not yet been downloaded in full.
 
 The DCT/SPC flags and LOF anomalies are descriptive statistical results, not confirmed errors. Parameter changes affect the results. See the notebook for feature choices, limitations and exact settings.
 
-Run `python -m unittest test_quality_analysis test_era5_region` for the numerical checks. The two new app pages have also been tested with Streamlit AppTest, including changed parameter values and the unresolved VASS state.
+Run `python -m unittest test_quality_analysis test_era5_region` for the numerical checks. The two new app pages have also been tested with Streamlit AppTest, including changed parameter values and all three VASS selections.
 
 ## Reservoir data
 

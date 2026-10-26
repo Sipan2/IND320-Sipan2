@@ -4,6 +4,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from area_mapping import weather_region, PRECIPITATION_MEMBERS
 from data_utils import load_data
 from era5_region import regional_weather, QuotaBudgetReached
 
@@ -35,14 +36,13 @@ def filling_control():
 def weather_control():
     data = load_data()
     family, number = area_control(data, 'quality_weather')
+    region_type, region = weather_region(family, number)
     if family == 'VASS':
-        st.info('The assignment’s precipitation '
-                'groups have been prepared, but their link to the API’s inconsistent VASS catalogue still needs checking. '
-                'Select EL 3 for the verified 2024 example.')
-        return None
+        st.caption(f'Assignment weather region: {region.title()} = '
+                   f'{" + ".join(PRECIPITATION_MEMBERS[region])}. '
+                   'These administrative polygon unions follow the coursework definition; '
+                   'they are not exact hydrological catchment boundaries.')
     year = st.number_input('Weather year', min_value=1940, max_value=2025, value=2024, step=1)
-    region = f'NO{number}' if family == 'EL' else 'NORWAY'
-    region_type = 'electricity' if family == 'EL' else 'national'
     start, end = f'{year}-01-01', f'{year}-12-31'
     path = ROOT / f'data/weather/{region_type}_{region}_{start}_{end}.csv'
     st.caption('Hourly ERA5 precipitation and temperature from Open-Meteo. The regional mean retains equal '

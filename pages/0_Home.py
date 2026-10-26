@@ -2,7 +2,7 @@ import streamlit as st
 from data_utils import load_data
 
 st.title("Reservoirs over time")
-st.write("IND320 - Part 3 (in development)")
+st.write("IND320 - Part 3: Data quality")
 st.write("Explore reservoir filling levels and stored energy in Norway. "
          "The data comes directly from NVE and is updated weekly.")
 data = load_data()
@@ -15,4 +15,4 @@ st.write("Open Electricity transfers to compare imports and exports on nine inte
 st.markdown("[NVE reservoir statistics](https://www.nve.no/energi/analyser-og-statistikk/magasinstatistikk/)")
 st.write("Reservoir patterns adds STL decomposition and a spectrogram. Weather data quality explores "
          "ERA5 precipitation and temperature with SPC and Local Outlier Factor. "
-         "The complete NO3 dataset for 2024 is available; the VASS-to-weather mapping remains in development.")
+         "The complete NO3 dataset for 2024 is available; VASS selections use the assignment’s east, west and north weather regions.")

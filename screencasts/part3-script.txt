@@ -1,0 +1,21 @@
+IND320 Part 3: recording outline
+Use the same published app URL after the Part 3 branch has been merged and the deployment has been checked. This file is a script, not a completed recording. No new recording duration was specified in the assignment version checked on 26 October.
+
+1. Home and sources
+Show the existing reservoir and electricity-transfer pages briefly, followed by the two data-quality pages. Explain that NVE supplies weekly reservoir observations, MongoDB supplies the existing electricity-transfer data, and Open-Meteo supplies hourly ERA5 weather.
+
+2. Weather sampling
+Show the notebook's NO3 point map and verification output. Explain: 1,000 points were sampled by area, in an equal-area projection. The full 2024 download has 8,784 hours. The points occupy 236 ERA5 cells. Each cell retains the number of sampled points it represents. This avoids repeated downloads without changing the weighting.
+Show the VASS selector and its displayed administrative union: VASS1 east (RS+RØ), VASS2 west (RV), VASS3 north (RM+RN). Explain that these are the assignment's weather regions, not exact catchment boundaries. Return to EL 3 and 2024 for the complete example. Do not start a large live download during the presentation.
+
+3. Precipitation SPC
+Open the precipitation tab. Show the original observations, robust limits and flagged hours. Change the cut-off period or deviation multiplier and explain the resulting change. With the default settings, 639 hours are flagged. Explain that these flags are unusual values under the selected rule, not confirmed data errors. Values have not been deleted.
+
+4. Temperature LOF
+Open the temperature tab. Show the 1% contamination setting and 88 flagged hours out of 8,783 scored observations. Explain that LOF compares temperature and hourly temperature change in standardised feature space. The first hour has no preceding change. Change the target proportion and explain why this changes the count.
+
+5. Reservoir patterns
+Show the STL tab for EL 3. Identify trend, season and residual and change a smoother or robust fitting. Then show the spectrogram for the same filling series. Change the window or overlap and explain the time/frequency resolution trade-off. Neither decomposition residuals nor spectral colours automatically indicate data errors.
+
+6. Verification and assistance
+Show the notebook's successful tests and executed outputs. Mention the checks of known synthetic signals, reconstruction, missing-data rejection, cache reuse and spatial weighting. State that Codex provided substantial help with code, tests, analysis explanations and wording. Conclude with the practical lesson that geographic weighting and anomaly settings affect the interpretation of the result.

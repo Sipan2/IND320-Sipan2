@@ -15,6 +15,17 @@
   },
   "sampling_crs": "EPSG:3035",
   "seed": 320,
-  "vass_mapping": "Unresolved: catalogue lists VASS1–VASS4; observations contain VASS1–VASS3.",
-  "method": "Dissolve component polygons before sampling 1,000 points per combined region."
+  "vass_mapping": {
+    "VASS1": "EAST",
+    "VASS2": "WEST",
+    "VASS3": "NORTH"
+  },
+  "method": "Dissolve component polygons before sampling 1,000 points per combined region.",
+  "mapping_scope": "Coursework administrative unions, not exact hydrological catchments. The four-code NVE catalogue is retained separately.",
+  "evidence": {
+    "assignment": "https://nmbu.instructure.com/courses/14185/assignments/59074",
+    "lecture": "https://nmbu.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?id=bde2babe-d868-4c72-9f6e-b4d0008deab0",
+    "lecture_visuals": "08:42 shapefile export; 09:00 administrative region identifiers; 11:00–12:00 GeoPandas sampling. Audio was not transcribed.",
+    "course_mapping_confirmed_by_user": "26 October 2026"
+  }
 }

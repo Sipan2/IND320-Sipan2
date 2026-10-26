@@ -2,6 +2,8 @@
 __pycache__/
 *.pyc
 .venv/
+.venv312/
+weather_cache/
 .python/
 .ivy2/
 .env

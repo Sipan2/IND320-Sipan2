@@ -1,0 +1,8 @@
+# Install into a Python 3.12 environment. Exact tested versions are recorded later.
+-r requirements-notebook.txt
+geopandas>=1.0,<2
+shapely>=2,<3
+pyproj>=3.6,<4
+scipy>=1.13,<2
+scikit-learn>=1.5,<2
+statsmodels>=0.14,<1

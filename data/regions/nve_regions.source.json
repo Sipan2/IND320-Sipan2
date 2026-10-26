@@ -1,0 +1,7 @@
+{
+  "source": "https://gis3.nve.no/map/rest/services/Mapservices/Administrasjon2/MapServer/0",
+  "query": "where=1%3D1&outFields=REGION&returnGeometry=true&outSR=4326&f=geojson",
+  "retrieved_utc": "2026-10-26T13:51:54.776545+00:00",
+  "sha256": "44f7660da78ff715fb992418f44a58148d2132711b1a1a1ea4871874c47855c8",
+  "format_note": "Original GeoJSON; shapefiles exported locally."
+}

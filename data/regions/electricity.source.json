@@ -1,0 +1,7 @@
+{
+  "source": "https://gis3.nve.no/map/rest/services/Mapservices/Omradekonsesjoner/MapServer/8",
+  "query": "where=1%3D1&outFields=ElSpotOmr&returnGeometry=true&outSR=4326&f=geojson",
+  "retrieved_utc": "2026-10-26T13:51:52.878630+00:00",
+  "sha256": "d1eefd9f20109c83e18d1f6471e891c50d4c45b391077cd0f6ed8130b539f1ea",
+  "format_note": "Original GeoJSON; shapefiles exported locally."
+}

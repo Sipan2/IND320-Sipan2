@@ -17,6 +17,8 @@ For the notebooks, install `requirements-notebook.txt` instead and select the sa
 
 ## Files
 
+PDF exports are stored in `reports/`, and original recordings in `screencasts/`, following the Part 2 feedback. Embedded playback links below are unchanged.
+
 - `app.py` defines navigation; `pages/` contains all five pages, including Home.
 - `nve_data.py` reads the API; `data_utils.py` caches results and selects areas.
 - `notebooks/part1.ipynb` preserves the Part 1 analysis and uses the original CSV from a fixed Git commit.
@@ -26,9 +28,9 @@ For the notebooks, install `requirements-notebook.txt` instead and select the sa
 - `test_transfer_data.py` checks compressed intervals, missing measurements and invalid responses.
 - `test_spark_cassandra.py` writes and reads a small NVE sample through the local database.
 - `test_mongodb.py` tests Atlas using that sample and a hidden password prompt.
-- `part2.pdf` is the Part 2 notebook export.
-- `reservoirs.pdf` and the Part 1 screencast below preserve the previous submission.
-- `IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
+- `reports/part2.pdf` is the Part 2 notebook export.
+- `reports/reservoirs.pdf` and the Part 1 screencast below preserve the previous submission.
+- `screencasts/IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
 
 ## Reservoir data
 
@@ -56,7 +58,7 @@ The walkthrough demonstrates the app and explains the notebook and database code
 
 https://github.com/user-attachments/assets/8bfc2051-970f-4d30-b1ec-d62feb8dc4bb
 
-[Download the original video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/IND320-Part-2-screencast.mp4)
+[Download the original video](screencasts/IND320-Part-2-screencast.mp4)
 
 ## Screencast
 

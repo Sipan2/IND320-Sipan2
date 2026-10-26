@@ -1,0 +1,34 @@
+{
+  "spc": {
+    "observations": 8784,
+    "outliers": 639,
+    "outlier_fraction": 0.07274590163934426,
+    "robust_sigma_mm": 0.15974445555435426,
+    "cutoff_cycles_per_day": 0.03333333333333333,
+    "deviations": 3,
+    "degenerate_scale": false
+  },
+  "lof": {
+    "observations": 8784,
+    "evaluated": 8783,
+    "anomalies": 88,
+    "requested_fraction": 0.01,
+    "actual_fraction": 0.010019355573266537,
+    "neighbours": 20,
+    "excluded_initial_rows": 1
+  },
+  "stl": {
+    "observations": 1659,
+    "period_weeks": 52,
+    "seasonal": 13,
+    "trend": 81,
+    "robust": true,
+    "max_reconstruction_error": 1.1102230246251565e-16
+  },
+  "spectrogram": {
+    "window_weeks": 104,
+    "overlap_weeks": 78,
+    "windows": 60,
+    "frequency_resolution_per_year": 0.501717032967033
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "source": "https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/HentOffentligData",
+  "retrieved_utc": "2026-10-26T14:06:36.424733+00:00",
+  "sha256": "16e4d7129e0ac6fee3c0ad25c24c06c35fd1e76578bf9a566d6ddd7831157091",
+  "processing": "Columns renamed to English; rows sorted by area type, area number and observation date. No values imputed."
+}

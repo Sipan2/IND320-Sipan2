@@ -23,7 +23,8 @@ def download_weather(region, start_date, end_date, *, region_type='electricity',
     start, end = pd.Timestamp(start_date), pd.Timestamp(end_date)
     if start.tzinfo is not None or end.tzinfo is not None or start != start.normalize() or end != end.normalize() or end < start:
         raise ValueError('Use ordered, timezone-free ISO calendar dates.')
-    points = pd.read_csv(ROOT / 'data' / 'regions' / 'sampled_locations.csv')
+    sample_file = 'national_locations.csv' if region_type == 'national' else 'sampled_locations.csv'
+    points = pd.read_csv(ROOT / 'data' / 'regions' / sample_file)
     selected = points.loc[points.region.eq(region) & points.region_type.eq(region_type)]
     if point_ids is not None:
         wanted = set(point_ids)

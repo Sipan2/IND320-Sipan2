@@ -113,7 +113,56 @@ def prepare_samples(directory=ROOT / 'data' / 'regions', count=1000, seed=320):
     return points
 
 
+def prepare_assignment_regions(directory=ROOT / 'data' / 'regions', count=1000, seed=320):
+    """Build the three unions explicitly described in the Canvas assignment.
+
+    These names deliberately do not assert a mapping to VASS1–VASS4: the API
+    catalogue currently lists four VASS identifiers, while observations have
+    three. Sample the dissolved polygon rather than concatenate equally sized
+    component samples, which would overweight the smaller component region.
+    """
+    directory = Path(directory)
+    source = gpd.read_file(directory / 'nve_regions.geojson').to_crs(3035)
+    combinations = {'EAST': ['RS', 'RØ'], 'WEST': ['RV'], 'NORTH': ['RM', 'RN']}
+    regions, rows = [], []
+    for identifier, members in combinations.items():
+        polygon = source.loc[source.REGION.isin(members)].geometry.union_all()
+        regions.append({'region': identifier, 'members': '+'.join(members), 'geometry': polygon})
+        area_seed = int.from_bytes(hashlib.sha256(f'{seed}:assignment_precipitation:{identifier}'.encode()).digest()[:4], 'big')
+        sampled = sample_region(polygon, count, area_seed).to_crs(4326)
+        rows.append(pd.DataFrame({'region_type': 'assignment_precipitation', 'region': identifier,
+                                 'point_id': range(count), 'longitude': sampled.x,
+                                 'latitude': sampled.y, 'seed': seed}))
+    gpd.GeoDataFrame(regions, crs=3035).to_crs(4326).to_file(directory / 'assignment_precipitation.geojson', driver='GeoJSON')
+    original = pd.read_csv(directory / 'sampled_locations.csv')
+    original = original.loc[original.region_type.ne('assignment_precipitation')]
+    result = pd.concat([original] + rows, ignore_index=True)
+    result.to_csv(directory / 'sampled_locations.csv', index=False)
+    (directory / 'assignment_precipitation.source.json').write_text(json.dumps({
+        'source': 'https://nmbu.instructure.com/courses/14185/assignments/59074',
+        'grouping': combinations, 'sampling_crs': 'EPSG:3035', 'seed': seed,
+        'vass_mapping': 'Unresolved: catalogue lists VASS1–VASS4; observations contain VASS1–VASS3.',
+        'method': 'Dissolve component polygons before sampling 1,000 points per combined region.',
+    }, ensure_ascii=False, indent=2) + '\n')
+    return result
+
+
+def prepare_national_sample(directory=ROOT / 'data' / 'regions', count=1000, seed=320):
+    """Sample Norway's covered land area from the union of electricity areas."""
+    directory = Path(directory)
+    source = gpd.read_file(directory / 'electricity.geojson').to_crs(3035)
+    polygon = source.geometry.union_all()
+    area_seed = int.from_bytes(hashlib.sha256(f'{seed}:national:NORWAY'.encode()).digest()[:4], 'big')
+    sampled = sample_region(polygon, count, area_seed).to_crs(4326)
+    result = pd.DataFrame({'region_type': 'national', 'region': 'NORWAY', 'point_id': range(count),
+                           'longitude': sampled.x, 'latitude': sampled.y, 'seed': seed})
+    result.to_csv(directory / 'national_locations.csv', index=False)
+    return result
+
+
 if __name__ == '__main__':
     download_boundaries()
-    points = prepare_samples()
+    prepare_samples()
+    points = prepare_assignment_regions()
+    prepare_national_sample()
     print(points.groupby(['region_type', 'region']).size().to_string())

@@ -1,0 +1,20 @@
+{
+  "source": "https://nmbu.instructure.com/courses/14185/assignments/59074",
+  "grouping": {
+    "EAST": [
+      "RS",
+      "RØ"
+    ],
+    "WEST": [
+      "RV"
+    ],
+    "NORTH": [
+      "RM",
+      "RN"
+    ]
+  },
+  "sampling_crs": "EPSG:3035",
+  "seed": 320,
+  "vass_mapping": "Unresolved: catalogue lists VASS1–VASS4; observations contain VASS1–VASS3.",
+  "method": "Dissolve component polygons before sampling 1,000 points per combined region."
+}

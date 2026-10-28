@@ -3,7 +3,7 @@ import altair as alt
 import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
-from mongo_data import load_transfers
+from ind320.mongo_data import load_transfers
 
 st.title('Electricity transfers')
 st.write('Physical electricity flows into and out of Norway. Import and export are measured from Norway’s perspective.')

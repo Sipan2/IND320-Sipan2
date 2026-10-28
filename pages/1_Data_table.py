@@ -1,7 +1,7 @@
 """Compare weekly reservoir filling levels for every area of the selected type."""
 import pandas as pd
 import streamlit as st
-from data_utils import load_data, reservoir_controls
+from ind320.data_utils import load_data, reservoir_controls
 
 st.title('Data table')
 data, area_type = reservoir_controls(load_data())

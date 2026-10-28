@@ -1,7 +1,7 @@
 from urllib.error import URLError
 import pandas as pd
 import streamlit as st
-from nve_data import fetch_reservoirs, fetch_areas
+from ind320.nve_data import fetch_reservoirs, fetch_areas
 
 MEASUREMENTS = ['filling_ratio', 'capacity_twh', 'stored_energy_twh',
                 'previous_week_filling_ratio', 'weekly_filling_ratio_change']

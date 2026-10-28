@@ -2,7 +2,11 @@
 __pycache__/
 *.pyc
 .venv/
+.venv312/
+.venv-part3/
+weather_cache/
 .python/
+.cache/
 .ivy2/
 .env
 .streamlit/secrets.toml

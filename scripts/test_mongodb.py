@@ -15,9 +15,9 @@ def main():
     ) as client:
         client.admin.command('ping')
         print('MongoDB connection successful.')
-        path = Path(__file__).parent / 'setup_sample.json'
+        path = Path(__file__).resolve().parents[1] / 'setup_sample.json'
         if not path.exists():
-            print('Run test_spark_cassandra.py first to prepare the sample.')
+            print('Run scripts/test_spark_cassandra.py first to prepare the sample.')
             return
         records = json.loads(path.read_text())
         collection = client['ind320_setup']['nve_sample']

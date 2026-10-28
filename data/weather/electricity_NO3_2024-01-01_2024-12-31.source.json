@@ -1,0 +1,3140 @@
+{
+  "region": "NO3",
+  "region_type": "electricity",
+  "start_date": "2024-01-01",
+  "end_date": "2024-12-31",
+  "model": "ERA5",
+  "timezone": "UTC",
+  "elevation_downscaling": false,
+  "cell_selection": "nearest",
+  "sample_sha256": "aa6b459dc9b26399684a1ed7f2273a374f8b7db8c91a866b444b034a469e3711",
+  "weighting": "Each original sampled point has equal weight; occupied cells retain their point counts.",
+  "source": "https://open-meteo.com/en/docs/historical-weather-api",
+  "licence": "CC BY 4.0; Open-Meteo and Copernicus ERA5",
+  "cells": [
+    {
+      "cell_latitude": 61.0,
+      "cell_longitude": 4.75,
+      "sample_weight": 2,
+      "point_ids": [
+        24,
+        659
+      ],
+      "request_hash": "18e2426c3f32f788a52e5747d261c6d9e4f38ff41090964a0920166cccdf94e2",
+      "response_sha256": "6bf366ada51227a483a53493abcef1ca28973055855c8003771109eb8f63b55a"
+    },
+    {
+      "cell_latitude": 61.0,
+      "cell_longitude": 5.5,
+      "sample_weight": 1,
+      "point_ids": [
+        233
+      ],
+      "request_hash": "c462d8239cad358fcc69f60107d97de21013f0d4bb619b23286d2c62418fb4a0",
+      "response_sha256": "9f905021103ed6dfe226e49fb79e022e09af2f35dd7d51b4715662db23e2cda4"
+    },
+    {
+      "cell_latitude": 61.25,
+      "cell_longitude": 5.0,
+      "sample_weight": 4,
+      "point_ids": [
+        45,
+        154,
+        317,
+        429
+      ],
+      "request_hash": "42e9587ac26491181e67b4b6ba88e6638bec31353d484896e96b3af408f563af",
+      "response_sha256": "8c1b69b1bc2ffcb91b459c2ad95083d8f63b7edb9ae21501146c2664a7946285"
+    },
+    {
+      "cell_latitude": 61.25,
+      "cell_longitude": 5.25,
+      "sample_weight": 3,
+      "point_ids": [
+        62,
+        91,
+        595
+      ],
+      "request_hash": "4a4ee5f3d176c81600ad8518a5a7dc7359934022f0ab64a17868d277b65f9e02",
+      "response_sha256": "66ed882b161b7691545890bcc4086898d120581b37fa82f8da6f746b78ab3b19"
+    },
+    {
+      "cell_latitude": 61.25,
+      "cell_longitude": 5.5,
+      "sample_weight": 5,
+      "point_ids": [
+        190,
+        207,
+        209,
+        760,
+        795
+      ],
+      "request_hash": "95702c5ab245c187e2252d1812a87cde7e973128b155cdacb226e87cb7baf0f6",
+      "response_sha256": "3a4f3688c9b8175f608136b52429024cae2936ee9c4d8a89bb766292a507277c"
+    },
+    {
+      "cell_latitude": 61.25,
+      "cell_longitude": 5.75,
+      "sample_weight": 3,
+      "point_ids": [
+        399,
+        601,
+        867
+      ],
+      "request_hash": "8400b3f2bac21d833ef7d89278c07f8ef71d006a212a72e1e3c39f5c9d3d9279",
+      "response_sha256": "ebfd0606c14c31475b55664d24b70cd16e10f8a046169ac3b3b3d2948a4f550f"
+    },
+    {
+      "cell_latitude": 61.25,
+      "cell_longitude": 6.0,
+      "sample_weight": 9,
+      "point_ids": [
+        2,
+        129,
+        337,
+        445,
+        448,
+        472,
+        664,
+        946,
+        975
+      ],
+      "request_hash": "c1360d787e54eac0822295e34eef14a5078629b8498dca941056c37f50576f4c",
+      "response_sha256": "80a2794055d65bcb9f6aac55e52d4b7e2a92cda8661b41a6ef2b7134044ed8ff"
+    },
+    {
+      "cell_latitude": 61.25,
+      "cell_longitude": 6.25,
+      "sample_weight": 2,
+      "point_ids": [
+        127,
+        462
+      ],
+      "request_hash": "3269f88439dbf2ad40e51a724e5cb3d5302f10e593aa13e8ae4ea493977fd0d0",
+      "response_sha256": "3ab00de0d79ec29a9971d93781e75e904c7c3fb7fa07c8b72a5936712204521f"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 5.5,
+      "sample_weight": 5,
+      "point_ids": [
+        124,
+        195,
+        488,
+        744,
+        835
+      ],
+      "request_hash": "6a00591598e2392bcb710943e4fc2b931549a06f39e43abdbbe878029b70d994",
+      "response_sha256": "6ead7646a4d1726085729a0503d657150a09976925aa2edd7c6686f07a2bdc15"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 5.75,
+      "sample_weight": 3,
+      "point_ids": [
+        336,
+        570,
+        706
+      ],
+      "request_hash": "bc394671fd2dcb6a78fd0c6c8b891413b11b71dbb524cba92606a904c30d6c86",
+      "response_sha256": "97e1f2cb5fdcc4741bd626d80d95e76edd34fbd7763faad6a81156c1617f21bd"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 6.0,
+      "sample_weight": 4,
+      "point_ids": [
+        79,
+        162,
+        430,
+        491
+      ],
+      "request_hash": "5676c25dae3ae204ead094480e52f593db22978094b7f74f088b185019d0b00f",
+      "response_sha256": "d3f25b6731474548d440248fd589eb7e29b60b61b82618f390407ad5a5a2f29c"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 6.25,
+      "sample_weight": 5,
+      "point_ids": [
+        226,
+        363,
+        500,
+        596,
+        825
+      ],
+      "request_hash": "8f9d123119132afdd9b0d62c49c75ce1c56ffb958c534b8401305308179e5416",
+      "response_sha256": "a1116eb77f1f9623a3214de83859cedb8a96f0d0e4e9db448b5ce6eba98b274c"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 6.5,
+      "sample_weight": 8,
+      "point_ids": [
+        36,
+        197,
+        218,
+        274,
+        438,
+        447,
+        531,
+        837
+      ],
+      "request_hash": "21bbe62c3ca27bf2847b756563bab4ed3d2ff65d814c05292d7b962d81cc93ef",
+      "response_sha256": "beb5c9ac8bf172c3c864406915e58c1f36cc8c3c86ae84027219d53309575392"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 6.75,
+      "sample_weight": 2,
+      "point_ids": [
+        419,
+        985
+      ],
+      "request_hash": "02ea656692c9ad6fab9881561e294fc814ccd87493ca2d529923614643f6592a",
+      "response_sha256": "f331a6ff9a665bf2049ebefe87800f6874bc9bc90ba664f214e377072f05fdfe"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 8.0,
+      "sample_weight": 2,
+      "point_ids": [
+        37,
+        446
+      ],
+      "request_hash": "70f23b175d798a9645f81efd3e7ee5b8d4b5a3d4b03a9453416a9e931eeceea9",
+      "response_sha256": "864820b233247983163258eb2b2a6f5c86f2e3d837a5f756bcbcff1563175918"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 8.25,
+      "sample_weight": 1,
+      "point_ids": [
+        791
+      ],
+      "request_hash": "15bcadb681e7f8c5cfe4494ab38f9738df1ce4d89cf5b4596eb3c6a754ce0837",
+      "response_sha256": "76e14e391736df8ff2cc8e0b613367d057a8a71d8be265dc229d8908566b71fc"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 8.5,
+      "sample_weight": 3,
+      "point_ids": [
+        474,
+        556,
+        599
+      ],
+      "request_hash": "d33db613ee524010f715775d9165119b8af344254332793612c2916fb29c4041",
+      "response_sha256": "6ec3d6212fb939013e063d7c757b07bd14b323a008a0bb7a4d96875c39c8def6"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 8.75,
+      "sample_weight": 4,
+      "point_ids": [
+        126,
+        443,
+        746,
+        908
+      ],
+      "request_hash": "0049d84c44ac0e20622162f3b746aa70dd030c8d491f3d8540c42b07a6fb872d",
+      "response_sha256": "6b8e04d3e3ce4f185536da0044267d971c864da7620c515fa6793676073f526d"
+    },
+    {
+      "cell_latitude": 61.5,
+      "cell_longitude": 9.0,
+      "sample_weight": 5,
+      "point_ids": [
+        34,
+        136,
+        144,
+        281,
+        366
+      ],
+      "request_hash": "61288ec6cf8d285ad6c9f8c05cad750f1d34aeffc09c3e465ca2324830327196",
+      "response_sha256": "c916424c336ab6e310c444754aff825a222b82787f292284676478d8e3e684c9"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 5.0,
+      "sample_weight": 1,
+      "point_ids": [
+        456
+      ],
+      "request_hash": "40187c9454c875957aa194a474159bb14348cfad052f358964f6b82eb47f98db",
+      "response_sha256": "6a393da243c95a2a6168b651c84d8d74fbc38cfb803f805bb30cf6dfddd1eeec"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 5.25,
+      "sample_weight": 6,
+      "point_ids": [
+        21,
+        254,
+        290,
+        402,
+        473,
+        666
+      ],
+      "request_hash": "851495874830a34275d5cc0b792e83d8d840f42cc2dbe43202bba074b8cf4f62",
+      "response_sha256": "1db84538c85bb59ae42ca8e11378b553f96b0d91df96a5fb009842eb9bb8dfdf"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 5.5,
+      "sample_weight": 4,
+      "point_ids": [
+        306,
+        460,
+        544,
+        848
+      ],
+      "request_hash": "fc14aa6e7dbbba72c1f9b1676a6acdc71e5daf0d706d3b73f483cad122a3509c",
+      "response_sha256": "c032f9e1e8d2c4d512f3e3f652cc410edb312de8fec44da473cb6e6f0e37ee4e"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 5.75,
+      "sample_weight": 7,
+      "point_ids": [
+        137,
+        239,
+        314,
+        524,
+        585,
+        717,
+        996
+      ],
+      "request_hash": "db56a4b0b6e04fe2559b06e1f9080f81b0e78104ef06fbcaefbc88f06cd1978c",
+      "response_sha256": "7bc9a07cd6b8d3bf8c56127a312665adb3ac0e841b87591302532d2f996a553a"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 6.0,
+      "sample_weight": 4,
+      "point_ids": [
+        109,
+        729,
+        762,
+        789
+      ],
+      "request_hash": "b4ebddab456c61f009ca534111e1aec3e32c1325dc098b311e15dfffc307468d",
+      "response_sha256": "43ec6979ec1015a5be2f3106ef7ee498c074cd5086270277455b63944dbad0cb"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 6.25,
+      "sample_weight": 6,
+      "point_ids": [
+        1,
+        57,
+        228,
+        532,
+        615,
+        692
+      ],
+      "request_hash": "87d1e443c7c395023ddbe679f8c885c17911f71ebb3b3e53c18446fa843e2cd5",
+      "response_sha256": "0b7923c48d5877268856810c78e6a707890d8eb92be92cd8c8cee5ae57a020f1"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 6.5,
+      "sample_weight": 7,
+      "point_ids": [
+        19,
+        222,
+        352,
+        358,
+        427,
+        614,
+        747
+      ],
+      "request_hash": "d62b272098e8b07842683dd26af7065cb391a39f31dcad17000c643c131f025b",
+      "response_sha256": "d328ad4f92e35d87faaa9d0dc6176342e008ac422f8f6c7fa009e7122f123dc1"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 6.75,
+      "sample_weight": 6,
+      "point_ids": [
+        47,
+        76,
+        81,
+        261,
+        653,
+        976
+      ],
+      "request_hash": "972cc88f389bf1a247f5d7eb2508c354ba4ae84becb2ced31682cd03e5168793",
+      "response_sha256": "fd8a9f6894ef67f2618b2dcb0c54879a0e96c906d63b6bc11141cf03abf4acaf"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 7.0,
+      "sample_weight": 3,
+      "point_ids": [
+        371,
+        849,
+        944
+      ],
+      "request_hash": "1e0a8219d596de2ccb462808ac055e2d3429b12a3facca6a867288cfaef6edfb",
+      "response_sha256": "eff9912effaef26af86ebe9889bd2665ed2d25dd5f6bae7a89706bca619bcaab"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 7.25,
+      "sample_weight": 3,
+      "point_ids": [
+        302,
+        450,
+        971
+      ],
+      "request_hash": "c04a87960d655352732489d007479ca662ac43021b4331f0a328655ca610ee92",
+      "response_sha256": "b04add09304a60e0c2314f821ad63e2093e595c3b60074e223e8dfff51ad0762"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 7.5,
+      "sample_weight": 3,
+      "point_ids": [
+        4,
+        87,
+        707
+      ],
+      "request_hash": "31ac373cd7ef316cbce8ea8e6e7a916543b4cfbcc7ba7ba9b273454075d7e89e",
+      "response_sha256": "02e51c73d79e691533816b473628d1999713be8527d5c4fbc599bd63c2a10bc9"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 8.0,
+      "sample_weight": 2,
+      "point_ids": [
+        289,
+        374
+      ],
+      "request_hash": "36631a36ce543d70510482ead04ae3dc8bfefffbe539977165698015353cf9e1",
+      "response_sha256": "ea2af52d3e5fb095b5ccd004722caa8e221c53769898edc9f4b613b2741d2a1b"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 8.25,
+      "sample_weight": 11,
+      "point_ids": [
+        242,
+        303,
+        425,
+        436,
+        605,
+        626,
+        636,
+        660,
+        784,
+        813,
+        983
+      ],
+      "request_hash": "6086b43d7d007f25e60af4a7c99e9bab911eadb5e80d44ad7e324515aff54f94",
+      "response_sha256": "dc4633208b3273a0471888987697522abda1ca25d5cd8273f289ef33659b726e"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 8.5,
+      "sample_weight": 3,
+      "point_ids": [
+        215,
+        519,
+        667
+      ],
+      "request_hash": "3850d4f9e77cccbf6f4c9a61f1878862bef42e76c1552c30a6b8538ac4eae665",
+      "response_sha256": "599d3cd21497572023623b22b239d0736d438ba05a8da788b2de9862db906950"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 8.75,
+      "sample_weight": 8,
+      "point_ids": [
+        64,
+        172,
+        327,
+        512,
+        539,
+        748,
+        819,
+        931
+      ],
+      "request_hash": "9eac845859f0ee84c934cce5e5e4648944baa41fced11f33777d352ef3a7618f",
+      "response_sha256": "598fd1a3abd1b21d03bdb90df8abfc56842bd42a4d898760b5d2b56c653af206"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 9.0,
+      "sample_weight": 6,
+      "point_ids": [
+        35,
+        123,
+        391,
+        779,
+        780,
+        829
+      ],
+      "request_hash": "334ba788f836926070762d1e29e7cf7626804e749d846607100b8cc6250be3a0",
+      "response_sha256": "7fa8fb836db1a3e305dc453b908de55b6f7fb412347dc269fcedbfd0517bf115"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 9.25,
+      "sample_weight": 1,
+      "point_ids": [
+        415
+      ],
+      "request_hash": "eed8f2fb2ef194a34e1fb8a5e5d9f04ee3955319b9cff9f87fc6d7afea26d099",
+      "response_sha256": "80d4cade3df2cc3e90cb95ef64fe134ccd5cfe26a81e7ec54c2ec15b352606e9"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 9.5,
+      "sample_weight": 4,
+      "point_ids": [
+        259,
+        275,
+        328,
+        815
+      ],
+      "request_hash": "0a61f884373821adcba5116aa7383fb7b8cdaa2375041b2cf78a9183e09f0afb",
+      "response_sha256": "acccab031fb55fc290d9f0a21b93d4fa3a12237e009a841c3e53bdc77a005ed5"
+    },
+    {
+      "cell_latitude": 61.75,
+      "cell_longitude": 9.75,
+      "sample_weight": 1,
+      "point_ids": [
+        877
+      ],
+      "request_hash": "21436828d64eb360e3a9193730a9f9aaaf0a13ce4bc37e4793149cea76f0e873",
+      "response_sha256": "36e2dbfc3854cfefd5176fbe131ef09cf2241b6b5f6a2a86cc8fbd8cadd73163"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 5.0,
+      "sample_weight": 1,
+      "point_ids": [
+        216
+      ],
+      "request_hash": "11332d708762fa70794bfdb1165a39618923e536057702f29cfcf26cadf6a745",
+      "response_sha256": "022c3a230a55398d01a53ccd25fe3071fac236be4085cfe1ab015d73e8aed4d2"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 5.25,
+      "sample_weight": 1,
+      "point_ids": [
+        726
+      ],
+      "request_hash": "1f2b3b93008902fcb8b86846ffaa535f1fefd831e405262c963b5027518a9368",
+      "response_sha256": "4a8b7393b11c68456492ce7374f0f8b4b1a46d464bb3ee92e2a4fc2ad44bc221"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 5.5,
+      "sample_weight": 3,
+      "point_ids": [
+        479,
+        641,
+        691
+      ],
+      "request_hash": "b3e866f9b8c2aac842cf4c20605b894e3fd9890c89b2c6c60473dfa6beb05a4d",
+      "response_sha256": "44b9a7c13635fb4949912ab67943af03bdff3127ac972150522374dd79734585"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 5.75,
+      "sample_weight": 5,
+      "point_ids": [
+        72,
+        562,
+        741,
+        804,
+        860
+      ],
+      "request_hash": "0e74d37dde6c5ae6827faf2a6c79a66facd8c828cc6ee69dcafbc18830b509f0",
+      "response_sha256": "b165f911d5f40094c0b5273eb5b51aca51d33bc4fc341a87a6016bfeb1d93175"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 6.0,
+      "sample_weight": 4,
+      "point_ids": [
+        156,
+        496,
+        574,
+        755
+      ],
+      "request_hash": "26a21fe46dd93a1d51dbd5ede443534c719a67d7948efb67b086a20859bc850f",
+      "response_sha256": "ee52a5b92688f8ecfb96bdd3e0db245df2f7aa2a1c46975aa6b5e1f99ec40d67"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 6.25,
+      "sample_weight": 6,
+      "point_ids": [
+        553,
+        597,
+        713,
+        745,
+        761,
+        891
+      ],
+      "request_hash": "fa2ddcad270767c5a31727a1c07d1d55607522b0457d6b0917849d580edfdcb2",
+      "response_sha256": "8713b77105d106dfa8f6a7c362037894064b1b7f98ec76c4f0e6e5e6ca04d901"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 6.5,
+      "sample_weight": 10,
+      "point_ids": [
+        9,
+        351,
+        441,
+        548,
+        620,
+        719,
+        753,
+        792,
+        812,
+        963
+      ],
+      "request_hash": "98d911b75da353b1f1232d64321902e27d63a57e3ed4a705e3c94999abec165f",
+      "response_sha256": "d1ab80b68f6a8859e1f7278f1f7b43af2a24a612d99fedd87e3759e8d5c6cbd5"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 6.75,
+      "sample_weight": 8,
+      "point_ids": [
+        12,
+        160,
+        444,
+        468,
+        523,
+        638,
+        767,
+        925
+      ],
+      "request_hash": "ed69e006e6d20b390b911db421c02339e60ca0e1c7cef19bb892339f971d71fe",
+      "response_sha256": "d6e60a8b751a77f88691d531695ed5242b051e5f6ba32f0c4cf47e129712aff8"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 7.0,
+      "sample_weight": 4,
+      "point_ids": [
+        323,
+        341,
+        401,
+        516
+      ],
+      "request_hash": "f6f5d469e6d84b7f4fd4ad83a820f3499597a10b05fadc55c60316c5e029e5ca",
+      "response_sha256": "4d0c56f4f88bfa74d9b7188b184e44ab2cdbbe6c0c64c445c00a83a4c7bac3a4"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 7.25,
+      "sample_weight": 4,
+      "point_ids": [
+        104,
+        115,
+        308,
+        980
+      ],
+      "request_hash": "3124e1be1927b4f7c6de86ddba705b567e598ab22f6ff6858bb2ffab60542e02",
+      "response_sha256": "aaa90f4bdaef836f28dad29aac4e7dd894a2f2e228221b007db9736dd9d95e74"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 7.5,
+      "sample_weight": 4,
+      "point_ids": [
+        55,
+        490,
+        514,
+        645
+      ],
+      "request_hash": "7f9bf342de63919e9d9ed5942a0c217e6c1821ab39fae6c4151e0e4a5a06de87",
+      "response_sha256": "42fb8c39775ea211c841dd49707a734a45b6c48139b1c1bf6b5cf1ceaf3e00a9"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 7.75,
+      "sample_weight": 4,
+      "point_ids": [
+        624,
+        627,
+        742,
+        851
+      ],
+      "request_hash": "1bf78831e7caa44bdfdc540cdd4386ca448f995553f2b2c74489c3f50afc0fd5",
+      "response_sha256": "42c5113c152948a6998254f1fcb13410858a6c594c914f18b0875518f7aec82c"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 8.0,
+      "sample_weight": 5,
+      "point_ids": [
+        331,
+        346,
+        483,
+        754,
+        880
+      ],
+      "request_hash": "47837472c9d371cb5efbf4c6540af3bb1e91e0bcc37b6556c16ca206b6621692",
+      "response_sha256": "d3f3e0a8155959075c00a895594735f9974097eb7bd237c227197346e861c967"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 8.25,
+      "sample_weight": 6,
+      "point_ids": [
+        58,
+        96,
+        409,
+        690,
+        708,
+        990
+      ],
+      "request_hash": "fcef4b0aa0cace4a03500cf6c3ce92fbc5621cbc9ea1c08a54b5e8a17d9562cf",
+      "response_sha256": "c6fc2871290f7d5d07cd7def2d758b7a33e163472e25c688652a410fabf4719a"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 8.5,
+      "sample_weight": 1,
+      "point_ids": [
+        826
+      ],
+      "request_hash": "3deab30a5c24fd721cfcb91ce92b354427106c5ac72468f605ea6f031d925251",
+      "response_sha256": "8ef5a58c4a05df1dcfad1f31d727fa003fc1d3d87ddbc83a20de78884e7e9b04"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 8.75,
+      "sample_weight": 10,
+      "point_ids": [
+        61,
+        66,
+        133,
+        214,
+        421,
+        633,
+        643,
+        727,
+        796,
+        915
+      ],
+      "request_hash": "d773860e6460fc3aa0516b83776592a76cc4b322c5d5e09026aea4d2ac14ae58",
+      "response_sha256": "584887f92b4e34a215db5179f7ea1013ba607e4949b1b9d6d827c733fa32b65c"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 9.0,
+      "sample_weight": 3,
+      "point_ids": [
+        31,
+        639,
+        950
+      ],
+      "request_hash": "c330241db220f251cf1e2bb84cb57e76933314142280a81a15228d5460a458de",
+      "response_sha256": "d4a80c309a1831bfb66a9ac2a5ec71e48e622aa2a177f01dff88caeb3ac0d50b"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 9.25,
+      "sample_weight": 5,
+      "point_ids": [
+        8,
+        125,
+        504,
+        594,
+        734
+      ],
+      "request_hash": "2bc1809b6a073b0c06f0d56d284fdebab4e9f2ef24effd6d844690e67aef469c",
+      "response_sha256": "1b4ed8248bf08a9a120d9dd4b068e8f86299decb332aea49f3eed64c1eeb9e7b"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 9.5,
+      "sample_weight": 8,
+      "point_ids": [
+        203,
+        206,
+        210,
+        282,
+        335,
+        616,
+        672,
+        850
+      ],
+      "request_hash": "09ad78d0bc4d6426f945b29e42eb9729b0ea21b9adbf7159ae29432f95e81fe3",
+      "response_sha256": "1627fcaad92c30c614ea2293215efa963f4b6f688d2ce651f138f0dd8c8ffc31"
+    },
+    {
+      "cell_latitude": 62.0,
+      "cell_longitude": 9.75,
+      "sample_weight": 5,
+      "point_ids": [
+        10,
+        135,
+        183,
+        699,
+        966
+      ],
+      "request_hash": "42618c06b86212987ab1ef4393ab3cfb4ef3a3968beab81e6f2bc19f0a454525",
+      "response_sha256": "506c3b162c49f122c831f98a99919d35ca971e486e225e8f8aec45c6ab22fc92"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 5.5,
+      "sample_weight": 4,
+      "point_ids": [
+        329,
+        885,
+        945,
+        962
+      ],
+      "request_hash": "f0c0a04014a7f1d0a1578537868be4e76ed4b13995ba16fe07e24d5e2d789dcd",
+      "response_sha256": "b40263a4defa486250932f187b55a2d92733cffaa24ab0f71e70d183794f8ea6"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 5.75,
+      "sample_weight": 5,
+      "point_ids": [
+        70,
+        510,
+        551,
+        557,
+        668
+      ],
+      "request_hash": "33d26db528df1d3e23daacc88ec8fe20b1fcb0a9f310d427ed8c03895c1f81c5",
+      "response_sha256": "7a7d569d65d7bed36394ce27b99aa10755e415c09c9fce888093dde96c50838b"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 6.0,
+      "sample_weight": 3,
+      "point_ids": [
+        163,
+        864,
+        899
+      ],
+      "request_hash": "060a4bc2c7c65bce65a1702c54ee23c02c01204a0a48d52ec124f1b84c752a6e",
+      "response_sha256": "83435148eeca12400c1eae5bd564da0cddba0cff1bac686b5e92a55bbcbd4efb"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 6.25,
+      "sample_weight": 4,
+      "point_ids": [
+        11,
+        148,
+        520,
+        565
+      ],
+      "request_hash": "c905a5f7f1a84d5ae79752eac47a520d4a283ebea7cc5dde0f16c22ec664db28",
+      "response_sha256": "1eb4129bf74a8d3b820e2029db37a172e08cb3a47da35560009f728cb37561ce"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 6.5,
+      "sample_weight": 3,
+      "point_ids": [
+        389,
+        521,
+        858
+      ],
+      "request_hash": "e7de7f8d0d8a6b7544f4263e40174891a9d469869d48d7469bdcf0cd742e4047",
+      "response_sha256": "e3d7e4c2b917c1c9931cf751d7881a16f8e78adcd7626523d9a3b580c3243c1b"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 6.75,
+      "sample_weight": 1,
+      "point_ids": [
+        855
+      ],
+      "request_hash": "2e1f668e3bafc4bcb1d913dd9cd49348d87cd0f02b32cf9c37c69f65b14208c9",
+      "response_sha256": "fb3499b21f79b15c78f7b84fc5041645229c73d845836ca836618fb53ff291ba"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 7.0,
+      "sample_weight": 4,
+      "point_ids": [
+        478,
+        494,
+        518,
+        724
+      ],
+      "request_hash": "deb12aa0740ea803a846bafdf0550a601c13e0c13402c17cf12f7eb75c332f74",
+      "response_sha256": "81c549eef343fb436f62cf552020976b2d8149e5b685cdd715849a92774da56d"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 7.25,
+      "sample_weight": 9,
+      "point_ids": [
+        14,
+        174,
+        269,
+        376,
+        630,
+        661,
+        697,
+        854,
+        924
+      ],
+      "request_hash": "e4ad2372fdfab9127500f8dee5bfa1e3a79d90083a359b3e3e76778a6d034571",
+      "response_sha256": "b803f796aed8ca4b3e4687b6ac2702b6ee4435401d37e62a3d830ea0000f59ce"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 7.5,
+      "sample_weight": 5,
+      "point_ids": [
+        15,
+        106,
+        393,
+        561,
+        937
+      ],
+      "request_hash": "12ba0b97b68d383ec2a14fd0d914db4cb9267e0e4b4bfc10e79721d536e90d60",
+      "response_sha256": "7988fb79008dbda412397f825ae467a9f6d36895c236ae3a7ac5c5d5dd6abc6f"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 7.75,
+      "sample_weight": 5,
+      "point_ids": [
+        318,
+        369,
+        382,
+        907,
+        989
+      ],
+      "request_hash": "f0f5ef45f8e862e4d808d58e5c09fe76daabe947e9caf94a2ed73303e7f2ed6a",
+      "response_sha256": "8345b2fe21769ae6571d263e389635e18b1574473936fa849160dc7577c1b36b"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 8.0,
+      "sample_weight": 5,
+      "point_ids": [
+        189,
+        286,
+        298,
+        769,
+        847
+      ],
+      "request_hash": "420010283c7550cd5ee9756e3415100e9896d39eb1bc4749cc0cebcb97c916bc",
+      "response_sha256": "f93af08ace807f7c3fe71e2d7a96863999cf101976da99b5e323f3e46951128c"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 8.25,
+      "sample_weight": 5,
+      "point_ids": [
+        241,
+        338,
+        618,
+        644,
+        953
+      ],
+      "request_hash": "660ed45305d6c7281af917fe52999166e7a074e0fc72db2bfeef900f24bfdafd",
+      "response_sha256": "d2e1d4dc7b88d2810bad62833e4ca28428eb64891afc154908b6ee205b66ad8a"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 8.5,
+      "sample_weight": 3,
+      "point_ids": [
+        237,
+        252,
+        869
+      ],
+      "request_hash": "ca5d5c2f0c960b30fc5855c37006d593970cac9c5a484758e6809c6184265d89",
+      "response_sha256": "e1ae9c988f4cdb20145029196446694180308e16b704903ea8e3d562e95f8bae"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 8.75,
+      "sample_weight": 4,
+      "point_ids": [
+        0,
+        232,
+        763,
+        788
+      ],
+      "request_hash": "f2e6aa303f7f42657a8aba22ecc2f70cd02ecaf02783ecbd6d0d77926474ed94",
+      "response_sha256": "c055f089e9c11ef8c64eafcf4f57ca6428d3150e7fc63373fd56e393bd2c852c"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 9.0,
+      "sample_weight": 4,
+      "point_ids": [
+        193,
+        564,
+        709,
+        783
+      ],
+      "request_hash": "d80e0388d7289ca9abe113bc3156046aa8ea2f1d82e1796b6a59c6dc9f069707",
+      "response_sha256": "3e90c19351e2f931eba00f20f72c4b3eba8edbe69aec96a25bc51068d1750ce7"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 9.25,
+      "sample_weight": 2,
+      "point_ids": [
+        603,
+        834
+      ],
+      "request_hash": "322d5bc0a45a98c077009157447bc83036b6eed83e6826d40ebf33217804f924",
+      "response_sha256": "d78e8bf3f1056719f80efedab86a81cd466f3adea49800c057fb899570435023"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 9.5,
+      "sample_weight": 4,
+      "point_ids": [
+        86,
+        349,
+        481,
+        752
+      ],
+      "request_hash": "3f1fe9aa813c893b88921c006ba14cf91a5929889f602ced6504070cd3929706",
+      "response_sha256": "7e2d0347b1b64125f41892e97c83778867d0299df8e208f711997721c4497d27"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 9.75,
+      "sample_weight": 13,
+      "point_ids": [
+        23,
+        149,
+        213,
+        406,
+        528,
+        580,
+        607,
+        611,
+        632,
+        654,
+        879,
+        897,
+        900
+      ],
+      "request_hash": "142c8708b8b26fb160a99ab228571f409c34a5afc4c9fdce2a9272a4a9a433a1",
+      "response_sha256": "009c3d2432e906dafa4f71dcfb5fbcda9e9ba61fc20bd2cd27c9c8fee46c6535"
+    },
+    {
+      "cell_latitude": 62.25,
+      "cell_longitude": 10.0,
+      "sample_weight": 3,
+      "point_ids": [
+        279,
+        955,
+        968
+      ],
+      "request_hash": "535014cba0a488ebbb258c311897bff453dfb217d8b6e4bd3fafcf1bb61957d9",
+      "response_sha256": "c20055402bb352de290fb397cfe7d64a30364bd8d2b6cd8f7f4f7fd4ee7bc31e"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 6.0,
+      "sample_weight": 3,
+      "point_ids": [
+        276,
+        499,
+        686
+      ],
+      "request_hash": "567dca25b81c6a5945bbb5f6bb7a026b96f8375fb49e2377a75a259d2bb945ec",
+      "response_sha256": "c1902af218cdd620c95cdd2ccbf852dd3fec96332b4808e66410591b99d3444c"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 6.25,
+      "sample_weight": 2,
+      "point_ids": [
+        201,
+        725
+      ],
+      "request_hash": "be505db53548d0e95d6867e08e2556ea73b89a26b3b7ef67a35bd74de129c949",
+      "response_sha256": "ef60f904a517382e138a59d19ca0c4a25141d903306fb319c5a1cf54a6baf706"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 6.5,
+      "sample_weight": 8,
+      "point_ids": [
+        161,
+        310,
+        417,
+        602,
+        619,
+        634,
+        882,
+        939
+      ],
+      "request_hash": "0d87e54be4d23608c110473e30ff418bde6a34ba1136ae121d661532034612a0",
+      "response_sha256": "38c1f72d7fc075f02af9114bbf2b234ffc9dadcaca773ec1b1455f47cf25b102"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 6.75,
+      "sample_weight": 7,
+      "point_ids": [
+        260,
+        294,
+        332,
+        390,
+        628,
+        712,
+        800
+      ],
+      "request_hash": "15d7fbba09c849494f8cd68b11b3cac18e8cbe9e38e460be3fe7a08bfae19163",
+      "response_sha256": "d7fe5952691d198352e3c9e9bfd994bfced4ce7385ae787784b9dd11414bb384"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 7.0,
+      "sample_weight": 3,
+      "point_ids": [
+        416,
+        776,
+        782
+      ],
+      "request_hash": "e105fe7ec9a688b5f67db784e939e79139b7072b7735c2b927d25cc85e5d37b4",
+      "response_sha256": "1139edec84c74dbe8eafbf413b9d1ee6bfab572da6fdb87b4ea63c9f6e4209aa"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 7.25,
+      "sample_weight": 7,
+      "point_ids": [
+        43,
+        527,
+        530,
+        537,
+        730,
+        770,
+        836
+      ],
+      "request_hash": "3d9eb68740793a3349a665f48028172b72f4d55c676239be2f8120c77f4afdfd",
+      "response_sha256": "bcc4ba5818fad5842f0dc6f51d2870c5d384576b57c3f74504111a69ff93390b"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 7.5,
+      "sample_weight": 5,
+      "point_ids": [
+        166,
+        342,
+        567,
+        811,
+        943
+      ],
+      "request_hash": "811278f97ec436de87cf4b3dcbf578e55d2f2a0e3edbbfca06437789e515537d",
+      "response_sha256": "534b07e7fb66999696998eed139d373a4fbcc7fb0473383b7a1fa9ec9fb4f1a9"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 7.75,
+      "sample_weight": 10,
+      "point_ids": [
+        155,
+        205,
+        381,
+        412,
+        477,
+        482,
+        584,
+        833,
+        881,
+        998
+      ],
+      "request_hash": "389047f5e6b96f3b82d3ec5806227d0a5a67e193c62c8b8bb478363494864ff0",
+      "response_sha256": "05a9cf32b9912faebb8d00986d731bf69cf6f92f97e8be83e32b096b257a1740"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 8.0,
+      "sample_weight": 1,
+      "point_ids": [
+        142
+      ],
+      "request_hash": "147ed4826be790d4d4441d442b1b1165abce7d32a777d16302411e4aba1dedd0",
+      "response_sha256": "482a78125061a5328e254ed5b1f30eace6b1336315cb9abd1519fffba2910f6e"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 8.25,
+      "sample_weight": 3,
+      "point_ids": [
+        677,
+        757,
+        787
+      ],
+      "request_hash": "9c47b399f533e66027d812c2b4444b62cef4d5899a98c18a69a43c9a36e5a900",
+      "response_sha256": "18bd16e5836d39185fb9e0be5f7ff7a3019ba1f5b6bfc924c60020bd4d91914e"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 8.5,
+      "sample_weight": 7,
+      "point_ids": [
+        56,
+        78,
+        211,
+        347,
+        610,
+        906,
+        981
+      ],
+      "request_hash": "ad748908674b1f26a6a72d288715e786609f81c48a3c4f45e5a204d7e8af5dcf",
+      "response_sha256": "eaa56b519472ab8e05c984f2c8c3b193218344900c5ee554d089e6e02952bd1b"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 8.75,
+      "sample_weight": 4,
+      "point_ids": [
+        629,
+        635,
+        921,
+        979
+      ],
+      "request_hash": "135778cee4acc1d9a876e86caf024ea9be0f0c5d43ca6c4312918272fcb4117c",
+      "response_sha256": "18e5ea36e8e6792de8c13bdd770867806bc513f08fc0cd3db10272b9adf185ca"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 9.0,
+      "sample_weight": 4,
+      "point_ids": [
+        418,
+        424,
+        842,
+        923
+      ],
+      "request_hash": "54d422beb1d40fd1771c256ada08120511d34901ff3586740ef753767a6842d5",
+      "response_sha256": "ae8f30d3820a6af6ae7a58c40ca1979a048aa09a45438903e1186cf3e186ea52"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 9.25,
+      "sample_weight": 5,
+      "point_ids": [
+        168,
+        268,
+        461,
+        535,
+        794
+      ],
+      "request_hash": "71741bb4793f38c3e4db85067e49c19e9765f6e8a5b447dcec4ad1c2692747d5",
+      "response_sha256": "3b0470cfc816719ab10cd7bd6101ef91048806d2306d527902d9e861ef5a5883"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 9.5,
+      "sample_weight": 5,
+      "point_ids": [
+        262,
+        348,
+        350,
+        407,
+        546
+      ],
+      "request_hash": "a1c6d423d822ccc1f750b1094f12b92ed5ebf64c93c887db9eb708e676961719",
+      "response_sha256": "6554688b239a0536977b800b7d22d913213a55e9dd39aa22350c014182654a57"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 9.75,
+      "sample_weight": 6,
+      "point_ids": [
+        194,
+        292,
+        397,
+        454,
+        489,
+        529
+      ],
+      "request_hash": "7d1e5c2789b9fc48430aa104f3946b91a24051c36eabbb102de6c04dd93f61ed",
+      "response_sha256": "c404b69293f066af732566a48c5bafc5fb59f8781f30ea8c5cb9b54bca659c52"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 10.0,
+      "sample_weight": 5,
+      "point_ids": [
+        65,
+        105,
+        181,
+        449,
+        513
+      ],
+      "request_hash": "07f3d98abdefd1733524b9bb64a86c75bb5792b0211fae6ae88975dbcae6c457",
+      "response_sha256": "796604cc6a54ba636d06b9c56c759922ed44d679d9610799b122144567c9fd63"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 10.25,
+      "sample_weight": 9,
+      "point_ids": [
+        186,
+        196,
+        230,
+        267,
+        359,
+        413,
+        526,
+        621,
+        902
+      ],
+      "request_hash": "7e20897f31678280c562e0d4fc1de9974cb53746883aec132b96949c0f5b85b9",
+      "response_sha256": "7e980db9345bc159a9010fab851bb253d87a16ffb0c2ddd1de52d452f96033d6"
+    },
+    {
+      "cell_latitude": 62.5,
+      "cell_longitude": 10.5,
+      "sample_weight": 3,
+      "point_ids": [
+        111,
+        400,
+        434
+      ],
+      "request_hash": "2128fe876d16d9b44b4ad2d166e769617b6232e33e6ba6e20ec9129ca56a7dd1",
+      "response_sha256": "140d9603050c18253ef9fe3c81b21d95883d752421c1ab98f875f8d2daa2fd51"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 6.25,
+      "sample_weight": 1,
+      "point_ids": [
+        287
+      ],
+      "request_hash": "5a7a5b93e234451670373442edfc20406b54cce204412977f20ad91073d0608f",
+      "response_sha256": "24280e31896035734485de491814a8d5e7e688b06c3b6a8883056de48611c67b"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 6.75,
+      "sample_weight": 2,
+      "point_ids": [
+        25,
+        354
+      ],
+      "request_hash": "544c7871a7ac8376969d1beda2ed8d79d28c9e1c7773f5140fa5fd7aa2549c2f",
+      "response_sha256": "fddcb6f323b8e1f0825d6644a83300dfd923742f0803732bf0cdf1097c1e8c0d"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 7.0,
+      "sample_weight": 1,
+      "point_ids": [
+        978
+      ],
+      "request_hash": "4e74132ce86f5d2c71dd3b9787a88b3df42d1fd028e86c661c83d04335fad4c6",
+      "response_sha256": "c5ab78ecc7ed0f7bad62da1d284f3449e593a77a283dab1ad6b003a0feaa3ecf"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 7.25,
+      "sample_weight": 7,
+      "point_ids": [
+        89,
+        198,
+        377,
+        380,
+        384,
+        433,
+        814
+      ],
+      "request_hash": "7e39294cca6d15d2def63728a1ccb81ea7f82e51f6f3534eb61127305e0a4276",
+      "response_sha256": "3209d92168848091143b009e20338df72630cf1e7e74722745406b52f8b5ccdc"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 7.5,
+      "sample_weight": 5,
+      "point_ids": [
+        26,
+        138,
+        202,
+        280,
+        948
+      ],
+      "request_hash": "a9d907ecdd65fb0e2073d60dfb652201425dd9f51777a17ec896cbe64f40a682",
+      "response_sha256": "63c22a8367143f2e992ec6c3db58359ee84f2fe344bd21e63a42f35040beae10"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 7.75,
+      "sample_weight": 5,
+      "point_ids": [
+        113,
+        134,
+        696,
+        714,
+        917
+      ],
+      "request_hash": "521883248555433ec72a88615dc67bb4597f8336e547eafb91e6fbf30594e707",
+      "response_sha256": "2881165264ec7fde0f77944bb0b4d8f905a09e977cd89cab1dac4e93e848ef9f"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 8.0,
+      "sample_weight": 5,
+      "point_ids": [
+        114,
+        141,
+        153,
+        187,
+        920
+      ],
+      "request_hash": "388b92d66e5c1ce72aedb55cd50161c5ea88cb96ad839aa7dabd7346ce5bdb93",
+      "response_sha256": "2ff737eb8290904098de7ee7bd2d6d619b06b6a4c5bbfa886506d84e1d567246"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 8.25,
+      "sample_weight": 3,
+      "point_ids": [
+        749,
+        947,
+        952
+      ],
+      "request_hash": "181e2b6df7b40aa1e734261a9366e435b67311967fb8aa80d67a72b5c37d7dc8",
+      "response_sha256": "b09b4bcfcf0f8b6f26a3eb885812da20dedbe3a8d4c92cbebdfc20959432efd7"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 8.5,
+      "sample_weight": 4,
+      "point_ids": [
+        248,
+        296,
+        455,
+        515
+      ],
+      "request_hash": "2b62f7a2e683ba352fc2671267eb6393349a9a51eeac1e026da96ccad1de2b9d",
+      "response_sha256": "4bf858a43e4c49f19f97fff9c1eb9e8a51dec400733faa4ca8b43a0490cb1ad2"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 8.75,
+      "sample_weight": 6,
+      "point_ids": [
+        18,
+        99,
+        394,
+        464,
+        589,
+        898
+      ],
+      "request_hash": "f7e00c5295eb5c587eb9a4c72f6dc4f988bc2459ba43a40e3aeb603d31e20bb1",
+      "response_sha256": "55c77b2cdb5375b48a91b04808e8adf7f15058867d20581786fa9d4901a9f1d3"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 9.0,
+      "sample_weight": 8,
+      "point_ids": [
+        5,
+        51,
+        453,
+        495,
+        613,
+        680,
+        986,
+        995
+      ],
+      "request_hash": "3d7093f2a2e8a1ccaa19d0a80ed6345f24ce41e92f324df782032cb8783971de",
+      "response_sha256": "4c58305f98f358065e380fd28e7221dbc9db5394965be7ad0914fbb83dea36db"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 9.25,
+      "sample_weight": 4,
+      "point_ids": [
+        44,
+        247,
+        266,
+        304
+      ],
+      "request_hash": "e05484617dea537d2caf8234dc35a246afae7dda0ebb934c44565e1109e621c6",
+      "response_sha256": "8d875bae78330d6f8724324a888a93c34863591ddedf8b01b7d5ba1ddafc3e07"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 9.5,
+      "sample_weight": 3,
+      "point_ids": [
+        122,
+        368,
+        805
+      ],
+      "request_hash": "f0b1af41fb65b1cbada172e26c5325402e30bdf017783e48fce0f2d3e6064c64",
+      "response_sha256": "ccf5c28819799e05da961df18131f61e32ad32bef7a7ad0270591a0366e2ebe5"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 9.75,
+      "sample_weight": 4,
+      "point_ids": [
+        7,
+        238,
+        387,
+        723
+      ],
+      "request_hash": "6eb79e7acf03a9707a865cf89500a68a7280a705d1b91008632e33bb9e8e07a3",
+      "response_sha256": "a6efb0960a7cdd879e89bb33ef1bda3870d3d0cdb425430cc4eb0bccd09ebe82"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 10.0,
+      "sample_weight": 4,
+      "point_ids": [
+        6,
+        84,
+        199,
+        344
+      ],
+      "request_hash": "097566ef888221df87dfb6ede66475a34e338891506d247a2ac3f0451f44649b",
+      "response_sha256": "f0febafef673184ea7b78b285cc8bd550399355658edc7d9eaeb168ba31cd2e5"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 10.25,
+      "sample_weight": 5,
+      "point_ids": [
+        493,
+        600,
+        642,
+        676,
+        889
+      ],
+      "request_hash": "d776e2c5f3a0ff18b38755aafbdbe197871df335ab4c34b66ed28a8f75228501",
+      "response_sha256": "0618969247be6fef79d645ab095d927b25f9cb36b84db9cedd9328fccf07ad8d"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 10.5,
+      "sample_weight": 5,
+      "point_ids": [
+        200,
+        345,
+        404,
+        466,
+        579
+      ],
+      "request_hash": "a815017a0e5b387038523c424f2105ea0a10edb0a29a44735097e25f2072f2b1",
+      "response_sha256": "612a966d67ecff118614d88215609851d0afb5d709460a2946d13ed70985a239"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 10.75,
+      "sample_weight": 1,
+      "point_ids": [
+        874
+      ],
+      "request_hash": "12096790132910ab9667c21dd58afacd4324e289fc908249926e487fb1fcf13c",
+      "response_sha256": "7d7acae429c31373eb89521b78bd18013d9679a82d2f39187af1e1263d20b2d4"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 11.0,
+      "sample_weight": 5,
+      "point_ids": [
+        217,
+        432,
+        457,
+        549,
+        878
+      ],
+      "request_hash": "60a1bc74d60eb466d7efdaecf28676fa8c7c09f37df70690ec33fc4a5a65d3ab",
+      "response_sha256": "4f58210231c3cbed2670e55e280d6d24ce51570182d115530c6ddd049745d7d5"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 11.25,
+      "sample_weight": 3,
+      "point_ids": [
+        117,
+        273,
+        625
+      ],
+      "request_hash": "8aca000fc331fce770e7e1718f05661d767806098e1b0b5a98e8653f7da8ad04",
+      "response_sha256": "dd189b5be2750272a6635fe4fbe9b25f796bd7618808c9abeb6e5e3f0a0c4ac1"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 11.75,
+      "sample_weight": 3,
+      "point_ids": [
+        383,
+        511,
+        693
+      ],
+      "request_hash": "ade74013eb7549956f7230c1dbbc3f77c0a5b757ea75f0aa35ae538ad5fbe259",
+      "response_sha256": "246a9140e85a096710ce6347ee6fe16b1ff422a5cb971b7069a359ef7c522a24"
+    },
+    {
+      "cell_latitude": 62.75,
+      "cell_longitude": 12.0,
+      "sample_weight": 2,
+      "point_ids": [
+        165,
+        903
+      ],
+      "request_hash": "065030e21cf124b39cf887e3d6e7908e05ea91fe014799c1bd122f368324c47a",
+      "response_sha256": "56dcc97dfc926937c18eca4a81bf779eb83c56f61510f088bd0dd4fda05fd159"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 7.0,
+      "sample_weight": 4,
+      "point_ids": [
+        94,
+        225,
+        655,
+        827
+      ],
+      "request_hash": "92c31098030bbfab4b7dd13596023e115046d2c7561bfcbbd23a8ed0cf30188c",
+      "response_sha256": "a542b53a2b469ee57625a23ebf48424675ca4a2059ecd7ae075a0843a5e21fa7"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 7.25,
+      "sample_weight": 2,
+      "point_ids": [
+        223,
+        591
+      ],
+      "request_hash": "59bd2ec0891afde7169153ef4d6125ad5d00548df2306610ba6289f77b727553",
+      "response_sha256": "3b1b9acf4e281d1c9c564170e890ad178c00d41acb3c19d0aafd8b8615a31233"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 7.5,
+      "sample_weight": 1,
+      "point_ids": [
+        204
+      ],
+      "request_hash": "fe6ffcd4839f36d9c033fd48d8f53c972e016833c1f2ae0c88c821cbfb1c1744",
+      "response_sha256": "5779057a8f2938a4a76f5ea726739d430e6a96b40a3cd97a8cfc938200e00648"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 7.75,
+      "sample_weight": 3,
+      "point_ids": [
+        171,
+        258,
+        307
+      ],
+      "request_hash": "8fd76de42f0cda681899498b5dd8d4dd1f00bc139dd03848f2f89502697a6a1a",
+      "response_sha256": "23f1fef9a82e6da60d9e931ac46e33aaa056118badbc0163b7d31a776dcc1245"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 8.0,
+      "sample_weight": 4,
+      "point_ids": [
+        283,
+        324,
+        396,
+        965
+      ],
+      "request_hash": "8de86c78901444328b48beb9a530d21389657c04fa8fa9394b9ccf85dbe4d12f",
+      "response_sha256": "12696cb5580fa3d5b288c573cc8fec84bc6c42b946f195efe07b884e8e174c3f"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 8.25,
+      "sample_weight": 8,
+      "point_ids": [
+        38,
+        60,
+        175,
+        301,
+        566,
+        862,
+        934,
+        967
+      ],
+      "request_hash": "f623389489549e23c3dc8b7695dec34c06d9255de6f1e9e7180aa84236d75d63",
+      "response_sha256": "16dea7aeb0df47a3c8ae7f525af8bbdbbf24bc7d3118af2b007efa3ccbde04dc"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 8.5,
+      "sample_weight": 3,
+      "point_ids": [
+        372,
+        737,
+        871
+      ],
+      "request_hash": "84af6253ed2975ca8a2fe23d5ebb39bed714c23acd159c63e5446c8a0f24d010",
+      "response_sha256": "28ad1c823078e0a85cdf145a9c4544999a183bbdbcfe74a857acbdfe3dfd6526"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 8.75,
+      "sample_weight": 4,
+      "point_ids": [
+        74,
+        191,
+        362,
+        774
+      ],
+      "request_hash": "e52e080cd2c2df4ec39321936b5a28ab5e947571d3c64efe0b0a027a480b3a27",
+      "response_sha256": "e48437e23adebc77b7ac71335c27ba289770c25ea00e6e620581a23850a38833"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 9.0,
+      "sample_weight": 3,
+      "point_ids": [
+        710,
+        824,
+        911
+      ],
+      "request_hash": "96ba4cd936c48bfa3b8d3acdeddc3fff7b7fd46cd3da837a19f669a274d568e1",
+      "response_sha256": "1e538ffa0d874ecebe2ae999d2f024650172b0d61aae04c544a6bd100af5214d"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 9.25,
+      "sample_weight": 8,
+      "point_ids": [
+        50,
+        68,
+        93,
+        103,
+        188,
+        235,
+        538,
+        608
+      ],
+      "request_hash": "2a1c7387854d8c0e9dc20ebe9e29b4fcd78817c2c1dc6976d188d2643c283971",
+      "response_sha256": "a37f7404cc4f72742ccb8530fa639dee1832593a149a2ac5fe5f4a8344df67be"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 9.5,
+      "sample_weight": 4,
+      "point_ids": [
+        272,
+        452,
+        765,
+        896
+      ],
+      "request_hash": "58f205a3dcfb8577fe4cdcc936798e91ed90886c78f24f5a7d7b46d805594889",
+      "response_sha256": "6255197a92089136e8628bb948668e086ce9c430c51f4f24d32eb124dc206f30"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 9.75,
+      "sample_weight": 7,
+      "point_ids": [
+        229,
+        476,
+        716,
+        844,
+        873,
+        914,
+        935
+      ],
+      "request_hash": "b4f57dd2946a7b033913d9d7246699f0d9db837fa0e4b6e4e09d7f94834cfccd",
+      "response_sha256": "ae16c04e47e5318a0c301a595a0e3f386b74fdecb2c58e5b473e381a83f09f1b"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 10.0,
+      "sample_weight": 6,
+      "point_ids": [
+        263,
+        293,
+        440,
+        793,
+        887,
+        987
+      ],
+      "request_hash": "b93b7b4ff6b6502133952f438617221e17316c1b41034d55ea98d06dc7c6c053",
+      "response_sha256": "080bb9a818a40e1c898ff8357e2014cd011ad7ec9bebe4feb832bd7b337d3949"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 10.25,
+      "sample_weight": 7,
+      "point_ids": [
+        32,
+        231,
+        284,
+        582,
+        822,
+        838,
+        857
+      ],
+      "request_hash": "b49d9215d3233caeb9f6c6d2bf71b4e9dfd93198dcd2866d194ef07bf6361d1c",
+      "response_sha256": "4a10f8a541f7f4ba76e40551df74c13dfc0f2264b259cff8f1b29b10262161af"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 10.5,
+      "sample_weight": 3,
+      "point_ids": [
+        143,
+        573,
+        768
+      ],
+      "request_hash": "a1ab01cea008924a1b00341d1bf82bc28372217e88047b664a081c10f1fc3b24",
+      "response_sha256": "a9d822fca5746394377ff63de94ca9839b300a8d0639169f2b10f26b7ae0f0d9"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 10.75,
+      "sample_weight": 4,
+      "point_ids": [
+        3,
+        164,
+        236,
+        859
+      ],
+      "request_hash": "4780148de280e2fa265470d4fda8e6b46d5397a0f9100df108339c0fb2d2513f",
+      "response_sha256": "78a2f2c5b9db6954ec2e69777b38da1c36898240b605575579ad35160f3dc42c"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 11.0,
+      "sample_weight": 1,
+      "point_ids": [
+        27
+      ],
+      "request_hash": "77c2791ca191a5d7f360a0f91474ecb14b4f4a1b8c1ff2d1f07d2224fb90dc58",
+      "response_sha256": "96fe1e042babf3518fbdf5d0f046c1d02b265038be4e6d4d7a2bf9de18a3ce2b"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 11.25,
+      "sample_weight": 11,
+      "point_ids": [
+        69,
+        107,
+        151,
+        367,
+        392,
+        534,
+        554,
+        592,
+        637,
+        807,
+        846
+      ],
+      "request_hash": "c5d78ec803c1ec1a5afbbd92195b96e0146b43a484b6256d947eb07243252f4b",
+      "response_sha256": "8191f90ff4216285cb1aa06542de35d6f93ce4a86709ca6f664b59392a77a6ca"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 11.5,
+      "sample_weight": 4,
+      "point_ids": [
+        311,
+        732,
+        771,
+        930
+      ],
+      "request_hash": "418ccfe74d1887b6555a2ea774e0d0b99ffe44fb0841973ec640c1bc937192a0",
+      "response_sha256": "059878c0062812adf0e8cffe36aa223ecf1d81a8be0d07473347343f572bb4fa"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 11.75,
+      "sample_weight": 7,
+      "point_ids": [
+        30,
+        67,
+        167,
+        182,
+        330,
+        503,
+        828
+      ],
+      "request_hash": "c24dd478adc7238655656b54dd2010e6760acf0488152b309f1e921abfd9aebe",
+      "response_sha256": "b1e877abcfc9dc77324b957b803df777e62192960d878153c9500154dc466382"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 12.0,
+      "sample_weight": 5,
+      "point_ids": [
+        95,
+        118,
+        173,
+        471,
+        919
+      ],
+      "request_hash": "f8c4ac9ab437bbb978c7b30580d66000720d7b9067b60cca2e2527b4a0646417",
+      "response_sha256": "bc0d10926e12f801a8aee8f036d7049afb0902ccafcfc5e7a5ae9a9b3b127ac3"
+    },
+    {
+      "cell_latitude": 63.0,
+      "cell_longitude": 12.25,
+      "sample_weight": 1,
+      "point_ids": [
+        102
+      ],
+      "request_hash": "3b100c57aa37cc23b4a75108a1204b909a46955721844133eb5cca06a0d42ec6",
+      "response_sha256": "201b5a29da239b54abbeffbbc8b66c107e53558cc0f3c0748cd998818b2d5677"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 8.0,
+      "sample_weight": 6,
+      "point_ids": [
+        245,
+        291,
+        581,
+        650,
+        818,
+        845
+      ],
+      "request_hash": "36c999c879930bce790eb65d656132a20cfd854997eee9de1790aa22fea5e09d",
+      "response_sha256": "6ab3b03f0590a026b8798c516acfc133a63430d45624e3cc78e9a0c9436ce334"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 8.5,
+      "sample_weight": 6,
+      "point_ids": [
+        63,
+        98,
+        378,
+        386,
+        721,
+        970
+      ],
+      "request_hash": "6ed63db694c22947d7dd6da51e8bec3ffc1a373a7fd8d3f55df6b43576555a78",
+      "response_sha256": "675f270a16b14b51cf5a14fbb370f3a38156092cf18318148a49d489645add6a"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 8.75,
+      "sample_weight": 10,
+      "point_ids": [
+        42,
+        309,
+        395,
+        405,
+        590,
+        622,
+        623,
+        740,
+        806,
+        913
+      ],
+      "request_hash": "3ae2cfcdb3fe93fed8e2e17f795f34b07f351a876864f72c89ad20ffaae39290",
+      "response_sha256": "29f41faa24f866ce410562acc4e1906b439dbdd4ae50ea8ae781dbfa5a72520f"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 9.0,
+      "sample_weight": 8,
+      "point_ids": [
+        49,
+        97,
+        220,
+        505,
+        569,
+        577,
+        756,
+        802
+      ],
+      "request_hash": "55c7d3d36e74a64a4a946c9deb3c1999feb0ad99007462be1637692ef6d0ed30",
+      "response_sha256": "62e920e5decebca3bc598914119406a168f54a4f581d35b953092cfbc40369b9"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 9.25,
+      "sample_weight": 3,
+      "point_ids": [
+        208,
+        249,
+        728
+      ],
+      "request_hash": "6acc0fb33820afbaee12b259705925d33ffdae872fbe8efc48d07e8fda6fdf02",
+      "response_sha256": "bfe2896ea8e4e44fd6f787fbe4668eef10f4f4aa6b087591341655dddbd51bcc"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 9.5,
+      "sample_weight": 6,
+      "point_ids": [
+        192,
+        357,
+        435,
+        547,
+        759,
+        843
+      ],
+      "request_hash": "ac5bbcfb88687d029d8e58f72218ce63a1add25bc75ea3337c2d96f19523337b",
+      "response_sha256": "e14ee9aa8fa033cb4cbc083a33cb049d8543c852dc9535997ad6802dd75d0e89"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 9.75,
+      "sample_weight": 5,
+      "point_ids": [
+        649,
+        670,
+        674,
+        775,
+        988
+      ],
+      "request_hash": "a5469738aa97881e3a43028e1506360d8b4b93e0adbaf2bf4bac19747144fcad",
+      "response_sha256": "0488caa953e72c0f8c3066437b021c80e554690faff63434f26973afddd5b8e6"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 10.0,
+      "sample_weight": 2,
+      "point_ids": [
+        373,
+        702
+      ],
+      "request_hash": "be61eddad8233e61af5b3996e6eaacc4e11f7218269a9062163605628e255581",
+      "response_sha256": "ebed9a1fb7b7edb0fd6377656254a6435308429d26c1785a7bb85724a05a643f"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 10.25,
+      "sample_weight": 3,
+      "point_ids": [
+        256,
+        646,
+        658
+      ],
+      "request_hash": "2df172542838b77fc1b21ed1c464e643f75c013bfc690dfe0e6edf9f9a70dca1",
+      "response_sha256": "360bb061cd7c421f1ec9e6ea143a84afb20ad0e9c699996f5c52009363a778c1"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 10.5,
+      "sample_weight": 3,
+      "point_ids": [
+        423,
+        665,
+        700
+      ],
+      "request_hash": "85b3be31178bfb45d70b169195907b484b19769b871c2f51af5a86ba1a195702",
+      "response_sha256": "85690a301c22e161e1c1a012c75cd2a28d0e86d03fc908695784626a5f4bfd42"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 10.75,
+      "sample_weight": 8,
+      "point_ids": [
+        46,
+        110,
+        152,
+        178,
+        264,
+        360,
+        703,
+        705
+      ],
+      "request_hash": "b73e88db62b128cbd25d926f710b1f9b7361aeccae48779774e8b3222cf273fa",
+      "response_sha256": "9f717d92e1cdf5ac2876da2db1cea22faf7f45385b42dd3d162429f8c68dddb7"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 11.0,
+      "sample_weight": 5,
+      "point_ids": [
+        525,
+        563,
+        606,
+        631,
+        933
+      ],
+      "request_hash": "1a55d4ce1a1b9936397f41bdec72041c33f822fd05ea4c1e83150d03d80003ca",
+      "response_sha256": "0e963e5c4c9614d711f316edc0830c2deae5f268d32ebb78ab002b63569969cf"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 11.25,
+      "sample_weight": 2,
+      "point_ids": [
+        20,
+        29
+      ],
+      "request_hash": "0bcb05db2110cea085b8ffc1b6891c61c9df1206c5d8685ec0b5caf5a7685b17",
+      "response_sha256": "a79dce1c6f85f5b08175c92bbdafaf0fe68c5b6d40c6412db0bd113033ab8b60"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 11.5,
+      "sample_weight": 6,
+      "point_ids": [
+        312,
+        321,
+        475,
+        671,
+        722,
+        801
+      ],
+      "request_hash": "3adf56c646f3cce09e4a117987de34e0d722e82d4475792e71526e98290f67af",
+      "response_sha256": "ac48438598d20652a6276ea84a2445b329d643b47b77e2b4b436c55707e63494"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 11.75,
+      "sample_weight": 4,
+      "point_ids": [
+        146,
+        361,
+        379,
+        916
+      ],
+      "request_hash": "67a43e970b3d2070f522bf279440744fead6c2a1e3514c40e18f7251685a1b2b",
+      "response_sha256": "ba73d73021a444dfbd6f110f9bc7b393f6a6a5491c17e628098abe42ac552033"
+    },
+    {
+      "cell_latitude": 63.25,
+      "cell_longitude": 12.0,
+      "sample_weight": 4,
+      "point_ids": [
+        322,
+        612,
+        883,
+        959
+      ],
+      "request_hash": "9da3b291204b98fe0c00a897ff75cba09c78d12bf248b6bc96f5b0737547ee42",
+      "response_sha256": "4d6086fe79353a72484281e56ec338dd8804f31731e84b6d31a1ada7d869416e"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 7.75,
+      "sample_weight": 1,
+      "point_ids": [
+        999
+      ],
+      "request_hash": "1a4ee81d2a9ead7ccd2371d388f324bbc98d19ec3a592d255d4df070751c2b75",
+      "response_sha256": "44f3e74ce8dd81626997aa8b86f1dd5f32bc1503b83308cb917a6ae880a1f85b"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 8.0,
+      "sample_weight": 1,
+      "point_ids": [
+        984
+      ],
+      "request_hash": "ca44ea36275e3ba3c042a72617bcd3e745129add1175a95b2384e85623c3f841",
+      "response_sha256": "da361d77f7fa366aa80e0d74741c366e41bc1bac3463cfca886f50eca6d786c6"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 8.5,
+      "sample_weight": 4,
+      "point_ids": [
+        130,
+        431,
+        673,
+        797
+      ],
+      "request_hash": "eec7a144605cf0dc2ca014646db60817aa2cd0d2829b5dc4fa8ced18801bc87a",
+      "response_sha256": "3006f2ff06470e4e4fed6fae31d43236812c4b9ba017c5c2ff69ba1311af2fbf"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 8.75,
+      "sample_weight": 3,
+      "point_ids": [
+        320,
+        555,
+        648
+      ],
+      "request_hash": "61ca46a2212961bfe6515d93ae975121bef601d757fb2597ae399768cdca7997",
+      "response_sha256": "a080558f5dcf742969a04357bd0bafa4613bc7cad7cacb35a8dc26d0dd68f2e4"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 9.0,
+      "sample_weight": 3,
+      "point_ids": [
+        685,
+        781,
+        866
+      ],
+      "request_hash": "a0403b138a00c601aab7f28e8f6025b252d2b9de55009bab9b94a3914c2e4e95",
+      "response_sha256": "03d3ff82df78b313e2f566b6a82b5c03a39114523471d95de896441a8ab4cd33"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 9.25,
+      "sample_weight": 1,
+      "point_ids": [
+        832
+      ],
+      "request_hash": "2d3007caff9b6839494c13a16ee58a3ca8b9be1d6f0a04b70bb79bcc3a7693d9",
+      "response_sha256": "fdf72ad04cec4af8f58ff3b35e62117cd0ec0b7c1e620c28c3d3c6eea935cd23"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 9.5,
+      "sample_weight": 2,
+      "point_ids": [
+        403,
+        541
+      ],
+      "request_hash": "cd3b8e811f19a6fe51e9abb75c1bdfcae69b886cc4d616359b1a991441398407",
+      "response_sha256": "2a1f801f61b37521e93ac2b64693e91565781f57d9134ae6152f6a92d64d02ef"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 9.75,
+      "sample_weight": 2,
+      "point_ids": [
+        684,
+        823
+      ],
+      "request_hash": "96ef74866e251b9d5ab84026b6d160287dc7586f1170fdc428b1b90aac07e5cc",
+      "response_sha256": "52623cc1977ee3c98887e0d1c5ee4b77b6049ae8b34ddf9d035fb80b976bba0a"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 10.0,
+      "sample_weight": 5,
+      "point_ids": [
+        221,
+        253,
+        288,
+        458,
+        522
+      ],
+      "request_hash": "5b29c6b9c97fcf81d3eb05748f4e032470b779bdbba2c229e15c83e060bded69",
+      "response_sha256": "4477fb923e098440281083814429fb627dff6f404984911557299a9ffaf9e1e6"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 10.25,
+      "sample_weight": 5,
+      "point_ids": [
+        277,
+        325,
+        326,
+        875,
+        949
+      ],
+      "request_hash": "9b493e91cd288c39818861d5571c8da822650184a86bf2f4ac28e1ef214defda",
+      "response_sha256": "6a7ca33466c141b4695856402c3dc8381e775ab004b8ce65d0953cda85ff2472"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 10.5,
+      "sample_weight": 3,
+      "point_ids": [
+        33,
+        893,
+        958
+      ],
+      "request_hash": "784ba14794cc37f1df2722689ea8bcae04e9705ba098331190f811b411e79ce7",
+      "response_sha256": "9c6645175e6c43dee4895c30956dac5a5fe25aca84681da7b39286855ec18bd7"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 10.75,
+      "sample_weight": 1,
+      "point_ids": [
+        59
+      ],
+      "request_hash": "dcb65987e1fbe385d91d309d0f86337da521da1f085512a5b12ea2f64705eb2f",
+      "response_sha256": "32931b82a6d62cb9a8864df9c9230fc23441c78ec84d4cc845d0b16cbb80c175"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 11.0,
+      "sample_weight": 8,
+      "point_ids": [
+        179,
+        305,
+        315,
+        375,
+        487,
+        809,
+        876,
+        974
+      ],
+      "request_hash": "93585b0510960f3967509f9df73e95c22bccc087e226413b6c37aa1929b1762c",
+      "response_sha256": "d343ba1665c9a6282cf3181c61c4c8f049f452a536cc40c6a175e17e1eaa4912"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 11.25,
+      "sample_weight": 3,
+      "point_ids": [
+        299,
+        410,
+        550
+      ],
+      "request_hash": "533544dfd1ad1c8fe5a8dfc3754b98c725b56c868223bafd163050b687bd2d93",
+      "response_sha256": "3ccea645233ea3a271564c64c050b656a227ee2f3e70ea3a96de866432c0288c"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 11.5,
+      "sample_weight": 12,
+      "point_ids": [
+        145,
+        157,
+        180,
+        295,
+        316,
+        385,
+        509,
+        777,
+        901,
+        928,
+        942,
+        951
+      ],
+      "request_hash": "0d6aade1366ded6ece95534be77ed1cb44ef35e37769dee2152881ed06dc56fe",
+      "response_sha256": "729d61de6c94ec92b2496a6613e7cb231e540c69723e9415a5927924a8be7f57"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 11.75,
+      "sample_weight": 2,
+      "point_ids": [
+        251,
+        922
+      ],
+      "request_hash": "a83c923667d8c21ce4ff3090db25555c4adba764520664d1496c9b0bb1895509",
+      "response_sha256": "d13030c985d5c6defdc70e79e4380dbacd17ba2dd2816631c1f3db96f649ba82"
+    },
+    {
+      "cell_latitude": 63.5,
+      "cell_longitude": 12.0,
+      "sample_weight": 4,
+      "point_ids": [
+        147,
+        388,
+        743,
+        852
+      ],
+      "request_hash": "9c160312de7703d92d778c11bf448663d0d42408a1dbf00f9860e344fc318db2",
+      "response_sha256": "7b6e377937d6c3fe49ef89a4cd28e13cc02e56c9247a4206f6f7b46696d9b772"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 8.25,
+      "sample_weight": 1,
+      "point_ids": [
+        778
+      ],
+      "request_hash": "35e47be0486f0439683c53c5f3fd7940d3f6cdf2a777216c5502821b8276a403",
+      "response_sha256": "2490df013c7373b41f71e3f082d1defc2502cbd9bb1740dbbc6a44f11ad69ab6"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 8.5,
+      "sample_weight": 2,
+      "point_ids": [
+        810,
+        961
+      ],
+      "request_hash": "580be3d0f52e44d52e3d539a7bbcb99cde634601feb1d6aff2d1a1006868a31c",
+      "response_sha256": "4043aef14e3be66d3e2ff5ce3f63eb61c8558169de52cec349b16d9298fac38c"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 9.0,
+      "sample_weight": 1,
+      "point_ids": [
+        224
+      ],
+      "request_hash": "99f3fdba0060804f5577f759136c1db0d358a02ca3173e01ded9e808314b1cab",
+      "response_sha256": "1e4ed798f5e70da051968d2f32829d0df2bf29bad65b787c5576fa412a0aa970"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 9.5,
+      "sample_weight": 3,
+      "point_ids": [
+        121,
+        459,
+        593
+      ],
+      "request_hash": "34f20e3970ba5cd66c57923cda54dc2bce79496facca6633f807b86e7bb1c2bb",
+      "response_sha256": "d307f38f090c9c3749822f22a17484824b1f7a29b0c8ae36b2b7bd658b3f3991"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 9.75,
+      "sample_weight": 2,
+      "point_ids": [
+        486,
+        739
+      ],
+      "request_hash": "a11ffd28f1cb340c1442a33020d646a6e20a235a667bc1f1919c9906ea27bbe3",
+      "response_sha256": "d0b152caa641b27e324a0210a29a01a9af14e79f6bf9ceeaec2c7d03e2578ef7"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 10.0,
+      "sample_weight": 4,
+      "point_ids": [
+        85,
+        870,
+        938,
+        940
+      ],
+      "request_hash": "f2fa6388ed1646b543c60b2fe97bc97c90c4ad3853f6b8591c856903e2fd41a8",
+      "response_sha256": "08ce5890894281b75132ef3eea5228cbe6e289d7c7f2e0519e9ad3865bee74a1"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 10.25,
+      "sample_weight": 6,
+      "point_ids": [
+        313,
+        333,
+        355,
+        414,
+        884,
+        954
+      ],
+      "request_hash": "656b7a946ddb2cd844cb9db5b1489a0687fad9120ab84ffc615e979f1215f931",
+      "response_sha256": "5189c65e6103552aebf448f88e46b6fb3c550bd6ee55fd18c970987bc14d26d2"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 10.5,
+      "sample_weight": 7,
+      "point_ids": [
+        71,
+        120,
+        540,
+        558,
+        647,
+        856,
+        890
+      ],
+      "request_hash": "d4e108bfc018f2af973c1981cf7032337f88074ac5e400574909f97b6fd4f253",
+      "response_sha256": "b94161479b952a6123f51870ab78ef0c326f654f42f2a341de7d487a18443a76"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 10.75,
+      "sample_weight": 3,
+      "point_ids": [
+        159,
+        340,
+        910
+      ],
+      "request_hash": "ed626125d541d2d819bb09794ed43630ac9238979aab9d6a9eaca4df1915d76f",
+      "response_sha256": "972e6342df47301c70d6e8f1d25d18a0cd186121d089f5e8aa21edb507775950"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 11.0,
+      "sample_weight": 3,
+      "point_ids": [
+        184,
+        545,
+        695
+      ],
+      "request_hash": "ddd55c8a02b1a6393f8c8a94a92f934c95cc35208b0ba62a08060c2e08723884",
+      "response_sha256": "400528f8a0d60ec9afc8a7190cf13b6b64e275cd107966985fd62058b4f215ac"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 11.25,
+      "sample_weight": 4,
+      "point_ids": [
+        572,
+        821,
+        957,
+        977
+      ],
+      "request_hash": "509b33525ba0a47e7d3e33d71208fd0b31a1dcf9b509dc2c3b33241c5ce80498",
+      "response_sha256": "8d07abc3b48d0783e9276bb3b90e69bd28bd9f2ed64e09b296856ce0d5bde5bb"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 11.5,
+      "sample_weight": 8,
+      "point_ids": [
+        88,
+        169,
+        370,
+        501,
+        587,
+        830,
+        892,
+        992
+      ],
+      "request_hash": "172e7ea86ebc4400a7322995c9f5eb9572f3f40b4bd0d1f8002946988b6eda72",
+      "response_sha256": "9b3a00dd1541d22ebb4248400b758c9304615d96770dfe2928723a04d3b0b893"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 11.75,
+      "sample_weight": 9,
+      "point_ids": [
+        158,
+        219,
+        506,
+        552,
+        559,
+        662,
+        733,
+        886,
+        972
+      ],
+      "request_hash": "90bbbafe8af026c640a93bcd8b300ed65bda5cea3541347a51d3c978dd1ac4bc",
+      "response_sha256": "4dfbe807003084d7c6945756af29f38cc54f56b70bad66bbedad82eab25ea30c"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 12.0,
+      "sample_weight": 7,
+      "point_ids": [
+        265,
+        334,
+        343,
+        439,
+        484,
+        773,
+        863
+      ],
+      "request_hash": "681bc18c48510fc902e396bacff564a658fb98d6d0beb7b155088e73d19b4047",
+      "response_sha256": "8fbdbffd0d9cf851e13960a6539a1b7da3194e592d8e6cca62124cbe4e2c47e6"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 12.25,
+      "sample_weight": 2,
+      "point_ids": [
+        785,
+        969
+      ],
+      "request_hash": "0374e348012f58d9d5121b461c80c585058d13830e8b4cc4172f134df3438bef",
+      "response_sha256": "3edfb2344de89edbf402e02f798158482085107804e4d7745a032f7b57436974"
+    },
+    {
+      "cell_latitude": 63.75,
+      "cell_longitude": 12.5,
+      "sample_weight": 1,
+      "point_ids": [
+        865
+      ],
+      "request_hash": "82b38b21bb619e6a1753291fb338a810039ae1f32d0cb1bf986f3fad79a1a1cd",
+      "response_sha256": "709b7b32b7c4c5660a46fca0efe391d0436b7332697febd619123e5136856907"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 10.0,
+      "sample_weight": 5,
+      "point_ids": [
+        77,
+        177,
+        234,
+        575,
+        588
+      ],
+      "request_hash": "ffb0c1d3add6d7fc802c5cc6fe4bc0abaf5f86a7e28facdf771fe2cca8b44149",
+      "response_sha256": "c410c62a0a460724879c1c6b469ef5ce380aa06ba26f38f661b31289040728d4"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 10.25,
+      "sample_weight": 5,
+      "point_ids": [
+        170,
+        212,
+        808,
+        861,
+        997
+      ],
+      "request_hash": "6638d51483c7d1f17e378e1426b1e434f02bc36e4549e3aab333f57f9486bec0",
+      "response_sha256": "863a09eba7374f7126fb844c93f3fd14557439f6c7b5c687a3141ffe0d9e6183"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 10.5,
+      "sample_weight": 8,
+      "point_ids": [
+        52,
+        140,
+        398,
+        428,
+        442,
+        820,
+        904,
+        991
+      ],
+      "request_hash": "9363173e685d10289fb25d0b1a4bea6a169ee8bca99aff2bf28ed7b2ec783ad3",
+      "response_sha256": "bb036ca0d6b662e22129f5e4e66ac38be364a02f24e9cb13b4401f9d7dd159b0"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 10.75,
+      "sample_weight": 7,
+      "point_ids": [
+        41,
+        365,
+        426,
+        715,
+        738,
+        772,
+        895
+      ],
+      "request_hash": "463d19a7d6249dd7e279e6c505c0998216fffcc4cd5316c66a7cb6eb320762a1",
+      "response_sha256": "cfb483a376853992227de66af41f4ada94c7baf111aca54bc5a2647782da0af3"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 11.0,
+      "sample_weight": 1,
+      "point_ids": [
+        112
+      ],
+      "request_hash": "87787660952299f74b7b506bb64de4b96fd43bbaf7eca8b681f73f516886a3de",
+      "response_sha256": "43aa4e767b2013b5296475e699420bfdb706b9e78466b0e632d0ccd325a97e7b"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 11.25,
+      "sample_weight": 7,
+      "point_ids": [
+        108,
+        497,
+        517,
+        536,
+        568,
+        652,
+        656
+      ],
+      "request_hash": "800ac4b45b07b567ae2d8ad11ddcab3a6976de245bec59a836bb87f675f8627d",
+      "response_sha256": "199774fe83c8934b126962e1eb935e6effb829a2ed7f5d91df1890a80fa65db6"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 11.5,
+      "sample_weight": 1,
+      "point_ids": [
+        270
+      ],
+      "request_hash": "c72db7a3d3a896ca1c7cdabc3e53e75e485c665d96ebeac02e851e5eaa36ee2e",
+      "response_sha256": "c7153feb19052b3e0c8057f8a9ba9baf0e8cf21c5ff6f24c44a989c6daded0ea"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 11.75,
+      "sample_weight": 4,
+      "point_ids": [
+        243,
+        250,
+        872,
+        960
+      ],
+      "request_hash": "7d753c099f0504a55b6b22f326a6a74066a8fd72b04e74d3a189036b4f5c1328",
+      "response_sha256": "917c1a5e401b7d33bccfc05af6ad377deca88d397a8872d1b96b35fe4dabb9c8"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 12.0,
+      "sample_weight": 4,
+      "point_ids": [
+        17,
+        150,
+        578,
+        790
+      ],
+      "request_hash": "38d72de30a88b3812a91ba47dd1e73ee4cc78a16254522508f8627f280dd8fec",
+      "response_sha256": "77484472e2bdc638e46a638ace5e444976c198f6b5facd01f01a7882c374cfb4"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 12.25,
+      "sample_weight": 9,
+      "point_ids": [
+        92,
+        185,
+        492,
+        583,
+        698,
+        803,
+        839,
+        853,
+        936
+      ],
+      "request_hash": "23cc35f13356ffd9d6f7d4a228f634256cfdcb44a48b142ae683e8eb9b9e2e3d",
+      "response_sha256": "580f67d4004dd59a6583b91dd41d245f39e01241c635462651efa9c6007f9f0c"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 12.5,
+      "sample_weight": 4,
+      "point_ids": [
+        48,
+        82,
+        470,
+        964
+      ],
+      "request_hash": "663080009327831c8eb2f6e9f3bb3a440a1562b3e3fac01ca0d3c85feebe5340",
+      "response_sha256": "b9f846e0c427f4d565144261a9f4d12fb644a940672a93981e4642acad9657b1"
+    },
+    {
+      "cell_latitude": 64.0,
+      "cell_longitude": 12.75,
+      "sample_weight": 5,
+      "point_ids": [
+        278,
+        300,
+        604,
+        841,
+        932
+      ],
+      "request_hash": "b4370f6b4b42ac390673567e2d521ea6fad40a3a9faeadfa48733ea5f13ca618",
+      "response_sha256": "57cd2595d269750421bc68ef79e4e4f3f607b32f1d112797e13622b566b70408"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 10.25,
+      "sample_weight": 2,
+      "point_ids": [
+        720,
+        912
+      ],
+      "request_hash": "5ec94e4951340c4cbbde8aeefd2a7e1359693a7cff5cf5e344f37f8d1ac1d358",
+      "response_sha256": "0ac47284e717310a399a9b1de63c912cb1ff70c9a0178833a5034b83a5a8e01e"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 10.5,
+      "sample_weight": 3,
+      "point_ids": [
+        13,
+        285,
+        687
+      ],
+      "request_hash": "a46205aa7cfe34ddfbea9181f0366403d6d278b73b0ef99520fbe4dcc7494db0",
+      "response_sha256": "f14ab4e93be8b4c667b3912fb7546b31cc747de7b31e501db774654e3bbb7043"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 10.75,
+      "sample_weight": 5,
+      "point_ids": [
+        139,
+        469,
+        689,
+        817,
+        927
+      ],
+      "request_hash": "247e295e5029b75e6901a277f3bf3b44baf79c524b7f35ed051159c83da54931",
+      "response_sha256": "7b1b78c7b6da3ff0b5fbf59c27db46871cff0d68eaf672541db3722430607e28"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 11.0,
+      "sample_weight": 2,
+      "point_ids": [
+        675,
+        758
+      ],
+      "request_hash": "c5864c24456ce53e760a20e7b84c1d8d1218fcfcd713976017512850e88f3bbe",
+      "response_sha256": "3a086bac1077483c7b49edad5bd1249947b27a5b45718e371882420e822806fc"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 11.25,
+      "sample_weight": 6,
+      "point_ids": [
+        22,
+        75,
+        364,
+        465,
+        485,
+        507
+      ],
+      "request_hash": "213d9e3be0e4ca047e3e5aa6fb8f31e5e8b2532ba7ed7de47b05863dcb3219fd",
+      "response_sha256": "a32ee07fdc486f51336857fba57766a8286c5a7fc947c85db50e4e6c4e3218ef"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 11.5,
+      "sample_weight": 6,
+      "point_ids": [
+        83,
+        240,
+        244,
+        246,
+        257,
+        669
+      ],
+      "request_hash": "b670c1ebcdc2b57638f19048b95ed067d90b8fceaad735ce461ea6f969c1ae62",
+      "response_sha256": "6a5c08fbc48e12d7abf88311ad288c8ab5d0c70d639de6636fd6d0f3d7cc1757"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 11.75,
+      "sample_weight": 3,
+      "point_ids": [
+        586,
+        598,
+        816
+      ],
+      "request_hash": "97416df632f96eaabf5e6e57348663ca0f82b203b9d00b4fd60f73701e2546b2",
+      "response_sha256": "27d740622fd13409879540e084d66f13959d605abc100315e06e29f7f6267cb9"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 12.0,
+      "sample_weight": 3,
+      "point_ids": [
+        28,
+        508,
+        694
+      ],
+      "request_hash": "f2b47ee4ac1ffbae60b1cb07c3a28d05b0661c4b68851cb2958fb0b42bf59e13",
+      "response_sha256": "836f6e460c7978e7121095af0a2f90dd5fb36bbc3aff6723dd2575be9362f24d"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 12.25,
+      "sample_weight": 7,
+      "point_ids": [
+        73,
+        100,
+        437,
+        543,
+        682,
+        683,
+        918
+      ],
+      "request_hash": "40af8c8cb1539531e35acfcaced2fb27348c2d0e0fc38f093dff5fd8ab75dd4a",
+      "response_sha256": "b7e582c5b5c2f3a5d6971eb8aa50db0588caeac65278aa88e79e97197923aae1"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 12.5,
+      "sample_weight": 7,
+      "point_ids": [
+        227,
+        339,
+        408,
+        571,
+        609,
+        735,
+        973
+      ],
+      "request_hash": "8bea5107d936e47d6800d6893e373f4ff6fc696aec147bcb1e819a6c51dbda5c",
+      "response_sha256": "d5b3e43ea3183edece6cb0d9577993ac59d7107c916ec32b1cd0262770d52389"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 12.75,
+      "sample_weight": 4,
+      "point_ids": [
+        80,
+        498,
+        894,
+        994
+      ],
+      "request_hash": "190e29b5ac8c470040c7f97b1a6377e45dda75eb8c4678245f492be30782eeef",
+      "response_sha256": "1f484db3a8cc25c97a0fda41412788f5103fa679ae8eb3b3fe19677f2424992c"
+    },
+    {
+      "cell_latitude": 64.25,
+      "cell_longitude": 13.0,
+      "sample_weight": 3,
+      "point_ids": [
+        176,
+        888,
+        929
+      ],
+      "request_hash": "6f606877aa507b7b6d3432d9f8bc779af9890745188a9802b3bbdddd989ed700",
+      "response_sha256": "e075a5d16c68a0187d69ff7c6b754d36380a27f9b5845b4fb07afeaec2c81814"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 11.0,
+      "sample_weight": 6,
+      "point_ids": [
+        297,
+        657,
+        786,
+        798,
+        840,
+        956
+      ],
+      "request_hash": "d2fd223515191199d623051c474dd5cabe85b6442649b995b92392c9b9b540b2",
+      "response_sha256": "1a3ae6a0d300dbf87e5d3d8368104aacceb50160abf93b005ea9dea5744c3608"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 11.25,
+      "sample_weight": 2,
+      "point_ids": [
+        40,
+        766
+      ],
+      "request_hash": "f7ba0a64ab28138983f57a75f23d55dfa867c2113cfe82b3240dc9549ed503c4",
+      "response_sha256": "19b65d328d4992768242fb911f439adbea560725136762852e3b92d467e127c4"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 11.5,
+      "sample_weight": 3,
+      "point_ids": [
+        678,
+        681,
+        941
+      ],
+      "request_hash": "159c23446b0e06273959c664ca259111ea4918537d692cb5d5b21a6b0f9c34c2",
+      "response_sha256": "65c275669923208f254f313a8360766004f760b0c6153c53f66a2b906c2b80bc"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 11.75,
+      "sample_weight": 4,
+      "point_ids": [
+        53,
+        542,
+        679,
+        718
+      ],
+      "request_hash": "2dc9f4f6b82601a91c85d3b52f30b005250e291f6643a43fb123b47803bc0ca0",
+      "response_sha256": "10a4b76685abde2b4dac2d8c75ab1b61ab237039c4ec0c5e71746123ec331c0d"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 12.0,
+      "sample_weight": 5,
+      "point_ids": [
+        101,
+        502,
+        533,
+        617,
+        831
+      ],
+      "request_hash": "a62e8e7431e67b687f2f1d64c89eac1a7ed7060c90c481a431d8852339253b5c",
+      "response_sha256": "acee2b8143017a2540813c366d8af881145421a78a8149750a6fab3a999e177c"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 12.25,
+      "sample_weight": 4,
+      "point_ids": [
+        131,
+        356,
+        701,
+        751
+      ],
+      "request_hash": "e69667e41631bf539b2d2cd56d25752f23e16078923c682c2a438fa1110e76db",
+      "response_sha256": "062a913b38e2e3730fc6c878aef6f5f63bb646cdf2b09240e5f0c5aa93110fe0"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 12.5,
+      "sample_weight": 7,
+      "point_ids": [
+        39,
+        128,
+        319,
+        422,
+        663,
+        688,
+        799
+      ],
+      "request_hash": "30cc5fb6efc4f88ee9cdb903cdfd811729ab1526f053488e0639b456b7a717c1",
+      "response_sha256": "e1491e41274a6f0a17fb00afa35579c2a205eb13e1316d8af6489c960d71872e"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 12.75,
+      "sample_weight": 1,
+      "point_ids": [
+        868
+      ],
+      "request_hash": "1b836173b250c9fe77821536e21560b70855e7309706f78af2a9a9346ed23abb",
+      "response_sha256": "c06689d08ecd51fb53a8fbc387f06b19fb2d7d86a83cea837be3180ca9368f1a"
+    },
+    {
+      "cell_latitude": 64.5,
+      "cell_longitude": 13.0,
+      "sample_weight": 1,
+      "point_ids": [
+        271
+      ],
+      "request_hash": "cbf5c03f432c88bc972b15eb9bce1238479efa65328f132b317500dbd5f9a128",
+      "response_sha256": "08be933455e5161bb6641bc0df9d807b34aa49b97bc51261b180b5007d88373f"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 10.75,
+      "sample_weight": 2,
+      "point_ids": [
+        467,
+        905
+      ],
+      "request_hash": "c5a3204bd6f101761ea999d0b4a6fb5af5abfc2a176ecf23f20de032beeb28f5",
+      "response_sha256": "aba11a05297130a533b7740eb413550a7ca40825b8fdf19518e371b7b70d90d4"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 11.0,
+      "sample_weight": 1,
+      "point_ids": [
+        926
+      ],
+      "request_hash": "3e15bd30f4cd7b4b37177133792cd6f669727e7637639af3083058d0b8c2665d",
+      "response_sha256": "e1e6c493b33866079ad7533b7fa649588eaf0f066a6c8a20e8814fe3d28ae17a"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 11.25,
+      "sample_weight": 1,
+      "point_ids": [
+        90
+      ],
+      "request_hash": "5a3a568c35ef14a4c2cb5967e8ee602d8070ccc937437d74f83fdb607160c9b8",
+      "response_sha256": "6c034010c87da849c285b601a503fe73970cf95781b1f0fafe6b0dc322f9f1ef"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 11.5,
+      "sample_weight": 3,
+      "point_ids": [
+        132,
+        411,
+        480
+      ],
+      "request_hash": "1848872f7b3f2d3c2df8a0c84c6f25f7caeda0626384088c735f0b88a7405702",
+      "response_sha256": "587fb787d62d208a0b693aaa47d8f53d9ca04d60c439a9922aebc4d3ea58cd32"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 11.75,
+      "sample_weight": 2,
+      "point_ids": [
+        576,
+        736
+      ],
+      "request_hash": "ee66af583d4eb3098fd7711539a4d17000d7fad2d959702cc11363457220dfa9",
+      "response_sha256": "6496f5598e189e8bdc35ccb69c8c59f654fb54e5e6c5b6e3e13bd165693f5e27"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 12.0,
+      "sample_weight": 4,
+      "point_ids": [
+        16,
+        255,
+        451,
+        640
+      ],
+      "request_hash": "124f5dfde38b76558d0c6665f2789fe051c70fd7a8cd4a2174f72edc70797812",
+      "response_sha256": "52984c586439d015687a8efe811d8ba08ef2665b0dd55fb4e8389d67f77002b8"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 12.25,
+      "sample_weight": 5,
+      "point_ids": [
+        116,
+        651,
+        750,
+        982,
+        993
+      ],
+      "request_hash": "fda87cc62d80577b725c6cc7de5bd13d21b9c27133d444dd9c9115afb261611a",
+      "response_sha256": "9908cc2f88d8957f1de640d0b13f319e709c2321030dca1d63df0f316b40739c"
+    },
+    {
+      "cell_latitude": 64.75,
+      "cell_longitude": 12.5,
+      "sample_weight": 3,
+      "point_ids": [
+        463,
+        560,
+        731
+      ],
+      "request_hash": "da11a1a354da66a3469ae707779117a51fc8c8a3f34cdb8f5ba2cc2f315459cd",
+      "response_sha256": "364bff717befb3cd5c40900affbb0202ec20125e445c570c1b4093e7e8b9f572"
+    },
+    {
+      "cell_latitude": 65.0,
+      "cell_longitude": 11.0,
+      "sample_weight": 1,
+      "point_ids": [
+        909
+      ],
+      "request_hash": "e4d550a193578c605f20d95f4739625c2e41f0bd5cbe19d7178dcae1128294f2",
+      "response_sha256": "13d34a2383f5bfce48c49423b2c75ce9c7102632337318b9bfe22be8b40e28ea"
+    },
+    {
+      "cell_latitude": 65.0,
+      "cell_longitude": 11.25,
+      "sample_weight": 1,
+      "point_ids": [
+        54
+      ],
+      "request_hash": "18f1c76e383448642e6445e37ce34cd6f76bba25b7fb372db6d8351ecf1c515b",
+      "response_sha256": "2c0e64f4bb6ee8e0d4b2a5033b9ee4804f5f3e6136f145ad2f900f6844060358"
+    },
+    {
+      "cell_latitude": 65.0,
+      "cell_longitude": 11.5,
+      "sample_weight": 1,
+      "point_ids": [
+        420
+      ],
+      "request_hash": "7ba29d1b547c9e1a4e189edb98af8b94a4205dcd8a905004894a668a67282129",
+      "response_sha256": "08105733b6abb270ca3e2276369ad4a8fc545d52206b9cc5cf81de3597718ace"
+    },
+    {
+      "cell_latitude": 65.0,
+      "cell_longitude": 11.75,
+      "sample_weight": 2,
+      "point_ids": [
+        119,
+        704
+      ],
+      "request_hash": "1b1ade0ef1fa9a17992006127b2b390a42859b6bb93307a88d99ee0d98c03ed8",
+      "response_sha256": "50b404debde87d5b04854d8c8800476879e932fcba050f49ccbf170c349e22a9"
+    },
+    {
+      "cell_latitude": 65.0,
+      "cell_longitude": 12.0,
+      "sample_weight": 1,
+      "point_ids": [
+        353
+      ],
+      "request_hash": "e94d726377a3c0b36ce9f87dfdd0721d2293c888e892f856d35baa3da5f6dc3c",
+      "response_sha256": "4a3e6cc2a3f1656e23f482c540f0804ee8f9b4c4d20e42f223b9b42250174d1b"
+    },
+    {
+      "cell_latitude": 65.0,
+      "cell_longitude": 12.25,
+      "sample_weight": 2,
+      "point_ids": [
+        711,
+        764
+      ],
+      "request_hash": "a2ba265a24bbd88a4f50c81560bc631d6fc1ded9dcbeffd830ca05a80f433532",
+      "response_sha256": "22000f7c645e4b3e369ece25e31962471fcca6f66f22ae1e795f4095edad23a1"
+    }
+  ]
+}

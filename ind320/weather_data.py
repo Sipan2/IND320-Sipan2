@@ -7,7 +7,7 @@ from urllib.request import urlopen
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def download_weather(region, start_date, end_date, *, region_type='electricity',

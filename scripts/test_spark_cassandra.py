@@ -33,7 +33,7 @@ def main():
         session.execute('CREATE TABLE IF NOT EXISTS ind320_setup.nve_sample (date text PRIMARY KEY, filling_ratio double)')
         spark = (SparkSession.builder.master('local[2]').appName('IND320 setup check')
                  .config('spark.jars.packages', 'com.datastax.spark:spark-cassandra-connector_2.12:3.5.1')
-                 .config('spark.jars.ivy', str(Path(__file__).parent / '.ivy2'))
+                 .config('spark.jars.ivy', str(Path(__file__).resolve().parents[1] / '.ivy2'))
                  .config('spark.cassandra.connection.host', '127.0.0.1')
                  .config('spark.cassandra.connection.port', '9042')
                  .config('spark.ui.enabled', 'false').getOrCreate())
@@ -50,7 +50,7 @@ def main():
         assert actual == records, 'The values read back differ from the input.'
         result.show(12, truncate=False)
         # This small export can test MongoDB without downloading ENTSO-E data.
-        target = Path(__file__).parent / 'setup_sample.json'
+        target = Path(__file__).resolve().parents[1] / 'setup_sample.json'
         target.write_text(json.dumps([{'_id': d, 'filling_ratio': v} for d, v in actual], indent=2))
         print('PASS: 12 NVE observations written and read back through Spark and Cassandra.')
     finally:

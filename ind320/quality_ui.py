@@ -4,11 +4,11 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from area_mapping import weather_region, PRECIPITATION_MEMBERS
-from data_utils import load_data
-from era5_region import regional_weather, QuotaBudgetReached
+from ind320.area_mapping import weather_region, PRECIPITATION_MEMBERS
+from ind320.data_utils import load_data
+from ind320.era5_region import regional_weather, QuotaBudgetReached
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def area_control(data, prefix):

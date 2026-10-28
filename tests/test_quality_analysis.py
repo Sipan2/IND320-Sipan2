@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from quality_analysis import (precipitation_spc, temperature_lof,
+from ind320.quality_analysis import (precipitation_spc, temperature_lof,
                               filling_stl, filling_spectrogram)
 
 

@@ -21,7 +21,7 @@ AREAS = {
 BORDERS = [('NO1', 'SE3'), ('NO2', 'DK1'), ('NO2', 'NL'),
            ('NO2', 'DE-LU'), ('NO2', 'GB'), ('NO3', 'SE2'),
            ('NO4', 'SE1'), ('NO4', 'SE2'), ('NO4', 'FI')]
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def download(token, progress=lambda message: None):

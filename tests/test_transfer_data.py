@@ -1,6 +1,6 @@
 """Small checks for gaps, compressed values and energy conversion."""
 import unittest
-from transfer_data import parse_flow
+from ind320.transfer_data import parse_flow
 
 
 def response(curve, points):

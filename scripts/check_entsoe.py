@@ -15,7 +15,7 @@ def main():
     client = EntsoeRawClient(api_key=token)
     start = pd.Timestamp('2026-10-01', tz='Europe/Oslo')
     end = start + pd.DateOffset(days=1)
-    folder = Path(__file__).parent / 'entsoe_raw'
+    folder = Path(__file__).resolve().parents[1] / 'entsoe_raw'
     folder.mkdir(exist_ok=True)
     # A border request returns one direction; reverse the areas for imports.
     for source, destination, direction in [('NO_2', 'DK_1', 'export'), ('DK_1', 'NO_2', 'import')]:

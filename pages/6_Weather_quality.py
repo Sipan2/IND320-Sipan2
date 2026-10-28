@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import streamlit as st
 
-from quality_analysis import precipitation_spc, temperature_lof
-from quality_ui import weather_control
+from ind320.quality_analysis import precipitation_spc, temperature_lof
+from ind320.quality_ui import weather_control
 
 st.title('Weather data quality')
 weather = weather_control()

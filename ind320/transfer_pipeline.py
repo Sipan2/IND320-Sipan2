@@ -4,7 +4,7 @@ import os
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def build_curated():
@@ -17,7 +17,7 @@ def build_curated():
             ['/usr/libexec/java_home', '-v', '17'], text=True).strip()
     from cassandra.cluster import Cluster
     from pyspark.sql import SparkSession, functions as F
-    from prepare_transfers import prepare
+    from ind320.prepare_transfers import prepare
     source, coverage = prepare()
     cluster = Cluster(['127.0.0.1'], port=9042)
     spark = None

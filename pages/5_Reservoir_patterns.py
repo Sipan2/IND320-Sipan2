@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import streamlit as st
 
-from quality_analysis import filling_stl, filling_spectrogram
-from quality_ui import filling_control
+from ind320.quality_analysis import filling_stl, filling_spectrogram
+from ind320.quality_ui import filling_control
 
 st.title('Reservoir patterns')
 series = filling_control()

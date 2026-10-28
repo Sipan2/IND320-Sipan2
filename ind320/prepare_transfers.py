@@ -1,8 +1,8 @@
 """Validate downloaded intervals and prepare JSON lines for Spark."""
 import json
 from pathlib import Path
-from download_entsoe import AREAS, ROOT
-from transfer_data import parse_flow, utc
+from ind320.download_entsoe import AREAS, ROOT
+from ind320.transfer_data import parse_flow, utc
 
 
 def prepare():

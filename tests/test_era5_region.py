@@ -9,9 +9,7 @@ from unittest.mock import patch
 import numpy as np
 import pandas as pd
 
-import era5_region
-
-
+from ind320 import era5_region
 class RegionalWeatherChecks(unittest.TestCase):
     def test_grid_sharing_preserves_all_sample_weights(self):
         with tempfile.TemporaryDirectory() as temporary:

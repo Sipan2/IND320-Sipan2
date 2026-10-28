@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 import shapely
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 LAYERS = {
     'electricity': ('Omradekonsesjoner', 8, 'ElSpotOmr'),
     'nve_regions': ('Administrasjon2', 0, 'REGION'),

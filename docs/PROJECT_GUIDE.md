@@ -21,7 +21,7 @@ For Part 1 and Part 2 notebooks, install `requirements-notebook.txt`. For Part 3
 
 Offline tests are grouped in `tests/`, setup diagnostics in `scripts/`, and setup instructions in `docs/`. Shared runtime modules live in ind320/. App pages and notebooks import them through the package.
 
-PDF exports are stored in `reports/`, and original recordings in `screencasts/`, following the Part 2 feedback. Embedded playback links below are unchanged.
+Reports are stored in `reports/`, and recordings in `screencasts/`, following the Part 2 feedback. The video links below download the original MP4 files for local playback.
 
 - `app.py` defines navigation; `pages/` contains all six pages, including Home.
 - `ind320/nve_data.py` reads the API; `ind320/data_utils.py` caches results and selects areas.
@@ -87,15 +87,13 @@ The project was developed with help from Codex. The notebooks describe AI usage.
 
 The walkthrough demonstrates the app and explains the notebook and database code. Duration: 4 minutes 44 seconds.
 
-https://github.com/user-attachments/assets/8bfc2051-970f-4d30-b1ec-d62feb8dc4bb
-
-[Download the original video](../screencasts/IND320-Part-2-screencast.mp4)
+[Download the Part 2 screencast (MP4)](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-2-screencast.mp4)
 
 ## Screencast
 
 Part 1 walkthrough:
 
-https://github.com/user-attachments/assets/f3a0cd7e-b194-4844-8d4b-863c9c6fa026
+[Download the Part 1 screencast (MP4)](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-1-screencast.mp4)
 
 ## Branch history
 

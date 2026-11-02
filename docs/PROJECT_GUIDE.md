@@ -104,3 +104,7 @@ Part 2 was developed on `part2-data-sources`. Its commits were incorporated into
 ## Package layout
 
 Shared Python modules are in `ind320/`. Commands use module syntax, for example `python -m ind320.region_data`. Data and cache paths still resolve to the repository root. Part 2 notebook imports were updated to the package names; its recorded outputs and the previously submitted PDF are preserved. Part 3 was executed again after the move.
+
+## Part 3 screencast
+
+[Watch the Part 3 screencast](../screencasts/IND320-Part-3-screencast.mp4). Duration: 3 minutes 10 seconds.

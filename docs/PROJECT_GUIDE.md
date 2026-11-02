@@ -107,4 +107,4 @@ Shared Python modules are in `ind320/`. Commands use module syntax, for example 
 
 ## Part 3 screencast
 
-[Watch the Part 3 screencast](../screencasts/IND320-Part-3-screencast.mp4). Duration: 3 minutes 10 seconds.
+[Download the Part 3 screencast](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-3-screencast.mp4). Duration: 3 minutes 10 seconds.

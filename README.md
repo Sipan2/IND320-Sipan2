@@ -24,7 +24,7 @@ Part 3 and the changes made after Part 2 peer feedback are developed on `part3-d
 | `notebooks/` | Development and documentation for each project part |
 | `data/` | Reproducible region boundaries, sampled coordinates and dated analysis datasets |
 | `reports/` | Notebook exports for assessment |
-| `screencasts/` | Recordings and the Part 3 recording outline |
+| `screencasts/` | Completed recordings for Parts 1, 2 and 3 |
 | `tests/` | Offline numerical, data-validation and interface regression tests |
 | `scripts/` | Manual API and database setup checks |
 | `docs/` | Setup instructions, methods and project history |

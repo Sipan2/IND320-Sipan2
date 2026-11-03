@@ -36,7 +36,7 @@ Reports are stored in `reports/`, and recordings in `screencasts/`, following th
 - `reports/part1.pdf` and the Part 1 screencast below preserve the previous submission.
 - `screencasts/IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
 - `notebooks/part3.ipynb` contains executed sampling checks, four analyses, numerical tests, a factual work log and AI attribution.
-- `reports/part3.html` is the HTML export of that executed notebook, with five embedded figures. Deployment and submission status are stated explicitly.
+- `reports/part3.pdf` and `reports/part3.html` are exports of the executed notebook, with five figures and the screencast link.
 - `ind320/region_data.py` downloads Atlas boundaries, exports shapefiles and samples locations in an equal-area projection.
 - `ind320/era5_region.py` downloads and caches ERA5 cells, retaining the weights of all 1,000 original sample locations.
 - `ind320/weather_data.py` provides the initial direct point-download function used for the pilot.

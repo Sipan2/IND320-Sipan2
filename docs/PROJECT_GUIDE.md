@@ -33,7 +33,7 @@ Reports are stored in `reports/`, and recordings in `screencasts/`, following th
 - `scripts/test_spark_cassandra.py` writes and reads a small NVE sample through the local database.
 - `scripts/test_mongodb.py` tests Atlas using that sample and a hidden password prompt.
 - `reports/part2.pdf` is the Part 2 notebook export.
-- `reports/reservoirs.pdf` and the Part 1 screencast below preserve the previous submission.
+- `reports/part1.pdf` and the Part 1 screencast below preserve the previous submission.
 - `screencasts/IND320-Part-2-screencast.mp4` is the completed Part 2 walkthrough (4 minutes 44 seconds).
 - `notebooks/part3.ipynb` contains executed sampling checks, four analyses, numerical tests, a factual work log and AI attribution.
 - `reports/part3.html` is the HTML export of that executed notebook, with five embedded figures. Deployment and submission status are stated explicitly.

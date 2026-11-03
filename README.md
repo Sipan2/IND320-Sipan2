@@ -8,7 +8,7 @@ An interactive Streamlit app and three notebooks exploring Norwegian reservoir l
 
 | Part | Notebook | Report | Recording |
 | --- | --- | --- | --- |
-| 1. Dashboard basics | [Part 1](notebooks/part1.ipynb) | [PDF](reports/reservoirs.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-1-screencast.mp4) |
+| 1. Dashboard basics | [Part 1](notebooks/part1.ipynb) | [PDF](reports/part1.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-1-screencast.mp4) |
 | 2. Data sources | [Part 2](notebooks/part2.ipynb) | [PDF](reports/part2.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-2-screencast.mp4) |
 | 3. Data quality | [Part 3](notebooks/part3.ipynb) | [HTML](reports/part3.html) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-3-screencast.mp4) |
 

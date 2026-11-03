@@ -8170,7 +8170,7 @@ Sampled locations: 1,000; occupied ERA5 cells: 236
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Precipitation:-DCT-and-robust-SPC-limits">3. Precipitation: DCT and robust SPC limits<a class="anchor-link" href="#3.-Precipitation:-DCT-and-robust-SPC-limits">¶</a></h2><p>The task says to filter precipitation but calls the result “seasonally adjusted temperature variations”. Here, the precipitation subsection is interpreted as an analysis of precipitation residuals. The inconsistency in the assignment is retained rather than treated as resolved.</p>
+<h2 id="3.-Precipitation:-DCT-and-robust-SPC-limits">3. Precipitation: DCT and robust SPC limits<a class="anchor-link" href="#3.-Precipitation:-DCT-and-robust-SPC-limits">¶</a></h2><p>This section analyses precipitation. The control limits are calculated from the filtered precipitation residuals.</p>
 <p><code>precipitation_spc()</code> applies an orthonormal DCT-II. Frequencies below the cut-off form a smooth baseline; subtracting this gives the high-pass residuals. Their full-year median and normal-consistent median absolute deviation provide a robust centre and scale. The moving limits on the original precipitation plot are baseline + residual median ± k × robust scale. Only the original observations, limits and flagged values are plotted.</p>
 <p>Defaults are a cut-off of 1/30 cycles per day and k=3. Both are parameters. The scale conversion does not make rainfall Gaussian: skewness, dry periods and serial dependence remain. The flags identify values unusual under this rule, not confirmed errors or a nominal false-alarm probability. No flagged values are removed.</p>
 <p>Method: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.fft.dct.html">SciPy DCT</a>. The tests include a known injected spike and a constant dry series.</p>
@@ -8858,7 +8858,7 @@ OK
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="8.-AI-usage">8. AI usage<a class="anchor-link" href="#8.-AI-usage">¶</a></h2><p>This project combines my own work and wording with substantial AI assistance from OpenAI Codex (Astra 6). The tool helped interpret the assignment and feedback, organise the repository, retrieve data, develop and test the Python code, and prepare the Streamlit pages. The explanations and work log combine my own formulations with AI-assisted drafting and language revision. AI was therefore used for both technical development and writing, rather than proofreading alone. Codex also helped edit my own screencast recordings into a single video; the narration is my own.</p>
+<h2 id="8.-AI-usage">8. AI usage<a class="anchor-link" href="#8.-AI-usage">¶</a></h2><p>This project combines my own work and wording with substantial AI assistance from OpenAI Codex (Astra 6). The tool helped organise the repository, retrieve data, develop and test the Python code, and prepare the Streamlit pages. The explanations and work log combine my own formulations with AI-assisted drafting and language revision. AI was therefore used for both technical development and writing, rather than proofreading alone. Codex also helped edit my own screencast recordings into a single video; the narration is my own.</p>
 </div>
 </div>
 </div>

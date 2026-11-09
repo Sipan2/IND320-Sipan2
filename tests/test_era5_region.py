@@ -20,7 +20,7 @@ class RegionalWeatherChecks(unittest.TestCase):
                                    'point_id': range(1000),
                                    'latitude': np.r_[np.full(900, 63.01), np.full(100, 64.01)],
                                    'longitude': 10.01})
-            points.to_csv(root / 'data/regions/sampled_locations.csv', index=False)
+            points.to_parquet(root / 'data/regions/sampled_locations.parquet', index=False)
             def response(url, timeout):
                 latitude = 63.0 if 'latitude=63.01' in url else 64.0
                 value = 1.0 if latitude == 63 else 11.0

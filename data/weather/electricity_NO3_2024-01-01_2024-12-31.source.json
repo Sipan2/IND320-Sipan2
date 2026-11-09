@@ -3136,5 +3136,7 @@
       "request_hash": "a2ba265a24bbd88a4f50c81560bc631d6fc1ded9dcbeffd830ca05a80f433532",
       "response_sha256": "22000f7c645e4b3e369ece25e31962471fcca6f66f22ae1e795f4095edad23a1"
     }
-  ]
+  ],
+  "sample_file": "sampled_locations.csv",
+  "sample_snapshot": "e4c93adb3473d585cab62e565980af91974cda18"
 }

@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ReservoirViewsChecks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.observations = pd.read_csv(ROOT / 'data/reservoirs/nve_snapshot.csv', parse_dates=['date'])
+        cls.observations = pd.read_parquet(ROOT / 'data/reservoirs/nve_snapshot.parquet')
         cls.metadata = pd.read_json(ROOT / 'data/regions/nve_area_catalogue.json')
 
     def page(self):

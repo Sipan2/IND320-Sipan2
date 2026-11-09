@@ -44,7 +44,7 @@ def weather_control():
                    'they are not exact hydrological catchment boundaries.')
     year = st.number_input('Weather year', min_value=1940, max_value=2025, value=2024, step=1)
     start, end = f'{year}-01-01', f'{year}-12-31'
-    path = ROOT / f'data/weather/{region_type}_{region}_{start}_{end}.csv'
+    path = ROOT / f'data/weather/{region_type}_{region}_{start}_{end}.parquet'
     st.caption('Hourly ERA5 precipitation and temperature from Open-Meteo. The regional mean retains equal '
                'weights for 1,000 area-sampled points. Points in the same 0.25° cell share its model series. '
                'Nearest-cell selection is used and elevation downscaling is disabled.')
@@ -58,10 +58,16 @@ def weather_control():
             st.error(f'Weather download stopped: {error}')
         finally:
             bar.empty()
-    if not path.exists():
+    # Keep previously downloaded local datasets readable after the format change.
+    legacy_path = path.with_suffix('.csv')
+    if path.exists():
+        frame = pd.read_parquet(path)
+    elif legacy_path.exists():
+        frame = pd.read_csv(legacy_path, parse_dates=['time_utc'])
+    else:
         st.info('No complete dataset is saved for this selection. Fetch it above; this can take several minutes.')
         return None
-    frame = pd.read_csv(path, parse_dates=['time_utc']).set_index('time_utc')
+    frame = frame.set_index('time_utc')
     st.caption(f'Saved complete dataset: {len(frame):,} hours; {int(frame.sample_count.iloc[0]):,} sampled points, '
                f'{int(frame.grid_cell_count.iloc[0]):,} occupied grid cells. This is reanalysis, not station observations.')
     st.markdown('[Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api) · '

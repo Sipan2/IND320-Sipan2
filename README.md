@@ -29,6 +29,8 @@ Part 3 and the changes made after Part 2 peer feedback are developed on `part3-d
 | `scripts/` | Manual API and database setup checks |
 | `docs/` | Setup instructions, methods and project history |
 
+The app and Part 3 notebook use Parquet for saved tables. The Part 3 PDF and HTML preserve the [original report version](https://github.com/Sipan2/IND320-Sipan2/tree/e4c93adb3473d585cab62e565980af91974cda18), including the file paths used when it was exported.
+
 ## Run locally
 
 Use Python 3.12 for the database notebooks. The app and Part 3 notebook have also been checked with Python 3.13. From the repository root:

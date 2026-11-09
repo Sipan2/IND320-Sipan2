@@ -56,8 +56,8 @@ def regional_weather(region, start_date, end_date, *, region_type='electricity',
     if (start.tzinfo is not None or end.tzinfo is not None or end < start
             or start != start.normalize() or end != end.normalize()):
         raise ValueError('Use ordered timezone-free calendar dates.')
-    sample_path = ROOT / 'data/regions' / ('national_locations.csv' if region_type == 'national' else 'sampled_locations.csv')
-    points = pd.read_csv(sample_path)
+    sample_path = ROOT / 'data/regions' / ('national_locations.parquet' if region_type == 'national' else 'sampled_locations.parquet')
+    points = pd.read_parquet(sample_path)
     selected = points.loc[points.region.eq(region) & points.region_type.eq(region_type)].copy()
     if len(selected) != 1000 or selected.point_id.nunique() != 1000:
         raise ValueError('A complete sample of 1,000 distinct point IDs is required.')
@@ -129,11 +129,12 @@ def regional_weather(region, start_date, end_date, *, region_type='electricity',
     output = ROOT / 'data/weather'
     output.mkdir(exist_ok=True, parents=True)
     stem = f'{region_type}_{region}_{start.date()}_{end.date()}'
-    result.to_csv(output / f'{stem}.csv', index=False)
+    result.to_parquet(output / f'{stem}.parquet', index=False)
     (output / f'{stem}.source.json').write_text(json.dumps({
         'region': region, 'region_type': region_type, 'start_date': str(start.date()),
         'end_date': str(end.date()), 'model': 'ERA5', 'timezone': 'UTC',
         'elevation_downscaling': False, 'cell_selection': 'nearest',
+        'sample_file': sample_path.name,
         'sample_sha256': hashlib.sha256(sample_path.read_bytes()).hexdigest(),
         'weighting': 'Each original sampled point has equal weight; occupied cells retain their point counts.',
         'source': 'https://open-meteo.com/en/docs/historical-weather-api',

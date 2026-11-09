@@ -109,7 +109,7 @@ def prepare_samples(directory=ROOT / 'data' / 'regions', count=1000, seed=320):
                                      'longitude': geographic.x, 'latitude': geographic.y,
                                      'seed': seed}))
     points = pd.concat(rows, ignore_index=True)
-    points.to_csv(directory / 'sampled_locations.csv', index=False)
+    points.to_parquet(directory / 'sampled_locations.parquet', index=False)
     return points
 
 
@@ -134,10 +134,10 @@ def prepare_assignment_regions(directory=ROOT / 'data' / 'regions', count=1000, 
                                  'point_id': range(count), 'longitude': sampled.x,
                                  'latitude': sampled.y, 'seed': seed}))
     gpd.GeoDataFrame(regions, crs=3035).to_crs(4326).to_file(directory / 'assignment_precipitation.geojson', driver='GeoJSON')
-    original = pd.read_csv(directory / 'sampled_locations.csv')
+    original = pd.read_parquet(directory / 'sampled_locations.parquet')
     original = original.loc[original.region_type.ne('assignment_precipitation')]
     result = pd.concat([original] + rows, ignore_index=True)
-    result.to_csv(directory / 'sampled_locations.csv', index=False)
+    result.to_parquet(directory / 'sampled_locations.parquet', index=False)
     (directory / 'assignment_precipitation.source.json').write_text(json.dumps({
         'source': 'https://nmbu.instructure.com/courses/14185/assignments/59074',
         'grouping': combinations, 'sampling_crs': 'EPSG:3035', 'seed': seed,
@@ -157,7 +157,7 @@ def prepare_national_sample(directory=ROOT / 'data' / 'regions', count=1000, see
     sampled = sample_region(polygon, count, area_seed).to_crs(4326)
     result = pd.DataFrame({'region_type': 'national', 'region': 'NORWAY', 'point_id': range(count),
                            'longitude': sampled.x, 'latitude': sampled.y, 'seed': seed})
-    result.to_csv(directory / 'national_locations.csv', index=False)
+    result.to_parquet(directory / 'national_locations.parquet', index=False)
     return result
 
 

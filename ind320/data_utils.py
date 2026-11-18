@@ -19,8 +19,9 @@ def load_data():
     try:
         return cached_reservoirs()
     except (URLError, TimeoutError, ValueError, KeyError):
-        st.error('NVE data could not be loaded. Please try again later.')
-        st.stop()
+        from pathlib import Path
+        st.warning("NVE is unavailable. Showing the saved reservoir observations.")
+        return pd.read_parquet(Path(__file__).resolve().parents[1] / "data/reservoirs/nve_snapshot.parquet")
 
 
 @st.cache_data(ttl=86400)
@@ -32,7 +33,8 @@ def select_area(data):
     # Both fields are needed: EL 1 and VASS 1 describe different areas.
     options = list(data[['area_type', 'area_number']].drop_duplicates().itertuples(index=False, name=None))
     options = sorted(options, key=lambda area: (area != ('NO', 0), area))
-    area = st.selectbox('Area', options, format_func=lambda a: f'{a[0]}, {a[1]}')
+    saved = st.session_state.get('map_area', ('EL', 3))
+    area = st.selectbox('Area', options, index=options.index(saved) if saved in options else 0, format_func=lambda a: f'{a[0]}, {a[1]}')
     selected = data.loc[(data.area_type == area[0]) & (data.area_number == area[1])]
     return selected, f'{area[0]}, {area[1]}'
 

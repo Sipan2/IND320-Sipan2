@@ -1,6 +1,6 @@
 # IND320: Reservoirs, electricity transfers and data quality
 
-An interactive Streamlit app and three notebooks exploring Norwegian reservoir levels, cross-border electricity transfers and regional weather data.
+An interactive Streamlit app and four notebooks exploring Norwegian reservoir levels, cross-border electricity transfers and regional weather data.
 
 **[Open the app](https://ind320-sipan2.streamlit.app/)** · [Technical guide](docs/PROJECT_GUIDE.md) · [Database setup](docs/LOCAL_SETUP.txt)
 
@@ -11,6 +11,7 @@ An interactive Streamlit app and three notebooks exploring Norwegian reservoir l
 | 1. Dashboard basics | [Part 1](notebooks/part1.ipynb) | [PDF](reports/part1.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-1-screencast.mp4) |
 | 2. Data sources | [Part 2](notebooks/part2.ipynb) | [PDF](reports/part2.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-2-screencast.mp4) |
 | 3. Data quality | [Part 3](notebooks/part3.ipynb) | [PDF](reports/part3.pdf) · [HTML](reports/part3.html) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-3-screencast.mp4) |
+| 4. Machine learning | [Part 4](notebooks/part4.ipynb) | [HTML](reports/part4.html) | Recording pending |
 
 Part 3 and the changes made after Part 2 peer feedback are developed on `part3-data-quality` and merged into `main` for the public app. The Part 3 screencast is available in the table above (3 minutes 10 seconds).
 

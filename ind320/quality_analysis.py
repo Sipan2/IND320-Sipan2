@@ -29,13 +29,13 @@ def regular_series(series, minimum=8):
     values = series.to_numpy(dtype=float)
     if not np.isfinite(values).all():
         raise ValueError('Missing and infinite observations require an explicit preprocessing decision.')
-    steps = np.diff(series.index.asi8)
+    steps = np.diff(series.index.as_unit("ns").asi8)
     if not np.all(steps == steps[0]) or steps[0] <= 0:
         raise ValueError('The analysis requires equally spaced observations.')
     return values, float(steps[0]) / (86400 * 1e9)
 
 
-def precipitation_spc(series, cutoff_cycles_per_day=1 / 30, deviations=3):
+def precipitation_spc(series, cutoff_cycles_per_day=1 / 30, deviations=3, allow_negative=False):
     """Use DCT high-pass residuals to identify unusual precipitation hours.
 
     The low-frequency reconstruction supplies the moving centre. The median
@@ -44,7 +44,7 @@ def precipitation_spc(series, cutoff_cycles_per_day=1 / 30, deviations=3):
     independent-process false-alarm probability. Outliers are not removed.
     """
     values, days = regular_series(series)
-    if (values < 0).any() or not 0 < cutoff_cycles_per_day < 1 / (2 * days):
+    if (not allow_negative and (values < 0).any()) or not 0 < cutoff_cycles_per_day < 1 / (2 * days):
         raise ValueError('Use non-negative precipitation and a cut-off below Nyquist.')
     if not np.isfinite(deviations) or deviations <= 0:
         raise ValueError('The number of deviations must be positive.')

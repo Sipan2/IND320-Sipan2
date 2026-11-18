@@ -31,11 +31,11 @@ class ReservoirViewsChecks(unittest.TestCase):
             for family in ['VASS', 'NO', 'EL']:
                 app.radio[0].set_value(family).run()
                 self.assertFalse(app.exception)
-                self.assertEqual(len(app.get('vega_lite_chart')), 1)
+                self.assertEqual(len(app.get('vega_lite_chart')), 2)
             months = self.observations.date.dt.strftime('%Y-%m').sort_values().unique().tolist()
             app.select_slider[0].set_value((months[-12], months[-1])).run()
             self.assertFalse(app.exception)
-            self.assertEqual(len(app.get('vega_lite_chart')), 1)
+            self.assertEqual(len(app.get('vega_lite_chart')), 2)
 
 
 if __name__ == '__main__':

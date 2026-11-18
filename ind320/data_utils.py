@@ -35,6 +35,7 @@ def select_area(data):
     options = sorted(options, key=lambda area: (area != ('NO', 0), area))
     saved = st.session_state.get('map_area', ('EL', 3))
     area = st.selectbox('Area', options, index=options.index(saved) if saved in options else 0, format_func=lambda a: f'{a[0]}, {a[1]}')
+    st.session_state['map_area'] = area
     selected = data.loc[(data.area_type == area[0]) & (data.area_number == area[1])]
     return selected, f'{area[0]}, {area[1]}'
 
@@ -51,7 +52,7 @@ def reservoir_controls(data):
                         horizontal=True)
     st.session_state['nve_type'] = area_type
     months = data['date'].dt.strftime('%Y-%m').drop_duplicates().sort_values().tolist()
-    saved = st.session_state.get('nve_interval', (months[-min(24, len(months))], months[-1]))
+    saved = st.session_state.get('nve_interval', ('2023-01', '2024-12'))
     if any(month not in months for month in saved):
         saved = (months[0], months[-1])
     start, end = st.select_slider('Data and download interval', options=months, value=saved)

@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>part4</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7837,7 +7837,7 @@ a.anchor-link {
 </tr>
 <tr>
 <td>Weather and reservoir patterns</td>
-<td>SATV, LOF, seasonality and sliding window correlation</td>
+<td>Weather control limits, LOF, seasonality and sliding window correlation</td>
 <td>Weather variable, lag and window length as applicable</td>
 </tr>
 <tr>
@@ -7848,6 +7848,7 @@ a.anchor-link {
 </tbody>
 </table>
 <p>The map stores the selected area and date range in session state. The analysis pages reuse these selections where relevant. Forecast controls use the same date range as the map, while lag and window settings apply only to the correlation view.</p>
+<p>The default interval is January 2023 to December 2024, so the forecast can use 104 weekly observations. A shorter interval gives a warning and shows the actual training length. Weather coverage depends on the saved regional dataset; the included NO3 weather record covers 2024.</p>
 </div>
 </div>
 </div>
@@ -7995,9 +7996,9 @@ dtype: int64
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>   Lags  MAE (pp)  Persistence MAE (pp)  Seconds
-0     2     7.710                17.116    0.028
-1     4     7.487                17.116    0.020
-2     8     6.478                17.116    0.019
+0     2     7.710                17.116    0.026
+1     4     7.487                17.116    0.019
+2     8     6.478                17.116    0.018
 </pre>
 </div>
 </div>
@@ -8071,7 +8072,7 @@ dtype: int64
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Work-log">Work log<a class="anchor-link" href="#Work-log">¶</a></h2><p>The map gives the app a starting point. Someone interested in one reservoir area can choose it once and carry that choice into the analyses. The data table and the comparison plots sit together because they answer similar questions. The weather and reservoir pages have local controls for choices that only make sense there, such as the length of a correlation window. The navigation sketch was made before changing the app code.</p>
-<p>I used the weekly observations from EL 3 to compare forecasts. Working at a finer resolution would mean estimating filling levels between observations. It would also make a one-week lag harder to explain. The model therefore takes one step for each new NVE observation. I compared two, four and eight previous weeks using the same four forecast periods. Eight gave the lowest average error of those settings, about 6.48 percentage points. This is the starting setting in the app. The results cover one area and four periods, so they give a limited picture of how the model performs elsewhere.</p>
+<p>I used the weekly observations from EL 3 to compare forecasts. Working at a finer resolution would mean estimating filling levels between observations. It would also make a one-week lag harder to explain. The model therefore takes one step for each new NVE observation. I compared two, four and eight previous weeks using the same four forecast periods. Eight gave the lowest average error of those settings, about 6.48 percentage points. The app starts with eight lags, 104 training weeks, a learning rate of 0.01 and a twelve-week forecast. The same date range is shared with the map. The results cover one area and four periods, so they give a limited picture of how the model performs elsewhere.</p>
 <p>The relationship with temperature varied within the year. In the twelve-week windows, the correlation at zero lag ranged from about −0.77 to 0.83. Moving temperature back one week raised the highest value to about 0.92, but some windows still had a negative correlation. That makes a single correlation for the whole year difficult to interpret. A strong value in a short window is also a weak basis for choosing a predictor without checking its performance on later observations.</p>
 <p>I chose error handling as the bonus task. When NVE cannot be reached, the app explains that it is showing the saved observations. The weather page checks that a complete regional dataset exists. The correlation calculation checks the number of observations in each local week before using it. This matters particularly at the beginning and end of the weather record, where a partial week could look like a week with very little precipitation. The forecast page also explains when the chosen period leaves too few observations for training.</p>
 </div>

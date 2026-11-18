@@ -10,3 +10,5 @@ scikit-learn==1.9.1
 statsmodels==0.15.0
 plotly
 river
+streamlit-folium==0.25.3
+folium==1.0.0

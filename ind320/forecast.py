@@ -5,7 +5,7 @@ import pandas as pd
 from river import linear_model, optim, preprocessing
 
 
-def forecast_filling(filling, history=260, horizon=12, lags=8, rate=0.01, inputs=None):
+def forecast_filling(filling, history=104, horizon=12, lags=8, rate=0.01, inputs=None):
     """Predict weekly changes. Future external inputs stay at their last known value."""
     if filling.isna().any() or not filling.map(math.isfinite).all():
         raise ValueError("Training observations must be finite and complete.")
@@ -18,7 +18,7 @@ def forecast_filling(filling, history=260, horizon=12, lags=8, rate=0.01, inputs
     model = preprocessing.StandardScaler() | linear_model.LinearRegression(optimizer=optim.SGD(rate))
 
     def features(date, past, predictors):
-        angle = 2 * math.pi * date.dayofyear / 365.25
+        angle = 2 * math.pi * date.day_of_year / 365.25
         row = {"season_sin": math.sin(angle), "season_cos": math.cos(angle)}
         row.update({f"lag_{i}": past[-i] for i in range(1, lags + 1)})
         row.update(predictors)

@@ -2,7 +2,9 @@
 import json
 from pathlib import Path
 import pandas as pd
-import plotly.graph_objects as go
+import folium
+from branca.colormap import LinearColormap
+from streamlit_folium import st_folium
 import streamlit as st
 from ind320.data_utils import load_data
 from ind320.area_mapping import VASS_WEATHER_REGIONS
@@ -16,7 +18,7 @@ mode = controls.radio("Colour by", ["Price area", "Water area", "Weather propert
 family = "VASS" if mode == "Water area" else "EL"
 file, field = ("assignment_precipitation", "region") if family == "VASS" else ("electricity", "ElSpotOmr")
 months = sorted(data.date.dt.strftime("%Y-%m").unique())
-default = st.session_state.get("nve_interval", ("2024-01", "2024-12"))
+default = st.session_state.get("nve_interval", ("2023-01", "2024-12"))
 left, right = controls.columns(2)
 start = left.selectbox("From month", months, index=months.index(default[0]))
 end_months = [month for month in months if month >= start]
@@ -47,26 +49,56 @@ if chosen[0] != family or chosen[1] not in numbers.values():
     chosen = (family, 3 if family == "EL" else 1)
     st.session_state.update(map_area=chosen, nve_type=family)
 
-fig = go.Figure(go.Choroplethmap(geojson=geo, featureidkey="properties."+field, locations=ids,
-    z=[values.get(numbers[label], float("nan")) for label in ids], colorscale="Blues",
-    colorbar=dict(title=unit, orientation="h", len=0.50, thickness=10, y=-0.09, yanchor="top"),
-    hovertemplate="%{location}<br>" + unit + ": %{z:.2f}<extra></extra>",
-    marker_opacity=0.82,
-    marker_line_color=["#FFAD75" if chosen == (family, numbers[label]) else "#92A9BC" for label in ids],
-    marker_line_width=[3 if chosen == (family, numbers[label]) else 1 for label in ids]))
-# Fit mainland Norway, including Finnmark, in the initial viewport.
-fig.update_layout(map=dict(style="carto-darkmatter", center=dict(lat=65.2, lon=18), zoom=3.25,
-                           bearing=0))
-fig.update_layout(clickmode="event+select", height=655, margin=dict(l=4,r=4,t=8,b=130))
-map_panel.caption("Select an area on the map to use it on the analysis pages.")
-event = map_panel.plotly_chart(fig, key="reservoir_map_"+family, on_select="rerun")
-points = event.selection.points
-if points:
-    point = points[-1]
-    label = point.get("location") or ids[point["point_index"]]
-    selection = family, numbers[label]
-    if chosen != selection:
-        st.session_state.update(map_area=selection, nve_type=family)
+# Leaflet reports polygon clicks directly, including areas without weather values.
+finite = [float(values.get(number)) for number in numbers.values()
+          if pd.notna(values.get(number))]
+low, high = (min(finite), max(finite)) if finite else (0.0, 1.0)
+if low == high:
+    low, high = low - 0.5, high + 0.5
+colours = LinearColormap(["#BFDDF3", "#529BC8", "#14517D"], vmin=low, vmax=high)
+for feature in geo["features"]:
+    label = feature["properties"][field]
+    value = values.get(numbers[label], float("nan"))
+    feature["properties"]["Area"] = label
+    feature["properties"][unit] = f"{value:.2f}" if pd.notna(value) else "No observations"
+
+def style(feature):
+    label = feature["properties"][field]
+    value = values.get(numbers[label], float("nan"))
+    active = chosen == (family, numbers[label])
+    return {"fillColor": colours(value) if pd.notna(value) else "#465361",
+            "fillOpacity": 0.65 if pd.notna(value) else 0.20,
+            "color": "#FFAD75" if active else "#92A9BC",
+            "weight": 3 if active else 1}
+
+view = st.session_state.get("reservoir_map_view", {})
+map_view = folium.Map(location=view.get("center", [65.0, 17.5]),
+                      zoom_start=view.get("zoom", 4), tiles="OpenStreetMap",
+                      control_scale=True, scrollWheelZoom=False)
+# Darken only the base tiles; data colours and the selected outline stay unchanged.
+map_view.get_root().header.add_child(folium.Element(
+    "<style>.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.75) saturate(.5)}</style>"))
+folium.GeoJson(geo, style_function=style,
+               tooltip=folium.GeoJsonTooltip(fields=["Area", unit], sticky=False),
+               name="Reservoir areas").add_to(map_view)
+with map_panel:
+    st.caption("Click anywhere inside an area to use it on the analysis pages.")
+    event = st_folium(map_view, key="reservoir_map_" + family, height=600,
+                      use_container_width=True,
+                      returned_objects=["last_active_drawing", "center", "zoom"])
+    # Keep the legend below the map, clear of the geographic outlines.
+    st.markdown(f"<div style='max-width:440px;margin:12px auto 0'>"
+                f"<div style='height:10px;background:linear-gradient(to right,#BFDDF3,#529BC8,#14517D);border-radius:3px'></div>"
+                f"<div style='display:flex;justify-content:space-between;font-size:0.85rem'><span>{low:.1f}</span><span>{unit}</span><span>{high:.1f}</span></div></div>",
+                unsafe_allow_html=True)
+if event:
+    if event.get("center") and event.get("zoom"):
+        st.session_state["reservoir_map_view"] = {
+            "center": [event["center"]["lat"], event["center"]["lng"]], "zoom": event["zoom"]}
+    clicked = event.get("last_active_drawing") or {}
+    label = clicked.get("properties", {}).get(field)
+    if label in numbers and chosen != (family, numbers[label]):
+        st.session_state.update(map_area=(family, numbers[label]), nve_type=family)
         st.rerun()
 region_name = next(label for label, number in numbers.items() if number == chosen[1])
 value = values.get(chosen[1], float("nan"))

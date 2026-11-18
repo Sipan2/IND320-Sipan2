@@ -11,16 +11,16 @@ An interactive Streamlit app and four notebooks exploring Norwegian reservoir le
 | 1. Dashboard basics | [Part 1](notebooks/part1.ipynb) | [PDF](reports/part1.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-1-screencast.mp4) |
 | 2. Data sources | [Part 2](notebooks/part2.ipynb) | [PDF](reports/part2.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-2-screencast.mp4) |
 | 3. Data quality | [Part 3](notebooks/part3.ipynb) | [PDF](reports/part3.pdf) · [HTML](reports/part3.html) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-3-screencast.mp4) |
-| 4. Machine learning | [Part 4](notebooks/part4.ipynb) | [HTML](reports/part4.html) | Recording pending |
+| 4. Machine learning | [Part 4](notebooks/part4.ipynb) | [PDF](reports/part4.pdf) · [HTML](reports/part4.html) | Recording pending |
 
-Part 3 and the changes made after Part 2 peer feedback are developed on `part3-data-quality` and merged into `main` for the public app. The Part 3 screencast is available in the table above (3 minutes 10 seconds).
+Parts 1–3 are completed. Part 4 adds an interactive area map, weather correlations and weekly reservoir forecasts. Its screencast is still pending. Development branches are merged into `main` after the preceding part has received peer and teacher feedback.
 
 ## Repository layout
 
 | Location | Contents |
 | --- | --- |
 | `app.py` | Streamlit entry point and navigation |
-| `pages/` | Home, tables, plots, electricity transfers and the two data-quality pages |
+| `pages/` | Reservoir map, data views, electricity transfers, data quality, weather correlations and forecasts |
 | `ind320/` | Shared API access, data processing, analysis and reusable views |
 | `notebooks/` | Development and documentation for each project part |
 | `data/` | Reproducible region boundaries, sampled coordinates and dated analysis datasets |
@@ -34,7 +34,7 @@ The app and Part 3 notebook use Parquet for saved tables. The Part 3 PDF and HTM
 
 ## Run locally
 
-Use Python 3.12 for the database notebooks. The app and Part 3 notebook have also been checked with Python 3.13. From the repository root:
+Use Python 3.12 for the database notebooks. The app and Parts 3–4 notebooks have also been checked with Python 3.13. From the repository root:
 
 ```sh
 python3 -m venv .venv
@@ -43,7 +43,7 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Install `requirements-part3.txt` for the Part 3 notebook, or `requirements-notebook.txt` for the earlier database notebooks. Keep credentials in Streamlit Secrets; the example configuration is in `.streamlit/secrets.toml.example`.
+Install `requirements-notebook.txt` for the Part 4 and earlier database notebooks. Use `requirements-part3.txt` for the additional GIS tools used in Part 3. Keep credentials in Streamlit Secrets; the example configuration is in `.streamlit/secrets.toml.example`.
 
 Run the offline checks with:
 

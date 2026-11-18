@@ -45,11 +45,11 @@ except (OSError, ValueError) as error:
 
 # Reveal one forecast week per frame while keeping the historical line in view.
 fig = go.Figure()
-fig.add_scatter(x=series.index, y=100 * series, name="Observed")
-fig.add_scatter(x=forecast.index, y=100 * forecast, name="Forecast")
+fig.add_scatter(x=series.index, y=100 * series, name="Observed", line=dict(color="#77C8FF"))
+fig.add_scatter(x=forecast.index, y=100 * forecast, name="Forecast", line=dict(color="#FFAD75", dash="dash"), mode="lines+markers")
 fig.frames = [go.Frame(data=[go.Scatter(x=forecast.index[:i], y=100 * forecast.iloc[:i])],
                        traces=[1]) for i in range(1, weeks + 1)]
-fig.update_layout(yaxis_title="Reservoir filling (%)", title=area,
+fig.update_layout(yaxis_title="Reservoir filling (%)", title=f"Reservoir filling · {area}", hovermode="x unified",
                   updatemenus=[dict(type="buttons", buttons=[dict(label="Play forecast",
                   method="animate", args=[None, {"fromcurrent": False}])])])
 st.plotly_chart(fig)

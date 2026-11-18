@@ -31,7 +31,8 @@ numbers = {label: number for number, label in VASS_WEATHER_REGIONS.items()} if f
 values = subset.groupby("area_number").filling_ratio.mean().mul(100)
 unit = "Mean filling (%)"
 if mode == "Weather property":
-    var = controls.selectbox("Weather property", ["temperature_2m", "precipitation"])
+    var = controls.selectbox("Weather property", ["temperature_2m", "precipitation"],
+                             format_func=lambda name: "Temperature" if name == "temperature_2m" else "Precipitation")
     unit = "Mean temperature (°C)" if var == "temperature_2m" else "Mean hourly precipitation (mm)"
     values = {}
     for label, number in numbers.items():
@@ -42,7 +43,7 @@ if mode == "Weather property":
             values[number] = frame.loc[month.between(start, end), var].mean()
     controls.caption("Only areas with saved weather observations are coloured.")
 chosen = st.session_state.get("map_area", ("EL", 3))
-if chosen[0] != family:
+if chosen[0] != family or chosen[1] not in numbers.values():
     chosen = (family, 3 if family == "EL" else 1)
     st.session_state.update(map_area=chosen, nve_type=family)
 

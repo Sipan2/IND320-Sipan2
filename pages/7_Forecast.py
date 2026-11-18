@@ -14,7 +14,8 @@ st.title("Reservoir forecast")
 data = load_data()
 interval, family = reservoir_controls(data)
 selected, area = select_area(interval)
-series = selected.sort_values("date").set_index("date").filling_ratio
+history_weeks = st.number_input("Training history (weeks)", min_value=16, max_value=1560, value=104, step=4)
+series = selected.sort_values("date").set_index("date").filling_ratio.tail(history_weeks)
 weeks = st.slider("Forecast horizon (weeks)", 1, 26, st.session_state.get("forecast_weeks", 12))
 st.session_state["forecast_weeks"] = weeks
 lags = st.slider("Previous weeks used by the model", 1, 12, 8)

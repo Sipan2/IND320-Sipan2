@@ -7,7 +7,9 @@ from river import linear_model, optim, preprocessing
 
 def forecast_filling(filling, history=260, horizon=12, lags=8, rate=0.01, inputs=None):
     """Predict weekly changes. Future external inputs stay at their last known value."""
-    y = filling.sort_index().dropna().tail(history)
+    if filling.isna().any() or not filling.map(math.isfinite).all():
+        raise ValueError("Training observations must be finite and complete.")
+    y = filling.sort_index().tail(history)
     if not isinstance(y.index, pd.DatetimeIndex) or not y.index.to_series().diff().dropna().eq(pd.Timedelta(weeks=1)).all():
         raise ValueError("Select a continuous weekly series.")
     if len(y) < lags + 8 or not 1 <= horizon <= 52 or lags < 1 or rate <= 0:

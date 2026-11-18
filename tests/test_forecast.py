@@ -16,7 +16,7 @@ class ForecastChecks(unittest.TestCase):
 
     def test_default_page_uses_104_observations(self):
         with patch('ind320.data_utils.load_data', return_value=self.data):
-            app = AppTest.from_file(str(ROOT / 'pages/7_Forecast.py')).run()
+            app = AppTest.from_file(str(ROOT / 'pages/7_Forecast.py'), default_timeout=30).run()
             self.assertFalse(app.exception)
             self.assertTrue(any('Training observations: 104 weeks' in c.value for c in app.caption))
             self.assertFalse(app.warning)

@@ -51,6 +51,7 @@ Reports are stored in `reports/`, and recordings in `screencasts/`, following th
 
 - `notebooks/part4.ipynb` contains the navigation sketch, exchange-rate example, forecast comparison, weather correlations, AI statement and work log.
 - `reports/part4.pdf` and `reports/part4.html` are exports of that notebook.
+- `ind320/map_component.py` and `ind320/map_frontend/` keep the Leaflet map in the browser between updates. Boundaries are compressed without changing coordinates; clicks return only the area label and map position. Leaflet 1.9.4 is bundled with its licence.
 - `ind320/currency_data.py` retrieves Norges Bank exchange rates.
 - `ind320/weekly_weather.py` prepares weekly weather summaries.
 - `ind320/forecast.py` implements the River model and recursive forecasts.

@@ -2,9 +2,8 @@
 import json
 from pathlib import Path
 import pandas as pd
-import folium
 from branca.colormap import LinearColormap
-from streamlit_folium import st_folium
+from ind320.map_component import boundary_payload, reservoir_map
 import streamlit as st
 from ind320.data_utils import load_data
 from ind320.area_mapping import VASS_WEATHER_REGIONS
@@ -76,48 +75,35 @@ low, high = (min(finite), max(finite)) if finite else (0.0, 1.0)
 if low == high:
     low, high = low - 0.5, high + 0.5
 colours = LinearColormap(["#BFDDF3", "#529BC8", "#14517D"], vmin=low, vmax=high)
-for feature in geo["features"]:
-    label = feature["properties"][field]
-    value = values.get(numbers[label], float("nan"))
-    feature["properties"]["Area"] = label
-    feature["properties"][unit] = f"{value:.2f}" if pd.notna(value) else "No observations"
-
-def style(feature):
-    label = feature["properties"][field]
-    value = values.get(numbers[label], float("nan"))
-    active = chosen == (family, numbers[label])
-    return {"fillColor": colours(value) if pd.notna(value) else "#465361",
-            "fillOpacity": 0.65 if pd.notna(value) else 0.20,
-            "color": "#FFAD75" if active else "#92A9BC",
-            "weight": 3 if active else 1}
-
+areas = {}
+for label, number in numbers.items():
+    value = values.get(number, float("nan"))
+    areas[label] = {
+        "unit": unit,
+        "value": f"{value:.2f}" if pd.notna(value) else "No observations",
+        "style": {"fillColor": colours(value) if pd.notna(value) else "#465361",
+                  "fillOpacity": 0.65 if pd.notna(value) else 0.20},
+    }
 view = st.session_state.get("reservoir_map_view", {})
-map_view = folium.Map(location=view.get("center", [65.0, 17.5]),
-                      zoom_start=view.get("zoom", 4), tiles="OpenStreetMap",
-                      control_scale=True, scrollWheelZoom=False)
-# Darken only the base tiles; data colours and the selected outline stay unchanged.
-map_view.get_root().header.add_child(folium.Element(
-    "<style>.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.75) saturate(.5)}</style>"))
-folium.GeoJson(geo, style_function=style,
-               tooltip=folium.GeoJsonTooltip(fields=["Area", unit], sticky=False),
-               name="Reservoir areas").add_to(map_view)
+
 def update_map_selection():
     # Component callbacks run before the page, so one render updates the outline.
-    event = st.session_state.get("reservoir_map_" + family, {})
+    event = st.session_state.get("reservoir_map") or {}
     if event.get("center") and event.get("zoom"):
         st.session_state["reservoir_map_view"] = {
             "center": [event["center"]["lat"], event["center"]["lng"]], "zoom": event["zoom"]}
-    clicked = event.get("last_active_drawing") or {}
-    label = clicked.get("properties", {}).get(field)
+    label = event.get("label") if event.get("field") == field else None
     if label in numbers and chosen != (family, numbers[label]):
         st.session_state.update(map_area=(family, numbers[label]), nve_type=family)
 
 with map_panel:
     st.caption("Click anywhere inside an area to use it on the analysis pages.")
-    event = st_folium(map_view, key="reservoir_map_" + family, height=600,
-                      use_container_width=True,
-                      returned_objects=["last_active_drawing", "center", "zoom"],
-                      on_change=update_map_selection)
+    reservoir_map(
+        boundary=boundary_payload(str(boundary_path), boundary_path.stat().st_mtime_ns),
+        field=field, areas=areas,
+        selected=next(label for label, number in numbers.items() if number == chosen[1]),
+        view=view, on_change=update_map_selection,
+    )
     # Keep the legend below the map, clear of the geographic outlines.
     st.markdown(f"<div style='max-width:440px;margin:12px auto 0'>"
                 f"<div style='height:10px;background:linear-gradient(to right,#BFDDF3,#529BC8,#14517D);border-radius:3px'></div>"

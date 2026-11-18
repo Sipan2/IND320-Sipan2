@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden}
+#map{width:100%;height:600px;background:#1b292e}
+.leaflet-container{font-size:1rem}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.75) saturate(.5)}
+.foliumtooltip{color:#333;font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px}
+.foliumtooltip table{border-spacing:2px;border-collapse:separate}
+.foliumtooltip th{text-align:left;padding:1px}
+.foliumtooltip td{padding:1px}
+#error{display:none;position:absolute;top:12px;left:50px;padding:12px;background:#fff;color:#222;z-index:1000;font:14px sans-serif}
+</style>
+</head>
+<body>
+<div id="map" role="region" aria-label="Reservoir area map"></div><div id="error" role="alert"></div>
+<script src="vendor/leaflet.js"></script>
+<script src="map.js"></script>
+</body>
+</html>

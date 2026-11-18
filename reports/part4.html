@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Notebook</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>part4</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7796,15 +7796,45 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0fc1f8fc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4475cea1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Forecasting-weekly-reservoir-filling">Forecasting weekly reservoir filling<a class="anchor-link" href="#Forecasting-weekly-reservoir-filling">¶</a></h1><p>IND320 · Part 4 · Sipan Hadji</p>
-<p><a href="https://github.com/Sipan2/IND320-Sipan2">GitHub repository</a> · <a href="https://ind320-sipan2.streamlit.app/">Streamlit app</a></p>
-<p>The question is how well recent filling levels can predict the next twelve weeks in the NO3 electricity area. The app lets you explore other areas and change the forecast horizon.</p>
+<h1 id="IND320---Part-4:-Machine-learning">IND320 - Part 4: Machine learning<a class="anchor-link" href="#IND320---Part-4:-Machine-learning">¶</a></h1><p>Sipan · Report, 18 November 2026</p>
+<p><a href="https://github.com/Sipan2/IND320-Sipan2">GitHub repository</a> · <a href="https://ind320-sipan2.streamlit.app/">Published app</a></p>
+<p>This notebook documents weekly reservoir forecasts, exchange rates and weather correlations. It builds on the app from Parts 1-3. The forecast comparison uses the NO3 electricity area, while the app lets the reader choose other areas and model settings. The work log describes the work completed with AI assistance.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=5de14796">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Locate the repository whether the notebook starts here or in its parent directory.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"notebooks"</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ind320.currency_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_exchange_rates</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ind320.forecast</span><span class="w"> </span><span class="kn">import</span> <span class="n">forecast_filling</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ind320.weekly_weather</span><span class="w"> </span><span class="kn">import</span> <span class="n">weekly_weather</span><span class="p">,</span> <span class="n">sliding_correlation</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data/reservoirs/nve_snapshot.parquet"</span><span class="p">)</span>
+<span class="n">filling</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"area_type == 'EL' and area_number == 3"</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span><span class="o">.</span><span class="n">filling_ratio</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data/weather"</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"electricity_NO3*.parquet"</span><span class="p">)))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"time_utc"</span><span class="p">)</span>
+<span class="n">weekly</span> <span class="o">=</span> <span class="n">weekly_weather</span><span class="p">(</span><span class="n">weather</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -7815,7 +7845,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Navigation-sketch">Navigation sketch<a class="anchor-link" href="#Navigation-sketch">¶</a></h2><p>Draft for the notebook, drawn before changing the app code.</p>
+<h2 id="1.-Navigation-sketch">1. Navigation sketch<a class="anchor-link" href="#1.-Navigation-sketch">¶</a></h2><p>Draft for the notebook, drawn before changing the app code.</p>
 <table>
 <thead>
 <tr>
@@ -7852,49 +7882,6 @@ a.anchor-link {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5de14796">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Locate the repository whether the notebook starts here or in its parent directory.</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="n">root</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
-<span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"notebooks"</span><span class="p">:</span>
-    <span class="n">root</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">parent</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span><span class="p">))</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ind320.currency_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_exchange_rates</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ind320.forecast</span><span class="w"> </span><span class="kn">import</span> <span class="n">forecast_filling</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ind320.weekly_weather</span><span class="w"> </span><span class="kn">import</span> <span class="n">weekly_weather</span><span class="p">,</span> <span class="n">sliding_correlation</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data/reservoirs/nve_snapshot.parquet"</span><span class="p">)</span>
-<span class="n">filling</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"area_type == 'EL' and area_number == 3"</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"date"</span><span class="p">)</span><span class="o">.</span><span class="n">filling_ratio</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-<span class="n">weather</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="nb">next</span><span class="p">((</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"data/weather"</span><span class="p">)</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"electricity_NO3*.parquet"</span><span class="p">)))</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"time_utc"</span><span class="p">)</span>
-<span class="n">weekly</span> <span class="o">=</span> <span class="n">weekly_weather</span><span class="p">(</span><span class="n">weather</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Matplotlib is building the font cache; this may take a moment.
-</pre>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0206a59a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7902,7 +7889,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Exchange-rates-and-dates">Exchange rates and dates<a class="anchor-link" href="#Exchange-rates-and-dates">¶</a></h2><p>Norges Bank labels each rate with a business date. The value is NOK per unit of foreign currency. NVE supplies a weekly observation date. Both are calendar labels. The ENTSO-E transfer pipeline stores UTC instants and the app displays them in Europe/Oslo. The weather series also uses UTC. To join it to NVE, the hourly observations are converted to Oslo time before grouping them into weeks ending on Sunday. A clock change gives a local week 167 or 169 hours. The weekly calculation checks coverage against the actual duration and drops incomplete weeks.</p>
+<h2 id="2.-Exchange-rates-and-time-zones">2. Exchange rates and time zones<a class="anchor-link" href="#2.-Exchange-rates-and-time-zones">¶</a></h2><p>Norges Bank labels each rate with a business date. The value is NOK per unit of foreign currency. NVE supplies a weekly observation date. Both are calendar labels. The ENTSO-E transfer pipeline stores UTC instants and the app displays them in Europe/Oslo. The weather series also uses UTC. To join it to NVE, the hourly observations are converted to Oslo time before grouping them into weeks ending on Sunday. A clock change gives a local week 167 or 169 hours. The weekly calculation checks coverage against the actual duration and drops incomplete weeks.</p>
 </div>
 </div>
 </div>
@@ -7953,7 +7940,7 @@ dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Testing-a-recursive-River-model">Testing a recursive River model<a class="anchor-link" href="#Testing-a-recursive-River-model">¶</a></h2><p>Each step predicts the change in filling from recent weekly levels and the time of year. The prediction becomes an input to the next step. For the exchange-rate option, training uses rates known by the preceding week. The forecast holds the latest rate constant. Weekly resolution matches the observation interval and avoids inventing daily filling measurements.</p>
+<h2 id="3.-Weekly-reservoir-forecasts">3. Weekly reservoir forecasts<a class="anchor-link" href="#3.-Weekly-reservoir-forecasts">¶</a></h2><p>Each step predicts the change in filling from recent weekly levels and the time of year. The prediction becomes an input to the next step. For the exchange-rate option, training uses rates known by the preceding week. The forecast holds the latest rate constant. Weekly resolution matches the observation interval and avoids inventing daily filling measurements.</p>
 </div>
 </div>
 </div>
@@ -8017,7 +8004,7 @@ dtype: int64
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Weather-and-filling">Weather and filling<a class="anchor-link" href="#Weather-and-filling">¶</a></h2>
+<h2 id="4.-Weather-and-reservoir-filling">4. Weather and reservoir filling<a class="anchor-link" href="#4.-Weather-and-reservoir-filling">¶</a></h2>
 </div>
 </div>
 </div>
@@ -8065,13 +8052,37 @@ dtype: int64
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=66ae99c5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="5.-Function-tests-and-Streamlit-integration">5. Function tests and Streamlit integration<a class="anchor-link" href="#5.-Function-tests-and-Streamlit-integration">¶</a></h2><p>The map, analysis pages and forecast share the selected reservoir area and date range. The forecast starts with 104 training weeks, eight lags, a learning rate of 0.01 and a twelve-week horizon. It shows the actual number of training observations and warns if the selected interval is too short.</p>
+<p>The app keeps the reservoir and electricity-transfer views from the earlier parts. Weather control limits and LOF now have weather-property selectors, with temperature selected by default. The correlation page has local lag and window controls. The forecast can include EUR, USD, temperature and precipitation; future external values are held constant at their latest observations.</p>
+<p>All 15 automated tests passed. Additional checks covered page loading, map clicks, shared selections and forecasts using real exchange-rate and weather data. The published app was checked after the changes were pushed. Error handling is the chosen bonus task: unavailable connections and insufficient data produce messages for the reader.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6806d31">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="6.-AI-usage">6. AI usage<a class="anchor-link" href="#6.-AI-usage">¶</a></h2><p>This project combines my own work and wording with substantial AI assistance from OpenAI Codex (Astra 6). The tool helped with the navigation sketch, Python implementation, model comparison, testing and Streamlit pages. The explanations and work log combine my own formulations with AI-assisted drafting and language revision. AI was used for both technical development and writing. The reported errors and correlations come from running the notebook on the project data.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58d7c08c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Work-log">Work log<a class="anchor-link" href="#Work-log">¶</a></h2><p>The map gives the app a starting point. Someone interested in one reservoir area can choose it once and carry that choice into the analyses. The data table and the comparison plots sit together because they answer similar questions. The weather and reservoir pages have local controls for choices that only make sense there, such as the length of a correlation window. The navigation sketch was made before changing the app code.</p>
+<h2 id="7.-Work-log">7. Work log<a class="anchor-link" href="#7.-Work-log">¶</a></h2><p>The map gives the app a starting point. Someone interested in one reservoir area can choose it once and carry that choice into the analyses. The data table and the comparison plots sit together because they answer similar questions. The weather and reservoir pages have local controls for choices that only make sense there, such as the length of a correlation window. The navigation sketch was made before changing the app code.</p>
 <p>I used the weekly observations from EL 3 to compare forecasts. Working at a finer resolution would mean estimating filling levels between observations. It would also make a one-week lag harder to explain. The model therefore takes one step for each new NVE observation. I compared two, four and eight previous weeks using the same four forecast periods. Eight gave the lowest average error of those settings, about 6.48 percentage points. The app starts with eight lags, 104 training weeks, a learning rate of 0.01 and a twelve-week forecast. The same date range is shared with the map. The results cover one area and four periods, so they give a limited picture of how the model performs elsewhere.</p>
 <p>The relationship with temperature varied within the year. In the twelve-week windows, the correlation at zero lag ranged from about −0.77 to 0.83. Moving temperature back one week raised the highest value to about 0.92, but some windows still had a negative correlation. That makes a single correlation for the whole year difficult to interpret. A strong value in a short window is also a weak basis for choosing a predictor without checking its performance on later observations.</p>
 <p>I chose error handling as the bonus task. When NVE cannot be reached, the app explains that it is showing the saved observations. The weather page checks that a complete regional dataset exists. The correlation calculation checks the number of observations in each local week before using it. This matters particularly at the beginning and end of the weather record, where a partial week could look like a week with very little precipitation. The forecast page also explains when the chosen period leaves too few observations for training.</p>
@@ -8079,13 +8090,13 @@ dtype: int64
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ac0cfbbd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=058af13b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="AI-use">AI use<a class="anchor-link" href="#AI-use">¶</a></h2><p>OpenAI Codex helped substantially with the navigation sketch, implementation, model comparison, testing and English wording. The calculations above use the project data. The reported errors and correlations come from running the code.</p>
+<h2 id="8.-Screencast">8. Screencast<a class="anchor-link" href="#8.-Screencast">¶</a></h2><p>The Part 4 screencast has not been recorded yet.</p>
 </div>
 </div>
 </div>

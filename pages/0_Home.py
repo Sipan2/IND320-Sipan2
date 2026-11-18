@@ -17,8 +17,10 @@ family = "VASS" if mode == "Water area" else "EL"
 file, field = ("assignment_precipitation", "region") if family == "VASS" else ("electricity", "ElSpotOmr")
 months = sorted(data.date.dt.strftime("%Y-%m").unique())
 default = st.session_state.get("nve_interval", ("2024-01", "2024-12"))
-default = tuple(default)
-start, end = controls.select_slider("Observation period", months, value=default)
+left, right = controls.columns(2)
+start = left.selectbox("From month", months, index=months.index(default[0]))
+end_months = [month for month in months if month >= start]
+end = right.selectbox("Through month", end_months, index=end_months.index(max(start, default[1])))
 st.session_state["nve_interval"] = start, end
 with controls.expander("Forecast settings"):
     st.session_state["forecast_weeks"] = st.slider("Forecast horizon (weeks)", 1, 26, st.session_state.get("forecast_weeks", 12))
@@ -40,6 +42,10 @@ if mode == "Weather property":
             values[number] = frame.loc[month.between(start, end), var].mean()
     controls.caption("Only areas with saved weather observations are coloured.")
 chosen = st.session_state.get("map_area", ("EL", 3))
+if chosen[0] != family:
+    chosen = (family, 3 if family == "EL" else 1)
+    st.session_state.update(map_area=chosen, nve_type=family)
+
 fig = go.Figure(go.Choroplethmap(geojson=geo, featureidkey="properties."+field, locations=ids,
     z=[values.get(numbers[label], float("nan")) for label in ids], colorscale="Blues",
     colorbar=dict(title=unit, orientation="h", len=0.50, thickness=10, y=-0.04),
@@ -61,5 +67,8 @@ if points:
     if chosen != selection:
         st.session_state.update(map_area=selection, nve_type=family)
         st.rerun()
-controls.metric("Selected reservoir area", f"{chosen[0]} {chosen[1]}")
+region_name = next(label for label, number in numbers.items() if number == chosen[1])
+value = values.get(chosen[1], float("nan"))
+controls.subheader(region_name if family == "EL" else region_name.title())
+controls.metric(unit, f"{value:.1f}" if pd.notna(value) else "No observations")
 controls.page_link("pages/7_Forecast.py", label="Open reservoir forecast")

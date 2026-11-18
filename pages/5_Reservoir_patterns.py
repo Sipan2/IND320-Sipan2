@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import streamlit as st
+import plotly.express as px
+import numpy as np
 
 from ind320.quality_analysis import filling_stl, filling_spectrogram
 from ind320.quality_ui import filling_control
@@ -16,7 +18,7 @@ with stl_tab:
     robust = st.checkbox('Use robust fitting', value=True)
     try:
         result = filling_stl(series, seasonal=seasonal, trend=trend, robust=robust)
-        st.pyplot(result.figure)
+        st.line_chart(result.data)
         plt.close(result.figure)
         st.caption(f'{result.summary["observations"]:,} weekly observations. Components use filling fractions, '
                    'so 0.1 corresponds to ten percentage points.')
@@ -30,7 +32,9 @@ with spectrum_tab:
     overlap = st.slider('Window overlap (weeks)', 0, window - 1, min(78, window - 1))
     try:
         result = filling_spectrogram(series, window_length=window, overlap=overlap)
-        st.pyplot(result.figure)
+        power = 10 * np.log10(result.data.clip(lower=np.finfo(float).tiny))
+        st.plotly_chart(px.imshow(power.T, aspect="auto", origin="lower",
+                                  labels={"x": "Window centre", "y": "Cycles per year", "color": "Power (dB)"}))
         plt.close(result.figure)
         st.caption(f'{result.summary["windows"]} windows. Frequency resolution: '
                    f'{result.summary["frequency_resolution_per_year"]:.2f} cycles per year.')

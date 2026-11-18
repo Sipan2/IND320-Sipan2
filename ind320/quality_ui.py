@@ -18,7 +18,9 @@ def area_control(data, prefix):
     family = st.radio('Area type', types, index=types.index(previous), horizontal=True, key=prefix + '_family')
     st.session_state['nve_type'] = family
     numbers = sorted(data.loc[data.area_type.eq(family), 'area_number'].unique().tolist())
-    default = numbers.index(3) if family == 'EL' and 3 in numbers else 0
+    saved_family, saved_number = st.session_state.get("map_area", ("EL", 3))
+    default = numbers.index(saved_number) if family == saved_family and saved_number in numbers else 0
+    # Select a valid area even when a family has different numbering.
     number = st.selectbox('Area', numbers, index=default,
                           format_func=lambda n: f'{family} {n}', key=prefix + '_area')
     return family, number

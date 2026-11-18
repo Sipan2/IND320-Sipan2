@@ -1,6 +1,7 @@
 """Read NVE data without Streamlit, so the notebook can use it too."""
+import gzip
 import json
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 import pandas as pd
 
 BASE_URL = 'https://biapi.nve.no/magasinstatistikk/api/Magasinstatistikk/'
@@ -14,15 +15,23 @@ COLUMN_NAMES = {
 }
 
 
+def _read_json(url, timeout):
+    # NVE serves the same JSON compressed, reducing the initial transfer size.
+    request = Request(url, headers={"Accept-Encoding": "gzip"})
+    with urlopen(request, timeout=timeout) as response:
+        payload = response.read()
+        if response.headers.get("Content-Encoding", "").lower() == "gzip":
+            payload = gzip.decompress(payload)
+    return json.loads(payload)
+
+
 def fetch_reservoirs():
     # This endpoint returns all observations; it has no documented date parameters.
-    with urlopen(BASE_URL + 'HentOffentligData', timeout=60) as response:
-        data = pd.DataFrame(json.load(response)).rename(columns=COLUMN_NAMES)
+    data = pd.DataFrame(_read_json(BASE_URL + 'HentOffentligData', timeout=60)).rename(columns=COLUMN_NAMES)
     data['date'] = pd.to_datetime(data['date'])
     return data.sort_values(['area_type', 'area_number', 'date']).reset_index(drop=True)
 
 
 def fetch_areas():
-    with urlopen(BASE_URL + 'HentOmr%C3%A5der', timeout=30) as response:
-        groups = json.load(response)
+    groups = _read_json(BASE_URL + 'HentOmr%C3%A5der', timeout=30)
     return pd.DataFrame([area for group in groups for areas in group.values() for area in areas])

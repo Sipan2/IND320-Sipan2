@@ -1,6 +1,6 @@
-# IND320: Reservoirs, electricity transfers and data quality
+# IND320: Reservoirs, weather and forecasting
 
-An interactive Streamlit app and four notebooks exploring Norwegian reservoir levels, cross-border electricity transfers and regional weather data.
+One Streamlit app brings together Parts 1–4: Norwegian reservoir levels, electricity transfers, weather analysis and weekly reservoir forecasts. Each part has its own notebook and report below.
 
 **[Open the app](https://ind320-sipan2.streamlit.app/)** · [Technical guide](docs/PROJECT_GUIDE.md) · [Database setup](docs/LOCAL_SETUP.txt)
 
@@ -13,7 +13,17 @@ An interactive Streamlit app and four notebooks exploring Norwegian reservoir le
 | 3. Data quality | [Part 3](notebooks/part3.ipynb) | [PDF](reports/part3.pdf) · [HTML](reports/part3.html) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-3-screencast.mp4) |
 | 4. Machine learning | [Part 4](notebooks/part4.ipynb) | [PDF](reports/part4.pdf) · [HTML](reports/part4.html) | Recording pending |
 
-Parts 1–3 are completed. Part 4 adds an interactive area map, weather correlations and weekly reservoir forecasts. Its screencast is still pending. Development branches are merged into `main` after the preceding part has received peer and teacher feedback.
+The Part 4 notebook, PDF and HTML report are available. The Part 4 screencast is still pending.
+
+## Explore the app
+
+| Section | Pages |
+| --- | --- |
+| Overview | Reservoir map, Data table, Reservoir measurements, Electricity transfers |
+| Patterns and data quality | Reservoir patterns, Weather data quality, Weather and filling |
+| Prediction | Reservoir forecast |
+
+Select an area on the map to use it in the analysis pages. **Reservoir measurements** contains both the **Measurements** and **Compare areas** tabs. **Weather and filling** explores correlations, while **Reservoir forecast** lets you change the model settings and view an animated forecast.
 
 ## Repository layout
 
@@ -51,8 +61,6 @@ Run the offline checks with:
 python -m unittest discover -s tests
 ```
 
-## Changes following peer feedback
-
-Reports and recordings have their own folders. Shared Python modules, tests, setup scripts and documentation are grouped by purpose. The reservoir comparison is now under **Plots → Compare areas**, alongside **Measurements**, with shared area and interval filters.
+## Further details
 
 The [technical guide](docs/PROJECT_GUIDE.md) covers data sources, sampling, analysis assumptions and Git history. Each notebook includes an AI-usage statement and a work log.

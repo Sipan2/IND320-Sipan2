@@ -1,6 +1,8 @@
-# IND320 - Reservoirs and electricity transfers
+# IND320 - Technical guide
 
-Part 3 adds a complete NO3 ERA5 weather dataset for 2024, precipitation SPC and temperature LOF analyses, and STL/spectrogram views of reservoir filling. Development is on `part3-data-quality`, which is merged into `main` for publication. VASS weather selections use the assignment’s three administrative region unions.
+The app brings together Parts 1–4 in three sections: Overview, Patterns and data quality, and Prediction. Part 4 adds the interactive region map, weather correlations, Norges Bank exchange rates and weekly reservoir forecasts. Its notebook and reports are available; its screencast is pending.
+
+Part 3 adds a complete NO3 ERA5 weather dataset for 2024, precipitation SPC and temperature LOF analyses, and STL/spectrogram views of reservoir filling. Part 3 was developed on `part3-data-quality` and merged into `main`. VASS weather selections use the assignment’s three administrative region unions.
 
 Part 2 reads reservoir observations from NVE and physical electricity flows from ENTSO-E. The transfer dataset covers October 2024 to September 2026 for nine international connections in both directions. Spark writes 1,025,076 intervals to Cassandra, reads them back and prepares 315,360 hourly observations. All monthly coverage checks passed, energy totals match, and the MongoDB upload was verified by reading back the record count. The Streamlit app uses a separate read-only database account.
 
@@ -15,7 +17,7 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-For Part 1 and Part 2 notebooks, install `requirements-notebook.txt`. For Part 3, install `requirements-part3.txt`, which also includes GIS tools, and select that Python 3.12 environment in VS Code. The separate Part 3 checkout uses `.venv-part3`. See `docs/LOCAL_SETUP.txt` for the earlier Docker and database tests.
+For Parts 1, 2 and 4 notebooks, install `requirements-notebook.txt`. For Part 3, install `requirements-part3.txt`, which also includes GIS tools, and select that Python 3.12 environment in VS Code. The separate Part 3 checkout uses `.venv-part3`. See `docs/LOCAL_SETUP.txt` for the earlier Docker and database tests.
 
 ## Files
 
@@ -23,7 +25,7 @@ Offline tests are grouped in `tests/`, setup diagnostics in `scripts/`, and setu
 
 Reports are stored in `reports/`, and recordings in `screencasts/`, following the Part 2 feedback. The video links below download the original MP4 files for local playback.
 
-- `app.py` defines navigation; `pages/` contains all six pages, including Home.
+- `app.py` defines navigation; `pages/` contains all eight pages, including Reservoir map.
 - `ind320/nve_data.py` reads the API; `ind320/data_utils.py` caches results and selects areas.
 - `notebooks/part1.ipynb` preserves the Part 1 analysis and uses the original CSV from a fixed Git commit.
 - `notebooks/part2.ipynb` contains the NVE and ENTSO-E analyses and the executed Spark/Cassandra processing. It includes the verified MongoDB record count, AI statement and work log.
@@ -45,6 +47,18 @@ Reports are stored in `reports/`, and recordings in `screencasts/`, following th
 - `data/weather/` contains the verified NO3 hourly means, source manifest and analysis results. Raw responses remain in the ignored `weather_cache/` directory.
 - `data/reservoirs/` contains the dated NVE snapshot used for reproducible notebook analyses. The app reservoir pages still fetch NVE directly.
 
+## Part 4 machine learning
+
+- `notebooks/part4.ipynb` contains the navigation sketch, exchange-rate example, forecast comparison, weather correlations, AI statement and work log.
+- `reports/part4.pdf` and `reports/part4.html` are exports of that notebook.
+- `ind320/currency_data.py` retrieves Norges Bank exchange rates.
+- `ind320/weekly_weather.py` prepares weekly weather summaries.
+- `ind320/forecast.py` implements the River model and recursive forecasts.
+
+The default forecast uses eight lags and up to 104 weeks of training data to predict 12 weeks ahead. The app reports the number of weeks actually available and warns when the selected interval is too short. Weather and exchange-rate inputs are optional; future values are held at their last observed value. The notebook compares model settings against a last-value baseline.
+
+The saved regional weather dataset covers NO3 in 2024. Other regions and periods require a download through the weather page. Correlation and forecast results depend on the available overlap between the selected data sources.
+
 ## Part 3 weather and quality analyses
 
 Run `python -m ind320.region_data` to rebuild the spatial samples. Run `python -m ind320.era5_region` to retrieve the NO3 2024 series. Complete cached responses are reused. Downloads stop if the provider returns a rate-limit response or the conservative local API budget is exhausted.
@@ -61,7 +75,7 @@ Run `python -m unittest discover -s tests` for the offline numerical, transfer-d
 
 ## Response to Part 2 peer feedback
 
-Isach Stevik’s Canvas review on 26 October suggested a clearer folder structure and asked why the NVE filling comparison was on a separate page. The offline tests, setup diagnostics and setup instructions are now grouped by purpose. The former NVE areas page is integrated into Plots as a Compare areas tab alongside Measurements. Both views use the same area-family and interval controls. Data table retains the area sparklines, while Reservoir patterns remains separate for the new STL and spectrogram analyses. These changes are included in the Part 3 publication following the student’s permission on 28 October 2026.
+Isach Stevik’s Canvas review on 26 October suggested a clearer folder structure and asked why the NVE filling comparison was on a separate page. The offline tests, setup diagnostics and setup instructions are now grouped by purpose. The former NVE areas page is integrated into the plotting page as a Compare areas tab alongside Measurements. That page is now called Reservoir measurements. Both views use the same area-family and interval controls. Data table retains the area sparklines, while Reservoir patterns remains separate for the new STL and spectrogram analyses. These changes are included in the Part 3 publication following the student’s permission on 28 October 2026.
 
 ## Reservoir data
 

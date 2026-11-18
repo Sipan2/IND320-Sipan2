@@ -9,5 +9,7 @@ page = st.navigation([
     st.Page("pages/3_Electricity_transfers.py", title="Electricity transfers"),
     st.Page("pages/5_Reservoir_patterns.py", title="Reservoir patterns"),
     st.Page("pages/6_Weather_quality.py", title="Weather data quality"),
+    st.Page("pages/7_Forecast.py", title="Reservoir forecast"),
+
 ])
 page.run()

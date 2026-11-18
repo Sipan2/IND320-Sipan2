@@ -1,6 +1,6 @@
 """Explore hourly physical flows retrieved from the curated MongoDB collection."""
 import altair as alt
-import matplotlib.pyplot as plt
+import plotly.express as px
 import pandas as pd
 import streamlit as st
 from ind320.mongo_data import load_transfers
@@ -24,14 +24,8 @@ with left:
     totals = annual.groupby('direction')['energy_mwh'].sum().reindex(['import', 'export'], fill_value=0)
     st.subheader(f'{connection}: {year}')
     if totals.sum() > 0:
-        fig, ax = plt.subplots(figsize=(5, 4))
-        ax.pie(totals, labels=['Import', 'Export'], autopct='%1.1f%%',
-               colors=['#2878b5', '#e88a24'], startangle=90,
-               wedgeprops={'edgecolor': 'white'})
-        ax.set_title('Share of recorded energy')
-        # Keep the pie compact even when the browser window is wide.
-        st.pyplot(fig, width=450)
-        plt.close(fig)
+        st.plotly_chart(px.pie(names=totals.index, values=totals.values,
+                               title="Share of recorded energy"))
     else:
         st.info('No positive recorded energy for this selection.')
     st.caption(f"Import: {totals['import'] / 1000:,.1f} GWh. Export: {totals['export'] / 1000:,.1f} GWh.")

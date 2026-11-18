@@ -48,7 +48,7 @@ if chosen[0] != family:
 
 fig = go.Figure(go.Choroplethmap(geojson=geo, featureidkey="properties."+field, locations=ids,
     z=[values.get(numbers[label], float("nan")) for label in ids], colorscale="Blues",
-    colorbar=dict(title=unit, orientation="h", len=0.50, thickness=10, y=-0.04),
+    colorbar=dict(title=unit, orientation="h", len=0.50, thickness=10, y=-0.09, yanchor="top"),
     hovertemplate="%{location}<br>" + unit + ": %{z:.2f}<extra></extra>",
     marker_opacity=0.82,
     marker_line_color=["#FFAD75" if chosen == (family, numbers[label]) else "#92A9BC" for label in ids],
@@ -56,7 +56,7 @@ fig = go.Figure(go.Choroplethmap(geojson=geo, featureidkey="properties."+field, 
 # Fit mainland Norway, including Finnmark, in the initial viewport.
 fig.update_layout(map=dict(style="carto-darkmatter", center=dict(lat=65.2, lon=18), zoom=3.25,
                            bearing=0))
-fig.update_layout(clickmode="event+select", height=580, margin=dict(l=4,r=4,t=8,b=55))
+fig.update_layout(clickmode="event+select", height=655, margin=dict(l=4,r=4,t=8,b=130))
 map_panel.caption("Select an area on the map to use it on the analysis pages.")
 event = map_panel.plotly_chart(fig, key="reservoir_map_"+family, on_select="rerun")
 points = event.selection.points

@@ -10,6 +10,24 @@ from ind320.data_utils import load_data
 from ind320.area_mapping import VASS_WEATHER_REGIONS
 
 ROOT = Path(__file__).resolve().parents[1]
+@st.cache_data(show_spinner=False)
+def map_months(dates):
+    return dates.dt.strftime("%Y-%m")
+
+
+@st.cache_data(show_spinner=False)
+def read_boundaries(path, modified_ns):
+    # The file timestamp invalidates the cache when boundaries are replaced.
+    return json.loads(Path(path).read_text())
+
+
+@st.cache_data(show_spinner=False)
+def read_weather(files):
+    frame = pd.concat([pd.read_parquet(path) for path, modified_ns in files]).drop_duplicates("time_utc")
+    frame["map_month"] = pd.to_datetime(frame.time_utc, utc=True).dt.tz_convert("Europe/Oslo").dt.strftime("%Y-%m")
+    return frame
+
+
 st.title("Norwegian reservoirs")
 data = load_data()
 map_panel, controls = st.columns([2, 1], gap="large")
@@ -17,7 +35,8 @@ controls.subheader("Map settings")
 mode = controls.radio("Colour by", ["Price area", "Water area", "Weather property"])
 family = "VASS" if mode == "Water area" else "EL"
 file, field = ("assignment_precipitation", "region") if family == "VASS" else ("electricity", "ElSpotOmr")
-months = sorted(data.date.dt.strftime("%Y-%m").unique())
+month_labels = map_months(data.date)
+months = sorted(month_labels.unique())
 default = st.session_state.get("nve_interval", ("2023-01", "2024-12"))
 left, right = controls.columns(2)
 start = left.selectbox("From month", months, index=months.index(default[0]))
@@ -26,8 +45,9 @@ end = right.selectbox("Through month", end_months, index=end_months.index(max(st
 st.session_state["nve_interval"] = start, end
 with controls.expander("Forecast settings"):
     st.session_state["forecast_weeks"] = st.slider("Forecast horizon (weeks)", 1, 26, st.session_state.get("forecast_weeks", 12))
-subset = data.loc[data.area_type.eq(family) & data.date.dt.strftime("%Y-%m").between(start, end)]
-geo = json.loads((ROOT / f"data/regions/{file}.geojson").read_text())
+subset = data.loc[data.area_type.eq(family) & month_labels.between(start, end)]
+boundary_path = ROOT / f"data/regions/{file}.geojson"
+geo = read_boundaries(str(boundary_path), boundary_path.stat().st_mtime_ns)
 ids = [item["properties"][field] for item in geo["features"]]
 numbers = {label: number for number, label in VASS_WEATHER_REGIONS.items()} if family == "VASS" else {label: int(label[2:]) for label in ids}
 values = subset.groupby("area_number").filling_ratio.mean().mul(100)
@@ -40,8 +60,8 @@ if mode == "Weather property":
     for label, number in numbers.items():
         paths = sorted((ROOT / "data/weather").glob(f"electricity_{label}_*.parquet"))
         if paths:
-            frame = pd.concat([pd.read_parquet(p) for p in paths]).drop_duplicates("time_utc")
-            month = pd.to_datetime(frame.time_utc, utc=True).dt.tz_convert("Europe/Oslo").dt.strftime("%Y-%m")
+            frame = read_weather(tuple((str(p), p.stat().st_mtime_ns) for p in paths))
+            month = frame["map_month"]
             values[number] = frame.loc[month.between(start, end), var].mean()
     controls.caption("Only areas with saved weather observations are coloured.")
 chosen = st.session_state.get("map_area", ("EL", 3))
@@ -81,17 +101,9 @@ map_view.get_root().header.add_child(folium.Element(
 folium.GeoJson(geo, style_function=style,
                tooltip=folium.GeoJsonTooltip(fields=["Area", unit], sticky=False),
                name="Reservoir areas").add_to(map_view)
-with map_panel:
-    st.caption("Click anywhere inside an area to use it on the analysis pages.")
-    event = st_folium(map_view, key="reservoir_map_" + family, height=600,
-                      use_container_width=True,
-                      returned_objects=["last_active_drawing", "center", "zoom"])
-    # Keep the legend below the map, clear of the geographic outlines.
-    st.markdown(f"<div style='max-width:440px;margin:12px auto 0'>"
-                f"<div style='height:10px;background:linear-gradient(to right,#BFDDF3,#529BC8,#14517D);border-radius:3px'></div>"
-                f"<div style='display:flex;justify-content:space-between;font-size:0.85rem'><span>{low:.1f}</span><span>{unit}</span><span>{high:.1f}</span></div></div>",
-                unsafe_allow_html=True)
-if event:
+def update_map_selection():
+    # Component callbacks run before the page, so one render updates the outline.
+    event = st.session_state.get("reservoir_map_" + family, {})
     if event.get("center") and event.get("zoom"):
         st.session_state["reservoir_map_view"] = {
             "center": [event["center"]["lat"], event["center"]["lng"]], "zoom": event["zoom"]}
@@ -99,7 +111,18 @@ if event:
     label = clicked.get("properties", {}).get(field)
     if label in numbers and chosen != (family, numbers[label]):
         st.session_state.update(map_area=(family, numbers[label]), nve_type=family)
-        st.rerun()
+
+with map_panel:
+    st.caption("Click anywhere inside an area to use it on the analysis pages.")
+    event = st_folium(map_view, key="reservoir_map_" + family, height=600,
+                      use_container_width=True,
+                      returned_objects=["last_active_drawing", "center", "zoom"],
+                      on_change=update_map_selection)
+    # Keep the legend below the map, clear of the geographic outlines.
+    st.markdown(f"<div style='max-width:440px;margin:12px auto 0'>"
+                f"<div style='height:10px;background:linear-gradient(to right,#BFDDF3,#529BC8,#14517D);border-radius:3px'></div>"
+                f"<div style='display:flex;justify-content:space-between;font-size:0.85rem'><span>{low:.1f}</span><span>{unit}</span><span>{high:.1f}</span></div></div>",
+                unsafe_allow_html=True)
 region_name = next(label for label, number in numbers.items() if number == chosen[1])
 value = values.get(chosen[1], float("nan"))
 controls.subheader(region_name if family == "EL" else region_name.title())

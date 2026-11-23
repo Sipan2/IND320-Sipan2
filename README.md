@@ -11,9 +11,9 @@ One Streamlit app brings together Parts 1–4: Norwegian reservoir levels, elect
 | 1. Dashboard basics | [Part 1](notebooks/part1.ipynb) | [PDF](reports/part1.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-1-screencast.mp4) |
 | 2. Data sources | [Part 2](notebooks/part2.ipynb) | [PDF](reports/part2.pdf) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-2-screencast.mp4) |
 | 3. Data quality | [Part 3](notebooks/part3.ipynb) | [PDF](reports/part3.pdf) · [HTML](reports/part3.html) | [Download video](https://github.com/Sipan2/IND320-Sipan2/raw/refs/heads/main/screencasts/IND320-Part-3-screencast.mp4) |
-| 4. Machine learning | [Part 4](notebooks/part4.ipynb) | [PDF](reports/part4.pdf) · [HTML](reports/part4.html) | Recording pending |
+| 4. Machine learning | [Part 4](notebooks/part4.ipynb) | [PDF](reports/part4.pdf) · [HTML](reports/part4.html) | [Download video](https://github.com/Sipan2/IND320-Sipan2/releases/download/part4-screencast/IND320-Part-4-screencast.mp4) |
 
-The Part 4 notebook, PDF and HTML report are available. The Part 4 screencast is still pending.
+The Part 4 notebook, PDF, HTML report and screencast are available. The screencast is hosted under GitHub Releases.
 
 ## Explore the app
 
@@ -35,7 +35,7 @@ Select an area on the map to use it in the analysis pages. **Reservoir measureme
 | `notebooks/` | Development and documentation for each project part |
 | `data/` | Reproducible region boundaries, sampled coordinates and dated analysis datasets |
 | `reports/` | Notebook exports for assessment |
-| `screencasts/` | Completed recordings for Parts 1, 2 and 3 |
+| `screencasts/` | Recordings for Parts 1–3; Part 4 is linked above |
 | `tests/` | Offline numerical, data-validation and interface regression tests |
 | `scripts/` | Manual API and database setup checks |
 | `docs/` | Setup instructions, methods and project history |
